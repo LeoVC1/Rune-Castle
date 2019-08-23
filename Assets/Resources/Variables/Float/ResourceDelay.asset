@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: ResourceDelay
   m_EditorClassIdentifier: 
   Value: 0
-  ConstantValue: 0
+  ConstantValue: 1.5

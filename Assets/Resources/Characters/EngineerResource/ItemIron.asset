@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1cd8774aea7f5fe4a91e8a6f2e57dad2, type: 3}
+  m_Name: ItemIron
+  m_EditorClassIdentifier: 
+  myClass: 1
+  isItem: 1
+  ItemReference: {fileID: 11400000, guid: 34d12cb430caf634897875d04af2389d, type: 2}
+  FloatReference: {fileID: 0}
+  inventoryManager: {fileID: 11400000, guid: 089e520297e86674a98d2424a9339559, type: 2}

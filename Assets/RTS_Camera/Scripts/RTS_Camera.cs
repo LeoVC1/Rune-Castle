@@ -7,7 +7,6 @@ namespace RTS_Cam
     [AddComponentMenu("RTS Camera")]
     public class RTS_Camera : MonoBehaviour
     {
-
         #region Foldouts
 
 #if UNITY_EDITOR

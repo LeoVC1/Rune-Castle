@@ -5,6 +5,8 @@ using UnityEngine;
 [RequireComponent(typeof(GameEventListener))]
 public class Interactable : MonoBehaviour
 {
+    public GameManager gameManager;
+    public Character intectableClasses;
     GameEventListener listener;
 
     private void Start()
@@ -25,14 +27,16 @@ public class Interactable : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
-            listener.enabled = true;
+            if(gameManager.characterClass == intectableClasses || intectableClasses == Character.BOTH)
+                listener.enabled = true;
         TriggerEnter();
     }
 
     private void OnTriggerExit(Collider other)
     {
         if (other.CompareTag("Player"))
-            listener.enabled = false;
+            if (gameManager.characterClass == intectableClasses || intectableClasses == Character.BOTH)
+                listener.enabled = false;
         TriggerExit();
     }
 }

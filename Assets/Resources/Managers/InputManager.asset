@@ -12,6 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73d047e47f8f2e541adb1c7158cc0791, type: 3}
   m_Name: InputManager
   m_EditorClassIdentifier: 
+  gameManager: {fileID: 11400000, guid: 85835867e866bc34c9beb8a84457f786, type: 2}
   isMovementLocked: 0
   interactInput: 101
-  inputEvent: {fileID: 11400000, guid: 007752841372dfb4bb04e4b1e2ab2c43, type: 2}
+  changeClassInput: 113
+  interactEvent: {fileID: 11400000, guid: 007752841372dfb4bb04e4b1e2ab2c43, type: 2}

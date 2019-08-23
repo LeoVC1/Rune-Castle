@@ -12,4 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a8875399e8ff6d478a3fc655fbbd569, type: 3}
   m_Name: GameManager
   m_EditorClassIdentifier: 
-  character: 0
+  characterClass: 0
+  OnChangeClass: {fileID: 11400000, guid: b1d859a69b9a8a249ae9bb0315616e1d, type: 2}

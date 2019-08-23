@@ -10,9 +10,11 @@ public class DelayBar : MonoBehaviour
     public Canvas canvas;
     public Image colorBar;
 
+    private bool hidden;
+
     void Update()
     {
-        if(value.Value != 0)
+        if(value.Value != 0 && !hidden)
         {
             canvas.enabled = true;
         }
@@ -21,5 +23,15 @@ public class DelayBar : MonoBehaviour
             canvas.enabled = false;
         }
         colorBar.fillAmount = value.Value / value.ConstantValue;
+    }
+
+    public void Hide()
+    {
+        hidden = true;
+    }
+
+    public void Show()
+    {
+        hidden = false;
     }
 }

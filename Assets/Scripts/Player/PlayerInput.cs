@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerInteract : MonoBehaviour
+public class PlayerInput : MonoBehaviour
 {
     public InputManager inputManager;
 
@@ -10,5 +10,8 @@ public class PlayerInteract : MonoBehaviour
     {
         if (Input.GetKeyDown(inputManager.interactInput))
             inputManager.Interact();
+
+        if (Input.GetKeyDown(inputManager.changeClassInput))
+            inputManager.ChangeClass();
     }
 }

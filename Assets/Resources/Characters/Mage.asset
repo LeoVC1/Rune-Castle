@@ -9,7 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6c64c20b6ebcb2d43be343e5dba75cd4, type: 3}
-  m_Name: InventoryManager
+  m_Script: {fileID: 11500000, guid: 4e6e7e67e8324f045b00411fa80f1c15, type: 3}
+  m_Name: Mage
   m_EditorClassIdentifier: 
-  itens: []
+  iconImage: {fileID: 0}
+  resourceImage: {fileID: 0}
+  resourceBarImage: {fileID: 0}

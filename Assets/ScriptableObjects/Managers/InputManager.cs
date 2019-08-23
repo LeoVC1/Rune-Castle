@@ -5,11 +5,15 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "InputManager", menuName = "Scriptable Objects/Managers/Input Manager")]
 public class InputManager : ScriptableObject
 {
+    public GameManager gameManager;
+
     public bool isMovementLocked;
 
     public KeyCode interactInput;
 
-    public GameEvent inputEvent;
+    public KeyCode changeClassInput;
+
+    public GameEvent interactEvent;
 
     public void LockMovement()
     {
@@ -23,6 +27,11 @@ public class InputManager : ScriptableObject
 
     public void Interact()
     {
-        inputEvent.Raise();
+        interactEvent.Raise();
+    }
+
+    public void ChangeClass()
+    {
+        gameManager.ChangeCharacter();
     }
 }
