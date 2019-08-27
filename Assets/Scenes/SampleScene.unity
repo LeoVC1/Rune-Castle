@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44772708, g: 0.49770433, b: 0.57540375, a: 1}
+  m_IndirectSpecularColor: {r: 0.4477269, g: 0.49770373, b: 0.5754036, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2071,7 +2071,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1168849155}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0.91, z: -6.18}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -2089,12 +2089,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 48e876bd6ac8cb8498ef3aca61f33e3c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cellWidth: 5
-  cellHeight: 7
-  cellLength: 5
-  cellSize: 5
-  showGrid: 0
-  gizmoColor: {r: 1, g: 0.7122642, b: 0.9946403, a: 1}
+  SO: {fileID: 11400000, guid: e57edb9541e44b146a9a39c1bb9e7182, type: 2}
+  showGrid: 1
+  gizmoColor: {r: 1, g: 0.7122642, b: 0.9946403, a: 0.16862746}
 --- !u!1 &1277396957
 GameObject:
   m_ObjectHideFlags: 0

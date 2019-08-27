@@ -12,3 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cda5d986203534e40b8d51206bb9c043, type: 3}
   m_Name: Grid Manager
   m_EditorClassIdentifier: 
+  cellWidth: 7
+  cellHeight: 7
+  cellLength: 7
+  cellSize: 2.23
