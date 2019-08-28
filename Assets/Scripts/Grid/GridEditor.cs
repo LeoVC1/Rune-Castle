@@ -33,7 +33,7 @@ public class GridEditor : Editor
         EditorGUILayout.IntSlider(length, 0, 10, new GUIContent("Length"));
         if (EditorGUI.EndChangeCheck())
         {
-            gridManager.CalculatePoints(Vector3.zero);
+            gridManager.CalculatePoints();
             serializedObject.ApplyModifiedProperties();
         }
 
@@ -43,12 +43,12 @@ public class GridEditor : Editor
         {
             serializedObject.ApplyModifiedProperties();
             gridManager.ResizeCells();
-            gridManager.CalculatePoints(Vector3.zero);
+            gridManager.CalculatePoints();
         }
 
         if (GUILayout.Button("Calculate Points"))
         {
-            gridManager.CalculatePoints(Vector3.zero);
+            gridManager.CalculatePoints();
         }
     }
 }

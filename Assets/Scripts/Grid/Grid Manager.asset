@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: Grid Manager
   m_EditorClassIdentifier: 
   cellWidth: 10
-  cellHeight: 7
-  cellLength: 11
-  cellSize: 3.5
-  cellSizeOffset: 0.313
+  cellHeight: 10
+  cellLength: 10
+  cellSize: 1
+  cellSizeOffset: 0
+  gridStartPosition: {x: -5, y: -5, z: -5}

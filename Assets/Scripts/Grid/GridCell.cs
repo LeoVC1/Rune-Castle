@@ -7,32 +7,22 @@ public class GridCell : MonoBehaviour
 {
     public GridManager gridManager;
 
-    public Vector3 ConstantID;
-
     void Update()
     {
-#if UNITY_EDITOR
+        if (Application.isPlaying)
+            return;
+
         if (transform.hasChanged)
         {
             GetNewPosition();
             transform.hasChanged = false;
         }
-#endif
+
     }
 
     public void GetNewPosition()
     {
         transform.position = gridManager.GetClosestPoint(transform.position, this);
-    }
-
-    public void SetConstantID(Vector3 newID)
-    {
-        ConstantID = newID;
-    }
-
-    public Vector3 GetConstantID()
-    {
-        return ConstantID;
     }
 
     private void OnEnable()
