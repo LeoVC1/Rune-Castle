@@ -18,7 +18,7 @@ public class Grid : MonoBehaviour
         {
             Gizmos.color = gizmoColor;
 
-            SO.CalculatePoints(transform.position);
+            //SO.CalculatePoints(transform.position);
 
             Vector3 size = new Vector3(SO.cellSize, SO.cellSize, SO.cellSize);
 

@@ -11,7 +11,6 @@ public class GridEditor : Editor
 
     private void OnEnable()
     {
-        gridManager = (GridManager)target;
         width = serializedObject.FindProperty("cellWidth");
         height = serializedObject.FindProperty("cellHeight");
         length = serializedObject.FindProperty("cellLength");
@@ -20,6 +19,14 @@ public class GridEditor : Editor
 
     public override void OnInspectorGUI()
     {
+        gridManager = (GridManager)target;
+        DrawDefaultInspector();
+
+        if (GUILayout.Button("Resize All Cells"))
+        {
+            gridManager.ResizeCells();
+        }
+
         EditorGUI.BeginChangeCheck();
         EditorGUILayout.IntSlider(width, 0, 10, new GUIContent("Width"));
         EditorGUILayout.IntSlider(height, 0, 10, new GUIContent("Height"));
@@ -36,6 +43,11 @@ public class GridEditor : Editor
         {
             serializedObject.ApplyModifiedProperties();
             gridManager.ResizeCells();
+            gridManager.CalculatePoints(Vector3.zero);
+        }
+
+        if (GUILayout.Button("Calculate Points"))
+        {
             gridManager.CalculatePoints(Vector3.zero);
         }
     }
