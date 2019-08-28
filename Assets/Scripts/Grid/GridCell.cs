@@ -7,6 +7,10 @@ public class GridCell : MonoBehaviour
 {
     public GridManager gridManager;
 
+    Vector3 originalScale;
+
+    private bool _lock;
+
     void Update()
     {
         if (Application.isPlaying)
@@ -27,6 +31,11 @@ public class GridCell : MonoBehaviour
 
     private void OnEnable()
     {
+        //if (!_lock)
+        //{
+        //    originalScale = transform.localScale;
+        //    _lock = true;
+        //}
         gridManager.RegisterCell(this);
         Resize();
     }
@@ -39,7 +48,12 @@ public class GridCell : MonoBehaviour
 
     public void Resize()
     {
-        float newSize = gridManager.cellSize + (gridManager.cellSize * gridManager.cellSizeOffset);
-        transform.localScale = new Vector3(newSize, newSize, newSize);
+        Vector3 newSize = gridManager.cellSize * Vector3.one/* * originalScale*/;
+        transform.localScale = newSize;
+    }
+
+    public void Rotate(float angle)
+    {
+        transform.localEulerAngles += new Vector3(0, angle, 0);
     }
 }

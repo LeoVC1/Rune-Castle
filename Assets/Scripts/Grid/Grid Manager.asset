@@ -15,6 +15,6 @@ MonoBehaviour:
   cellWidth: 10
   cellHeight: 10
   cellLength: 10
-  cellSize: 1
+  cellSize: 3
   cellSizeOffset: 0
   gridStartPosition: {x: -5, y: -5, z: -5}

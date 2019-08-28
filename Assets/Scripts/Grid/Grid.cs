@@ -24,7 +24,7 @@ public class Grid : MonoBehaviour
 
             foreach (Vector3 p in SO.points)
             {
-                Gizmos.DrawCube(p, size);
+                Gizmos.DrawWireCube(p, new Vector3(SO.cellSize, SO.cellSize, SO.cellSize));
             }
         }
     }
