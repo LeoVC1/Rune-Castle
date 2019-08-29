@@ -16,6 +16,7 @@ public class GridManager : ScriptableObject
     public Vector3[,,] points;
 
     List<GridCell> allCells = new List<GridCell>();
+    public List<Vector3> usingID = new List<Vector3>();
 
     public void CalculatePoints()
     {
@@ -50,6 +51,7 @@ public class GridManager : ScriptableObject
     public void UnRegisterCell(GridCell cell)
     {
         allCells.Remove(cell);
+        usingID.Remove(cell.ID);
     }
 
     public void ResizeCells()
@@ -61,7 +63,12 @@ public class GridManager : ScriptableObject
         }
     }
 
-    public Vector3 GetClosestPoint(Vector3 previousPosition, GridCell cell)
+    public void ClearList()
+    {
+        usingID.Clear();
+    }
+
+    public (Vector3, Vector3) GetClosestPoint(Vector3 previousPosition, GridCell cell = null, bool setID = false)
     {
         if (points == null)
             CalculatePoints();
@@ -94,6 +101,19 @@ public class GridManager : ScriptableObject
             }
         }
 
-        return newPosition;
+        if(setID)
+        {
+            if (!usingID.Contains(cell.ID))
+                usingID.Add(cell.ID);
+        }
+
+        return (newPosition, ID);
+    }
+
+    public bool UsingID(Vector3 ID)
+    {
+        if (usingID.Contains(ID))
+            return true;
+        return false;
     }
 }

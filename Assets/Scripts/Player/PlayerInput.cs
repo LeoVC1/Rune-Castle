@@ -13,5 +13,14 @@ public class PlayerInput : MonoBehaviour
 
         if (Input.GetKeyDown(inputManager.changeClassInput))
             inputManager.ChangeClass();
+
+        if (Input.GetKeyDown(inputManager.confirmInput))
+            inputManager.Confirm();
+
+        if (Input.GetKeyDown(inputManager.skill1))
+            inputManager.Skill1();
+
+        if (Input.GetKeyDown(inputManager.skill2))
+            inputManager.Skill2();
     }
 }

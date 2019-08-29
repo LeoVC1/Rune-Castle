@@ -22,11 +22,12 @@ public class CellEditor : Editor
         DrawDefaultInspector();
 
         cellScript = (GridCell)target;
-        
+
         if (GUILayout.Button("Rotate 90º Right"))
         {
             cellScript.Rotate(90);
         }
+
         if (GUILayout.Button("Rotate 90º Left"))
         {
             cellScript.Rotate(-90);

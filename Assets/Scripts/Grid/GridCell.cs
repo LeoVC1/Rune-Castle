@@ -6,9 +6,10 @@ using UnityEngine;
 public class GridCell : MonoBehaviour
 {
     public GridManager gridManager;
+    public Vector3 ID;
+    public Vector3 possibleID;
 
-    Vector3 originalScale;
-
+    private Vector3 originalScale;
     private bool _lock;
 
     void Update()
@@ -24,9 +25,24 @@ public class GridCell : MonoBehaviour
 
     }
 
-    public void GetNewPosition()
+    public void GetNewPosition(bool checkPresence = false)
     {
-        transform.position = gridManager.GetClosestPoint(transform.position, this);
+        //if (checkPresence)
+        //{
+        //    gridManager.GetClosestPoint(transform.position, this, false, true);
+        //    if (!gridManager.UsingID(possibleID))
+        //    {
+        //        transform.position = gridManager.GetClosestPoint(transform.position, this, true);
+        //    }
+        //}
+        //else
+        //{
+        //    transform.position = gridManager.GetClosestPoint(transform.position, this, true);
+        //}
+        gridManager.usingID.Remove(ID);
+        (Vector3 newPosition, Vector3 newID) = gridManager.GetClosestPoint(transform.position, this, true);
+        ID = newID;
+        transform.position = newPosition;
     }
 
     private void OnEnable()
@@ -36,13 +52,16 @@ public class GridCell : MonoBehaviour
         //    originalScale = transform.localScale;
         //    _lock = true;
         //}
+        gridManager.usingID.Remove(ID);
+        (Vector3 newPosition, Vector3 newID) = gridManager.GetClosestPoint(transform.position, this, true);
+        ID = newID;
         gridManager.RegisterCell(this);
         Resize();
     }
 
     private void OnDisable()
     {
-        gridManager.RegisterCell(this);
+        gridManager.UnRegisterCell(this);
         Resize();
     }
 

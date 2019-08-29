@@ -22,6 +22,10 @@ public class GridEditor : Editor
         gridManager = (GridManager)target;
         DrawDefaultInspector();
 
+        if (GUILayout.Button("Clear List"))
+        {
+            gridManager.ClearList();
+        }
         if (GUILayout.Button("Resize All Cells"))
         {
             gridManager.ResizeCells();
