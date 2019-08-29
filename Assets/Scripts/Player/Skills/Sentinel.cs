@@ -7,8 +7,10 @@ public class Sentinel : PlayerSkill
     [Header("Sentinel Properties:")]
     public GridManager gridManager;
     public GameObject sentinelPrefab;
+    public GameObject sentinelPreview;
     public  GameEventListener listener;
 
+    private GameObject sentinelPreviewInstance;
     private Vector3 sentinelLocation;
 
     [Range(1, 30)]
@@ -24,6 +26,8 @@ public class Sentinel : PlayerSkill
         (Vector3 newPosition, Vector3 ID) = gridManager.GetClosestPoint(transform.position + transform.forward * gridManager.cellSize);
         if (!gridManager.UsingID(ID))
         {
+            Destroy(sentinelPreviewInstance);
+            sentinelPreviewInstance = null;
             Instantiate(sentinelPrefab, newPosition, Quaternion.identity);
             waitingConfirmation = false;
         }
@@ -34,6 +38,17 @@ public class Sentinel : PlayerSkill
         if (waitingConfirmation)
         {
             listener.enabled = true;
+            if(sentinelPreviewInstance == null)
+            {
+                sentinelPreviewInstance = Instantiate(sentinelPreview, transform.position + transform.forward * gridManager.cellSize, Quaternion.identity);
+                sentinelPreviewInstance.transform.localScale = new Vector3(gridManager.cellSize, gridManager.cellSize, gridManager.cellSize);
+            }
+            else
+            {
+                (Vector3 newPosition, Vector3 ID) = gridManager.GetClosestPoint(transform.position + transform.forward * gridManager.cellSize);
+                if (!gridManager.UsingID(ID))
+                    sentinelPreviewInstance.transform.position = newPosition;
+            }
         }
         else
         {
@@ -51,8 +66,6 @@ public class Sentinel : PlayerSkill
 
             if (!gridManager.UsingID(ID))
             {
-                Gizmos.DrawWireCube(newPosition, new Vector3(gridManager.cellSize, gridManager.cellSize, gridManager.cellSize));
-
                 float theta = 0;
                 float x = sentinelRange * Mathf.Cos(theta);
                 float y = sentinelRange * Mathf.Sin(theta);
