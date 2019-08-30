@@ -53,6 +53,11 @@ public class Sentinel : PlayerSkill
         else
         {
             listener.enabled = false;
+            if(sentinelPreviewInstance != null)
+            {
+                Destroy(sentinelPreviewInstance);
+                sentinelPreviewInstance = null;
+            }
         }
     }
 

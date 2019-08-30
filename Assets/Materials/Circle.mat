@@ -7,8 +7,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: ShaderBlink
-  m_Shader: {fileID: -6465566751694194690, guid: 6b288372f65c6cb4dbe455e809f27081,
+  m_Name: Circle
+  m_Shader: {fileID: -6465566751694194690, guid: 64aa62185b46d4843bb74d434f0b7b6d,
     type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
@@ -21,7 +21,7 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - Texture2D_BDD1772C:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: a13257021fdbec74b9bce9921f802772, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - Texture2D_BF5FAC29:
@@ -73,8 +73,9 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
-    - Vector1_4F976221: 4.53
-    - Vector1_60B95755: 0
+    - Vector1_44AD2BD: 2.22
+    - Vector1_4F976221: 2.77
+    - Vector1_60B95755: 1
     - _AlphaClip: 0
     - _Blend: 0
     - _BumpScale: 1
@@ -104,7 +105,7 @@ Material:
     - _ZWrite: 1
     m_Colors:
     - Color_C3BA799: {r: 0.9939733, g: 0, b: 1, a: 1}
-    - Color_FF9F36CC: {r: 0.6132076, g: 0.43676576, b: 0.5885437, a: 1}
+    - Color_FF9F36CC: {r: 1, g: 1, b: 1, a: 1}
     - Vector2_74C726B7: {r: 1, g: 1, b: 0, a: 0}
     - Vector2_95087457: {r: 0, g: 0.1, b: 0, a: 0}
     - Vector2_9AE4E63E: {r: 0.2, g: 0.6, b: 0, a: 0}
