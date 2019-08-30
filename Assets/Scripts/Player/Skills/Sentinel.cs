@@ -11,6 +11,7 @@ public class Sentinel : PlayerSkill
     public  GameEventListener listener;
 
     private GameObject sentinelPreviewInstance;
+    private Transform sentinelRangeInstance;
     private Vector3 sentinelLocation;
 
     [Range(1, 30)]
@@ -26,10 +27,8 @@ public class Sentinel : PlayerSkill
         (Vector3 newPosition, Vector3 ID) = gridManager.GetClosestPoint(transform.position + transform.forward * gridManager.cellSize);
         if (!gridManager.UsingID(ID))
         {
-            Destroy(sentinelPreviewInstance);
-            sentinelPreviewInstance = null;
+            DestroyPreview();
             Instantiate(sentinelPrefab, newPosition, Quaternion.identity);
-            waitingConfirmation = false;
         }
     }
 
@@ -42,12 +41,16 @@ public class Sentinel : PlayerSkill
             {
                 sentinelPreviewInstance = Instantiate(sentinelPreview, transform.position + transform.forward * gridManager.cellSize, Quaternion.identity);
                 sentinelPreviewInstance.transform.localScale = new Vector3(gridManager.cellSize, gridManager.cellSize, gridManager.cellSize);
+                sentinelRangeInstance = sentinelPreviewInstance.GetComponentsInChildren<Transform>()[1];
             }
             else
             {
                 (Vector3 newPosition, Vector3 ID) = gridManager.GetClosestPoint(transform.position + transform.forward * gridManager.cellSize);
                 if (!gridManager.UsingID(ID))
                     sentinelPreviewInstance.transform.position = newPosition;
+
+                if (sentinelRangeInstance)
+                    sentinelRangeInstance.localScale = new Vector3(sentinelRange, sentinelRangeInstance.localScale.y, sentinelRange);
             }
         }
         else
@@ -59,6 +62,14 @@ public class Sentinel : PlayerSkill
                 sentinelPreviewInstance = null;
             }
         }
+    }
+
+    public void DestroyPreview()
+    {
+        Destroy(sentinelPreviewInstance);
+        sentinelPreviewInstance = null;
+        sentinelRangeInstance = null;
+        waitingConfirmation = false;
     }
 
     private void OnDrawGizmos()
