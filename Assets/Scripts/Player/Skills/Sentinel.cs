@@ -8,7 +8,7 @@ public class Sentinel : PlayerSkill
     public GridManager gridManager;
     public GameObject sentinelPrefab;
     public GameObject sentinelPreview;
-    public  GameEventListener listener;
+    public GameEventListener listener;
 
     private GameObject sentinelPreviewInstance;
     private Transform sentinelRangeInstance;
@@ -28,7 +28,9 @@ public class Sentinel : PlayerSkill
         if (!gridManager.UsingID(ID))
         {
             DestroyPreview();
-            Instantiate(sentinelPrefab, newPosition, Quaternion.identity);
+            GameObject sentinel = Instantiate(sentinelPrefab);
+            sentinel.transform.position = newPosition;
+            sentinel.GetComponentInChildren<SentinelInstance>().SetDistance(sentinelRange);
         }
     }
 
@@ -37,11 +39,12 @@ public class Sentinel : PlayerSkill
         if (waitingConfirmation)
         {
             listener.enabled = true;
-            if(sentinelPreviewInstance == null)
+            if (sentinelPreviewInstance == null)
             {
-                sentinelPreviewInstance = Instantiate(sentinelPreview, transform.position + transform.forward * gridManager.cellSize, Quaternion.identity);
+                sentinelPreviewInstance = Instantiate(sentinelPreview);
+                sentinelPreviewInstance.transform.position = transform.position + transform.forward * gridManager.cellSize;
                 sentinelPreviewInstance.transform.localScale = new Vector3(gridManager.cellSize, gridManager.cellSize, gridManager.cellSize);
-                sentinelRangeInstance = sentinelPreviewInstance.GetComponentsInChildren<Transform>()[1];
+                sentinelRangeInstance = GetRangeObject();
             }
             else
             {
@@ -56,12 +59,22 @@ public class Sentinel : PlayerSkill
         else
         {
             listener.enabled = false;
-            if(sentinelPreviewInstance != null)
+            if (sentinelPreviewInstance != null)
             {
                 Destroy(sentinelPreviewInstance);
                 sentinelPreviewInstance = null;
             }
         }
+    }
+
+    public Transform GetRangeObject()
+    {
+        foreach(Transform t in sentinelPreviewInstance.GetComponentsInChildren<Transform>())
+        {
+            if (t.name == "Range")
+                return t;
+        }
+        return null;
     }
 
     public void DestroyPreview()

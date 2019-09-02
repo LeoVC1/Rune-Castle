@@ -12,6 +12,7 @@ public class GridManager : ScriptableObject
     [HideInInspector] public float cellSize;
     public float cellSizeOffset;
     public Vector3 gridStartPosition;
+    public bool _lock;
 
     public Vector3[,,] points;
 

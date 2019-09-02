@@ -32,9 +32,9 @@ public class GridEditor : Editor
         }
 
         EditorGUI.BeginChangeCheck();
-        EditorGUILayout.IntSlider(width, 0, 10, new GUIContent("Width"));
-        EditorGUILayout.IntSlider(height, 0, 10, new GUIContent("Height"));
-        EditorGUILayout.IntSlider(length, 0, 10, new GUIContent("Length"));
+        EditorGUILayout.IntSlider(width, 0, 50, new GUIContent("Width"));
+        EditorGUILayout.IntSlider(height, 0, 50, new GUIContent("Height"));
+        EditorGUILayout.IntSlider(length, 0, 50, new GUIContent("Length"));
         if (EditorGUI.EndChangeCheck())
         {
             gridManager.CalculatePoints();

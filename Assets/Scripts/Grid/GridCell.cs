@@ -14,7 +14,7 @@ public class GridCell : MonoBehaviour
 
     void Update()
     {
-        if (Application.isPlaying)
+        if ((Application.isPlaying || gridManager._lock))
             return;
 
         if (transform.hasChanged)
@@ -52,6 +52,9 @@ public class GridCell : MonoBehaviour
         //    originalScale = transform.localScale;
         //    _lock = true;
         //}
+        if (gridManager._lock)
+            return;
+
         gridManager.usingID.Remove(ID);
         (Vector3 newPosition, Vector3 newID) = gridManager.GetClosestPoint(transform.position, this, true);
         ID = newID;
