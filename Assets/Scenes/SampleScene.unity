@@ -41100,107 +41100,55 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2490379667052204960, guid: 8c813f633ef708b4094683abd984f8a6,
+    - target: {fileID: 4352122895587169940, guid: 8c813f633ef708b4094683abd984f8a6,
         type: 3}
-      propertyPath: m_LocalScale.x
-      value: 2.5558
+      propertyPath: CollisionModule.enabled
+      value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 2490379667052204960, guid: 8c813f633ef708b4094683abd984f8a6,
+    - target: {fileID: 4352122895587169940, guid: 8c813f633ef708b4094683abd984f8a6,
         type: 3}
-      propertyPath: m_LocalScale.y
-      value: 2.5558
+      propertyPath: CollisionModule.type
+      value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 2490379667052204960, guid: 8c813f633ef708b4094683abd984f8a6,
+    - target: {fileID: 4352122895587169940, guid: 8c813f633ef708b4094683abd984f8a6,
         type: 3}
-      propertyPath: m_LocalScale.z
-      value: 2.5558
+      propertyPath: CollisionModule.collisionMessages
+      value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 4352122895692478576, guid: 8c813f633ef708b4094683abd984f8a6,
+    - target: {fileID: 4352122895587169940, guid: 8c813f633ef708b4094683abd984f8a6,
         type: 3}
-      propertyPath: scalingMode
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4352122895692478576, guid: 8c813f633ef708b4094683abd984f8a6,
-        type: 3}
-      propertyPath: InitialModule.startSize.scalar
-      value: 15
-      objectReference: {fileID: 0}
-    - target: {fileID: 4352122896035198920, guid: 8c813f633ef708b4094683abd984f8a6,
-        type: 3}
-      propertyPath: scalingMode
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 832531586, guid: 8c813f633ef708b4094683abd984f8a6, type: 3}
-      propertyPath: scalingMode
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1389979778, guid: 8c813f633ef708b4094683abd984f8a6, type: 3}
-      propertyPath: scalingMode
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1629299965, guid: 8c813f633ef708b4094683abd984f8a6, type: 3}
-      propertyPath: scalingMode
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4163780592733699810, guid: 8c813f633ef708b4094683abd984f8a6,
-        type: 3}
-      propertyPath: scalingMode
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4352122895438157371, guid: 8c813f633ef708b4094683abd984f8a6,
-        type: 3}
-      propertyPath: scalingMode
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4352122895514889936, guid: 8c813f633ef708b4094683abd984f8a6,
-        type: 3}
-      propertyPath: scalingMode
+      propertyPath: CollisionModule.maxKillSpeed
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4352122895587169940, guid: 8c813f633ef708b4094683abd984f8a6,
         type: 3}
-      propertyPath: scalingMode
+      propertyPath: CollisionModule.m_Bounce.scalar
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4352122895785192364, guid: 8c813f633ef708b4094683abd984f8a6,
+    - target: {fileID: 4352122895587169940, guid: 8c813f633ef708b4094683abd984f8a6,
         type: 3}
-      propertyPath: scalingMode
-      value: 0
+      propertyPath: CollisionModule.radiusScale
+      value: 0.0001
       objectReference: {fileID: 0}
-    - target: {fileID: 4352122895926728341, guid: 8c813f633ef708b4094683abd984f8a6,
+    - target: {fileID: 4352122895587169940, guid: 8c813f633ef708b4094683abd984f8a6,
         type: 3}
-      propertyPath: scalingMode
-      value: 0
+      propertyPath: TriggerModule.enabled
+      value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 4352122896196287442, guid: 8c813f633ef708b4094683abd984f8a6,
+    - target: {fileID: 4352122895587169940, guid: 8c813f633ef708b4094683abd984f8a6,
         type: 3}
-      propertyPath: scalingMode
-      value: 0
+      propertyPath: TriggerModule.inside
+      value: 2
       objectReference: {fileID: 0}
-    - target: {fileID: 4352122896817454762, guid: 8c813f633ef708b4094683abd984f8a6,
+    - target: {fileID: 4352122895587169940, guid: 8c813f633ef708b4094683abd984f8a6,
         type: 3}
-      propertyPath: scalingMode
-      value: 0
+      propertyPath: TriggerModule.enter
+      value: 2
       objectReference: {fileID: 0}
-    - target: {fileID: 4352122897007331177, guid: 8c813f633ef708b4094683abd984f8a6,
+    - target: {fileID: 4352122895587169940, guid: 8c813f633ef708b4094683abd984f8a6,
         type: 3}
-      propertyPath: scalingMode
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4352122897076480385, guid: 8c813f633ef708b4094683abd984f8a6,
-        type: 3}
-      propertyPath: scalingMode
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4352122897474116278, guid: 8c813f633ef708b4094683abd984f8a6,
-        type: 3}
-      propertyPath: scalingMode
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4352122896666982515, guid: 8c813f633ef708b4094683abd984f8a6,
-        type: 3}
-      propertyPath: scalingMode
-      value: 0
+      propertyPath: TriggerModule.collisionShape0
+      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8c813f633ef708b4094683abd984f8a6, type: 3}
