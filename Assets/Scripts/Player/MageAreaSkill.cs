@@ -4,15 +4,33 @@ using UnityEngine;
 
 public class MageAreaSkill : MonoBehaviour
 {
-    List<ParticleCollisionEvent> events = new List<ParticleCollisionEvent>();
+    public int damage;
 
-    private void OnParticleTrigger()
+    public float startDelay;
+
+    private List<Collider> collided = new List<Collider>();
+
+    private bool _lock;
+
+    private void Start()
     {
-        
+        Invoke("OnImpact", startDelay);
     }
 
-    void Update()
+    void OnImpact()
     {
-        
+        _lock = true;
+    }
+
+    private void OnTriggerStay(Collider other)
+    {
+        if (_lock == false)
+            return;
+
+        if(!collided.Contains(other))
+        {
+            collided.Add(other);
+            other.GetComponentInChildren<Enemy>().ReceiveDamage(damage);
+        }
     }
 }

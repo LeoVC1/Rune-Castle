@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - target
+  - Enemy
   layers:
   - Default
   - TransparentFX
@@ -17,8 +18,8 @@ TagManager:
   - Ground
   - Cannon
   - PostProcessing
-  - 
-  - 
+  - Enemy
+  - Particle
   - 
   - 
   - 
