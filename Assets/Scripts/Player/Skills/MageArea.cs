@@ -10,7 +10,7 @@ public class MageArea : PlayerSkill
     [Header("Attack Objects:")]
     public GameObject attackParticle;
     public GameObject attackPreview;
-
+    public LayerMask layerMask;
     public GameEventListener listener;
 
     private GameObject attackPreviewInstance;
@@ -39,7 +39,6 @@ public class MageArea : PlayerSkill
         if (waitingConfirmation)
         {
             listener.enabled = true;
-            inputManager.LockMovement();
             if (attackPreviewInstance == null)
             {
                 attackPreviewInstance = Instantiate(attackPreview);
@@ -47,13 +46,22 @@ public class MageArea : PlayerSkill
             }
             else
             {
-                attackPreviewInstance.transform.Translate(Input.GetAxis("Horizontal") * Time.deltaTime * moveSkillSpeed, 0, Input.GetAxis("Vertical") * Time.deltaTime * moveSkillSpeed);
+                Vector3 mousePosition = Vector3.zero;
+                Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+                RaycastHit hit;
+                if (Physics.Raycast(ray, out hit, Mathf.Infinity, layerMask))
+                {
+                    if (hit.collider)
+                    {
+                        mousePosition = hit.point;
+                    }
+                }
+                attackPreviewInstance.transform.position = mousePosition;
             }
             attackPosition = attackPreviewInstance.transform.position;
         }
         else
         {
-            inputManager.UnlockMovement();
             listener.enabled = false;
             if (attackPreviewInstance != null)
             {

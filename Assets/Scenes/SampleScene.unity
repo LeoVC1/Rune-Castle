@@ -14693,7 +14693,7 @@ PrefabInstance:
     - target: {fileID: 9221693014886638000, guid: 6ca8c455e186dec4dac4615713b5ff5a,
         type: 3}
       propertyPath: m_RootOrder
-      value: 11
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 9221693014886638000, guid: 6ca8c455e186dec4dac4615713b5ff5a,
         type: 3}
@@ -18954,7 +18954,7 @@ Transform:
   - {fileID: 400705769}
   - {fileID: 174308914}
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &919150878
 PrefabInstance:
@@ -23959,6 +23959,9 @@ MonoBehaviour:
     type: 3}
   attackPreview: {fileID: 997401987470106664, guid: 8072ce5f44dc2e84faeb3f457fe1510c,
     type: 3}
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 256
   listener: {fileID: 1107943263}
   attackRange: 7.5
   attackRadius: 7.5
@@ -29765,7 +29768,7 @@ Transform:
   - {fileID: 1470127556}
   - {fileID: 1594542671}
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &1364808501
 BoxCollider:
@@ -47828,7 +47831,7 @@ PrefabInstance:
     - target: {fileID: 9221693014886638000, guid: 6ca8c455e186dec4dac4615713b5ff5a,
         type: 3}
       propertyPath: m_RootOrder
-      value: 9
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 9221693014886638000, guid: 6ca8c455e186dec4dac4615713b5ff5a,
         type: 3}

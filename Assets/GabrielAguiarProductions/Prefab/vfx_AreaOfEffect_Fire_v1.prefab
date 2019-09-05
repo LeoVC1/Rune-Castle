@@ -14420,6 +14420,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 100
   startDelay: 1.2
+  lifeTime: 1.7
 --- !u!136 &6957260215386919446
 CapsuleCollider:
   m_ObjectHideFlags: 0

@@ -8,6 +8,7 @@ public class Enemy : MonoBehaviour
 {
     public EnemyData enemyData;
     public SpawnerController spawnerController;
+    public GameObject deathParticle;
 
     private Transform _target;
     private NavMeshAgent _agent;
@@ -55,7 +56,8 @@ public class Enemy : MonoBehaviour
 
     private void OnDeath()
     {
-        Debug.Log("Morri!");
+        GameObject particle = Instantiate(deathParticle, transform.position + new Vector3(0, Random.Range(-3f, 1.5f), 0), Quaternion.identity);
+        Destroy(particle, 3.5f);
         Destroy(gameObject);
     }
 

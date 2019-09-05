@@ -117,6 +117,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyData: {fileID: 11400000, guid: 695b8e5ca4bf81648a3b01c207d8c05f, type: 2}
   spawnerController: {fileID: 11400000, guid: 43457dd716aa73c469ca64685428679a, type: 2}
+  deathParticle: {fileID: 1490043199212184133, guid: 216130ac4b3404f428e79f16477ac82b,
+    type: 3}
 --- !u!54 &371557583917237281
 Rigidbody:
   m_ObjectHideFlags: 0
