@@ -7,10 +7,10 @@ public class InputManager : ScriptableObject
 {
     public GameManager gameManager;
 
-    [HideInInspector] public bool isMovementLocked;
+    public bool isMovementLocked;
 
     public KeyCode interactInput;
-    public KeyCode confirmInput;
+    public KeyCode[] confirmInput;
     public KeyCode changeClassInput;
 
     [Space]
