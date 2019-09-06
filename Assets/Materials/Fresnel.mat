@@ -73,7 +73,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
-    - Vector1_4F976221: 4.53
+    - Vector1_4F976221: 6.05
     - Vector1_60B95755: 0
     - _AlphaClip: 0
     - _Blend: 0
@@ -83,7 +83,7 @@ Material:
     - _DetailNormalMapScale: 1
     - _DstBlend: 0
     - _EnvironmentReflections: 1
-    - _FresnelPower: 0.6
+    - _FresnelPower: 2.4
     - _GlossMapScale: 1
     - _Glossiness: 0.5
     - _GlossyReflections: 1
