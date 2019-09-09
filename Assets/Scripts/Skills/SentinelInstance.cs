@@ -6,11 +6,6 @@ public class SentinelInstance : MonoBehaviour
 {
     public SpawnerController spawnerController;
 
-    public int damage;
-    public float distance;
-    public float recoilPower;
-    private bool _lockRotation;
-
     Vector3 idleTarget;
     Vector3 idleDirection;
 
@@ -20,16 +15,28 @@ public class SentinelInstance : MonoBehaviour
 
     public Vector3 offset;
 
+    [Space]
+    [Header("Properties:")]
+    public int damage;
+    public float distance;
+    public float recoilPower;
+    public float lifeTime;
+    public float forcePower;
+    [Range(0.2f, 5)] public float cooldown;
+
+    [Header("Particles:")]
     public GameObject loopingSparks;
     public GameObject explosionSparks;
     public GameObject smokeParticles;
-    public GameObject bigSmokeParticles;
 
-    public float lifeTime;
-    public float forcePower;
+    [Header("GameObject References:")]
+    public GameObject _parent;
+    public GameObject _base;
+    private Dissolve _myDissolve;
+    private Dissolve _baseDissolve;
+
+    private bool _lockRotation;
     private float lifeTimer = 0;
-    [Range(0.2f, 5)]
-    public float cooldown;
     private float cooldownTimer;
     private bool onTarget;
     private bool onShooting;
@@ -39,6 +46,8 @@ public class SentinelInstance : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
         lr = GetComponent<LineRenderer>();
+        _myDissolve = GetComponent<Dissolve>();
+        _baseDissolve = _base.GetComponent<Dissolve>();
         StartCoroutine(TryToAttack());
         StartCoroutine(LifeTimer());
     }
@@ -90,7 +99,6 @@ public class SentinelInstance : MonoBehaviour
             yield return null;
         }
     }
-
     IEnumerator LifeTimer()
     {
         while (lifeTimer < lifeTime)
@@ -108,7 +116,6 @@ public class SentinelInstance : MonoBehaviour
         Vector3 maxShake = transform.localEulerAngles + Vector3.one * 7.5f;
 
         loopingSparks.SetActive(true);
-        bigSmokeParticles.SetActive(true);
 
         while (shakeTime < 1)
         {
@@ -151,11 +158,25 @@ public class SentinelInstance : MonoBehaviour
     {
         explosionSparks.SetActive(true);
         loopingSparks.SetActive(false);
-        bigSmokeParticles.SetActive(false);
 
         rb.isKinematic = false;
         rb.AddForce(new Vector3(Random.Range(-45, 45), 45, Random.Range(-45, 45)) * forcePower, ForceMode.Impulse);
         rb.AddTorque(new Vector3(Random.Range(-45, 45), 45, Random.Range(-45, 45)) * forcePower, ForceMode.Impulse);
+
+        Invoke("ChangeMaterial", 1f);
+    }
+
+    void ChangeMaterial()
+    {
+        _myDissolve.StartLerp();
+        _baseDissolve.StartLerp();
+        DestroyObject();
+    }
+
+    void DestroyObject()
+    {
+        smokeParticles.SetActive(false);
+        Destroy(_parent, 2f);
     }
 
     void RotateToEnemy(Transform _target)
