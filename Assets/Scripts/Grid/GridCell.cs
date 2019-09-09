@@ -12,6 +12,11 @@ public class GridCell : MonoBehaviour
     private Vector3 originalScale;
     private bool _lock;
 
+    private void Start()
+    {
+        gridManager.RegisterCell(this);
+    }
+
     void Update()
     {
         if ((Application.isPlaying || gridManager._lock))
@@ -27,18 +32,6 @@ public class GridCell : MonoBehaviour
 
     public void GetNewPosition(bool checkPresence = false)
     {
-        //if (checkPresence)
-        //{
-        //    gridManager.GetClosestPoint(transform.position, this, false, true);
-        //    if (!gridManager.UsingID(possibleID))
-        //    {
-        //        transform.position = gridManager.GetClosestPoint(transform.position, this, true);
-        //    }
-        //}
-        //else
-        //{
-        //    transform.position = gridManager.GetClosestPoint(transform.position, this, true);
-        //}
         gridManager.usingID.Remove(ID);
         (Vector3 newPosition, Vector3 newID) = gridManager.GetClosestPoint(transform.position, this, true);
         ID = newID;
@@ -47,11 +40,6 @@ public class GridCell : MonoBehaviour
 
     private void OnEnable()
     {
-        //if (!_lock)
-        //{
-        //    originalScale = transform.localScale;
-        //    _lock = true;
-        //}
         if (gridManager._lock)
             return;
 
@@ -65,12 +53,12 @@ public class GridCell : MonoBehaviour
     private void OnDisable()
     {
         gridManager.UnRegisterCell(this);
-        Resize();
+        gridManager.RemoveID(ID);
     }
 
     public void Resize()
     {
-        Vector3 newSize = gridManager.cellSize * Vector3.one/* * originalScale*/;
+        Vector3 newSize = gridManager.cellSize * Vector3.one;
         transform.localScale = newSize;
     }
 

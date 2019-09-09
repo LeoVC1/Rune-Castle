@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -43,9 +44,16 @@ public class GridManager : ScriptableObject
         Debug.Log("Point:" + points[0, 0, 0]);
     }
 
+    public void Initialize()
+    {
+        usingID.Clear();
+    }
+
+
     public void RegisterCell(GridCell cell)
     {
         allCells.Add(cell);
+        usingID.Add(cell.ID);
         cell.GetNewPosition();
     }
 
@@ -109,6 +117,18 @@ public class GridManager : ScriptableObject
         }
 
         return (newPosition, ID);
+    }
+
+
+    public void SetID(Vector3 ID)
+    {
+        usingID.Add(ID);
+    }
+
+
+    public void RemoveID(Vector3 ID)
+    {
+        usingID.Remove(ID);
     }
 
     public bool UsingID(Vector3 ID)

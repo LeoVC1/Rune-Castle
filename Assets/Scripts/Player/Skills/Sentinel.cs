@@ -31,6 +31,7 @@ public class Sentinel : PlayerSkill
             GameObject sentinel = Instantiate(sentinelPrefab);
             sentinel.transform.position = newPosition;
             sentinel.GetComponentInChildren<SentinelInstance>().SetDistance(sentinelRange);
+            gridManager.SetID(ID);
         }
     }
 

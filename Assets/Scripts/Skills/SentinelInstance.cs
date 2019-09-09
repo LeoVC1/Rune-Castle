@@ -8,29 +8,46 @@ public class SentinelInstance : MonoBehaviour
 
     public int damage;
     public float distance;
+    public float recoilPower;
     private bool _lockRotation;
 
     Vector3 idleTarget;
     Vector3 idleDirection;
 
+    Rigidbody rb;
     LineRenderer lr;
     Enemy myEnemy;
 
     public Vector3 offset;
 
+    public GameObject loopingSparks;
+    public GameObject explosionSparks;
+    public GameObject smokeParticles;
+    public GameObject bigSmokeParticles;
+
+    public float lifeTime;
+    public float forcePower;
+    private float lifeTimer = 0;
     [Range(0.2f, 5)]
     public float cooldown;
     private float cooldownTimer;
     private bool onTarget;
+    private bool onShooting;
+    private bool isDead;
 
     private void Start()
     {
+        rb = GetComponent<Rigidbody>();
         lr = GetComponent<LineRenderer>();
         StartCoroutine(TryToAttack());
+        StartCoroutine(LifeTimer());
     }
 
-    public void Update()
+    private void Update()
     {
+        if (isDead)
+            return;
+
         (Transform target, float _distance) = spawnerController.GetClosestEnemy(transform);
         if (target && _distance < distance)
         {
@@ -41,6 +58,11 @@ public class SentinelInstance : MonoBehaviour
         {
             RotateToIdle();
             onTarget = false;
+        }
+        else if (onShooting)
+        {
+            onShooting = false;
+            RotateToIdle();
         }
         else
         {
@@ -69,12 +91,71 @@ public class SentinelInstance : MonoBehaviour
         }
     }
 
+    IEnumerator LifeTimer()
+    {
+        while (lifeTimer < lifeTime)
+        {
+            lifeTimer += Time.deltaTime;
+            yield return new WaitForEndOfFrame();
+        }
+        DeathAnimation();
+    }
+    IEnumerator Failing()
+    {
+        float shakeTime = 0;
+        
+        Vector3 minShake = transform.localEulerAngles + Vector3.one * -7.5f;
+        Vector3 maxShake = transform.localEulerAngles + Vector3.one * 7.5f;
+
+        loopingSparks.SetActive(true);
+        bigSmokeParticles.SetActive(true);
+
+        while (shakeTime < 1)
+        {
+            transform.localEulerAngles = new Vector3(Random.Range(minShake.x, maxShake.x), Random.Range(minShake.y, maxShake.y), Random.Range(minShake.z, maxShake.z));
+            shakeTime += Time.deltaTime;
+            yield return new WaitForEndOfFrame();
+        }
+
+        Explosion();
+    }
+
     void Attack()
     {
         if (myEnemy)
         {
             myEnemy.ReceiveDamage(damage);
+            RecoilAnimation(myEnemy.transform);
         }
+    }
+
+    void RecoilAnimation(Transform _target)
+    {
+        Vector3 direction = _target.position + new Vector3(0, recoilPower, 0) - transform.position;
+        transform.forward = -(Vector3.Slerp(-transform.forward, direction, 0.8f));
+        onShooting = true;
+    }
+
+    void DeathAnimation()
+    {
+        isDead = true;
+
+        StopAllCoroutines();
+
+        Destroy(lr);
+
+        StartCoroutine(Failing());
+    }
+
+    void Explosion()
+    {
+        explosionSparks.SetActive(true);
+        loopingSparks.SetActive(false);
+        bigSmokeParticles.SetActive(false);
+
+        rb.isKinematic = false;
+        rb.AddForce(new Vector3(Random.Range(-45, 45), 45, Random.Range(-45, 45)) * forcePower, ForceMode.Impulse);
+        rb.AddTorque(new Vector3(Random.Range(-45, 45), 45, Random.Range(-45, 45)) * forcePower, ForceMode.Impulse);
     }
 
     void RotateToEnemy(Transform _target)
@@ -100,12 +181,7 @@ public class SentinelInstance : MonoBehaviour
         _lockRotation = false;
     }
 
-    public void SetDistance(float _distance)
-    {
-        distance = _distance;
-    }
-
-    private void DrawLaser()
+    void DrawLaser()
     {
         lr.SetPosition(0, transform.position - new Vector3(offset.x, offset.y, offset.z));
         RaycastHit hit;
@@ -130,5 +206,10 @@ public class SentinelInstance : MonoBehaviour
         {
             lr.enabled = false;
         }
+    }
+
+    public void SetDistance(float _distance)
+    {
+        distance = _distance;
     }
 }

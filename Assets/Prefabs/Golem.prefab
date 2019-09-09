@@ -8037,7 +8037,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5006512736842458394}
-  - component: {fileID: 3166231814517950560}
   m_Layer: 0
   m_Name: StoneGolem3
   m_TagString: Untagged
@@ -8060,25 +8059,6 @@ Transform:
   m_Father: {fileID: 2090358752939037143}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!95 &3166231814517950560
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8296172667696862985}
-  m_Enabled: 1
-  m_Avatar: {fileID: 9000000, guid: 0fb1d585f81f13546924b831dbe8b93f, type: 3}
-  m_Controller: {fileID: 9100000, guid: 96d27de92e5cd324c8e5542730c84a75, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &8314588573471096276
 GameObject:
   m_ObjectHideFlags: 0
