@@ -6,11 +6,13 @@ using UnityEngine.AI;
 [RequireComponent(typeof(NavMeshAgent))]
 public class Enemy : MonoBehaviour
 {
+    public EnemyTargetManager enemyTarget;
     public EnemyData enemyData;
     public SpawnerController spawnerController;
     public GameObject deathParticle;
+    public Animator anim;
 
-    private Transform _target;
+    private GameObject _target;
     private NavMeshAgent _agent;
     private float myHealth;
 
@@ -35,11 +37,15 @@ public class Enemy : MonoBehaviour
         if (dead)
             return;
 
-        float distance = Vector3.Distance(transform.position, _target.position);
+        GetTarget();
+
+        float distance = Vector3.Distance(transform.position, _target.transform.position);
+
         if(distance < enemyData.range)
         {
             _agent.isStopped = true;
-            Debug.Log("Skill!");
+            if (anim)
+                anim.SetTrigger("Attack");
         }
         else
         {
@@ -47,7 +53,12 @@ public class Enemy : MonoBehaviour
         }
 
         if (_target)
-            _agent.destination = _target.position;
+            _agent.destination = _target.transform.position;
+    }
+
+    private void GetTarget()
+    {
+        SetTarget(enemyTarget.GetNewTarget(transform.position));
     }
 
     public void ReceiveDamage(int damage)
@@ -56,7 +67,7 @@ public class Enemy : MonoBehaviour
         print("Damage: " + damage + "/Health: " + myHealth);
     }
 
-    public void SetTarget(Transform newTarget)
+    public void SetTarget(GameObject newTarget)
     {
         _target = newTarget;
     }

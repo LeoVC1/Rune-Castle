@@ -7,8 +7,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Crystal_PBR
-  m_Shader: {fileID: -6465566751694194690, guid: 2c1dae702cb249f40a22398ebe2ed81c,
+  m_Name: RockSmoke_Add
+  m_Shader: {fileID: -6465566751694194690, guid: 20b1243bf020f9f4eba17f70a00f4af2,
     type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
@@ -20,12 +20,10 @@ Material:
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
-    - Texture2D_CF8AA7EC:
-        m_Texture: {fileID: 2800000, guid: 534369eb7fb666f4180e1354ced72cde, type: 3}
+    - Texture2D_F6121506:
+        m_Texture: {fileID: 2800000, guid: 015009428f21d3a438987aa8eff6a903, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
-    m_Floats:
-    - Vector1_C1B608E4: 1.02
-    - Vector1_CB957582: 0.2
+    m_Floats: []
     m_Colors:
-    - Color_9B042791: {r: 0, g: 3.254441, b: 3.8750818, a: 1}
+    - Color_6042E0EE: {r: 0.24320342, g: 0.24320342, b: 0.24320342, a: 1}

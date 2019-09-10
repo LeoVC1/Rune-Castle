@@ -9,8 +9,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f478076df5c9f9d4c8b1b643272aeb75, type: 3}
-  m_Name: SimpleEnemy
+  m_Script: {fileID: 11500000, guid: ece886aa3ad9d5349baf3bd3f01201ba, type: 3}
+  m_Name: Enemy Target Manager
   m_EditorClassIdentifier: 
-  maxHealth: 100
-  range: 20

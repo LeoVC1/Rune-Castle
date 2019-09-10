@@ -48,4 +48,4 @@ MonoBehaviour:
   timeToSpawn: 5
   spawnCount: 4
   enemyPrefabs:
-  - {fileID: 2090358752939037147, guid: 50a721aeb8b9b5944a9af3c9dd4c18e8, type: 3}
+  - {fileID: 7911471446243726174, guid: 59b7fc4e5a0a2b94baa6f5ff5c452747, type: 3}

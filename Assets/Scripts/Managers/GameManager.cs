@@ -7,10 +7,11 @@ namespace Manager
     public class GameManager : MonoBehaviour
     {
         public GridManager gridManager;
-
+        public EnemyTargetManager enemyTargetManager;
         void Awake()
         {
             gridManager.Initialize();
+            //enemyTargetManager.Initialize();
         }
     }
 }
