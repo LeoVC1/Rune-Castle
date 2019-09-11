@@ -5,61 +5,20 @@ using UnityEngine.AI;
 
 public class PlayerMovement : MonoBehaviour
 {
-    //public Transform cam;
     public InputManager inputManager;
-    //public float vel = 10;
+    public Transform camT;
 
-    //float moveSpeed = 8f;
-    //float jumpHeight = 10f;         
-
-
-    //Vector3 moveDirection;
-
-    //Rigidbody rb;
-
-
-    //void Awake()
-    //{
-    //    rb = GetComponent<Rigidbody>();
-    //}
-
-    //void FixedUpdate()
-    //{
-    //    if (!inputManager.isMovementLocked)
-    //    {
-    //        Move();
-    //        RotateToForward();
-    //    }
-    //}
-
-    //void Move()
-    //{
-    //    float hAxis = Input.GetAxis("Horizontal");
-    //    float vAxis = Input.GetAxis("Vertical");
-
-    //    Vector3 movement = new Vector3(hAxis, 0f, vAxis);
-    //    rb.position += movement * moveSpeed * Time.deltaTime;
-    //}
-
-    //void RotateToForward()
-    //{
-    //    Vector3 camF = Vector3.Scale(cam.transform.forward, new Vector3(1, 0, 1)).normalized;
-    //    Vector3 camR = Vector3.Scale(cam.transform.right, new Vector3(1, 0, 1)).normalized;
-    //    Vector3 moveDir = camR * Input.GetAxisRaw("Horizontal") + camF * Input.GetAxisRaw("Vertical");
-    //    if (moveDir.magnitude > 0)
-    //        transform.forward = Vector3.Slerp(transform.forward, moveDir, 0.1f);
-    //}
-
-    public float maxSpeed = 2;
+    public float speed = 2;
     public float runSpeed = 1;
     public float rotationSpeed = 50;
 
     bool isRunning = false;
 
-    public Transform camT;
+    Rigidbody rb;
 
     void Start()
     {
+        rb = GetComponent<Rigidbody>();
         Cursor.visible = false;
     }
 
@@ -68,29 +27,30 @@ public class PlayerMovement : MonoBehaviour
         if (!inputManager.isMovementLocked)
         {
             RotateToForward();
-            float speed = BasicMovement();
-            RunningMovement(speed);
+            BasicMovement();
+            RunningMovement(0);
         }
     }
 
-    float BasicMovement()
+    void BasicMovement()
     {
         float ver = Input.GetAxis("Vertical");
         float hor = Input.GetAxis("Horizontal");
-        float speed = 0;
-        speed += Mathf.Clamp(Mathf.Abs(ver) + Mathf.Abs(hor), 0, 1);
-        speed = Mathf.Abs(speed);
-        transform.position += transform.forward * (maxSpeed * speed * runSpeed) * Time.deltaTime;
+        //float speed = 0;
+        //speed += Mathf.Clamp(Mathf.Abs(ver) + Mathf.Abs(hor), 0, 1);
+        //speed = Mathf.Abs(speed);
 
-        return speed;
+        //transform.position += (transform.forward * ver + transform.right * hor) * (/*Time.deltaTime **/ speed);
+        print(rb);
+        print((transform.forward * ver + transform.right * hor) * speed);
+        rb.velocity = (transform.forward * ver + transform.right * hor) * speed;
     }
 
     void RotateToForward()
     {
-        Vector3 camF = Vector3.Scale(camT.forward, new Vector3(1, 0, 1)).normalized;
-        Vector3 moveDir = camT.right * Input.GetAxis("Horizontal") + camF * Input.GetAxis("Vertical");
-        if (moveDir.magnitude > 0)
-            transform.forward = Vector3.Lerp(transform.forward, moveDir, 0.5f);
+        Vector3 direction = Camera.main.ScreenPointToRay(Input.mousePosition).direction;
+        direction.y = transform.forward.y;
+        transform.forward = (Vector3.Slerp(transform.forward, direction, 0.8f));
     }
 
     void RunningMovement(float speed)
