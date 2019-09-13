@@ -15,9 +15,11 @@ public class PlayerMovement : MonoBehaviour
     bool isRunning = false;
 
     Rigidbody rb;
+    PlayerAnimation anim;
 
     void Start()
     {
+        anim = GetComponent<PlayerAnimation>();
         rb = GetComponent<Rigidbody>();
         Cursor.visible = false;
     }
@@ -36,14 +38,14 @@ public class PlayerMovement : MonoBehaviour
     {
         float ver = Input.GetAxis("Vertical");
         float hor = Input.GetAxis("Horizontal");
-        //float speed = 0;
-        //speed += Mathf.Clamp(Mathf.Abs(ver) + Mathf.Abs(hor), 0, 1);
-        //speed = Mathf.Abs(speed);
 
-        //transform.position += (transform.forward * ver + transform.right * hor) * (/*Time.deltaTime **/ speed);
-        print(rb);
-        print((transform.forward * ver + transform.right * hor) * speed);
-        rb.velocity = (transform.forward * ver + transform.right * hor) * speed;
+        Vector3 horizontalSpeed = (transform.forward * ver + transform.right * hor) * speed;
+
+        rb.velocity = new Vector3(horizontalSpeed.x, rb.velocity.y, horizontalSpeed.z);
+
+        float clampSpeed = Mathf.Clamp01(Mathf.Abs(ver) + Mathf.Abs(hor));
+
+        anim.SetMovementSpeed(clampSpeed);
     }
 
     void RotateToForward()

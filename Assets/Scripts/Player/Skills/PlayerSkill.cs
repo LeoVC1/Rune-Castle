@@ -21,6 +21,13 @@ public class PlayerSkill : MonoBehaviour
     public bool isInstant;
     public bool waitingConfirmation;
 
+    public PlayerAnimation anim;
+
+    public void Start()
+    {
+        anim = GetComponent<PlayerAnimation>();
+    }
+
     public void TryToCast()
     {
         if (gameManager.characterClass != classSkill)

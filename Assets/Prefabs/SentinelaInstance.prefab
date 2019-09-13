@@ -151,13 +151,12 @@ MonoBehaviour:
   damage: 20
   distance: 0
   recoilPower: 4.5
-  lifeTime: 5
+  lifeTime: 20
   forcePower: 0.1
   cooldown: 0.65
   loopingSparks: {fileID: 8662604070002298636}
   explosionSparks: {fileID: 4289771376437607116}
   smokeParticles: {fileID: 3780296565244834347}
-  bigSmokeParticles: {fileID: 0}
   _parent: {fileID: 2959468390811966688}
   _base: {fileID: 5830336572979351611}
 --- !u!120 &6486476512039416725

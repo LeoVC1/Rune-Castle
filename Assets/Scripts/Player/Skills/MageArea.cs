@@ -23,6 +23,8 @@ public class MageArea : PlayerSkill
 
     public float moveSkillSpeed = 5;
 
+    public string _AnimationParameter;
+
     private void Update()
     {
         WaitingConfirmation();
@@ -31,6 +33,7 @@ public class MageArea : PlayerSkill
     public override void CastSkill()
     {
         DestroyPreview();
+        Animate();
         GameObject attack = Instantiate(attackParticle, attackPosition, Quaternion.identity);
     }
 
@@ -69,6 +72,11 @@ public class MageArea : PlayerSkill
                 attackPreviewInstance = null;
             }
         }
+    }
+
+    private void Animate()
+    {
+        anim.SetTrigger(_AnimationParameter);
     }
 
     public void DestroyPreview()
