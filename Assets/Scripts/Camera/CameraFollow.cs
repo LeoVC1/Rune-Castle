@@ -7,16 +7,18 @@ public class CameraFollow : MonoBehaviour
     public GameManager gameManager;
 
     public float CameraMoveSpeed = 120.0f;
+
     public GameObject Mage, Engineer;
+
+    public Vector3 offSet;
     public float clampAngle = 80.0f;
+
     public float verticalInputSensitivity = 150.0f;
     public float horizontalInputSensitivityX = 150.0f;
-    public GameObject CameraObj;
-    public GameObject PlayerObj;
-    public float mouseX;
-    public float mouseY;
-    private float rotY = 0.0f;
-    private float rotX = 0.0f;
+
+    private float rotY;
+    private float rotX;
+
     private GameObject _target;
 
 
@@ -35,11 +37,11 @@ public class CameraFollow : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        mouseX = Input.GetAxis("Mouse X");
-        mouseY = Input.GetAxis("Mouse Y");
+        float mouseX = Input.GetAxis("Mouse X");
+        float mouseY = Input.GetAxis("Mouse Y");
 
         rotY += mouseX * horizontalInputSensitivityX * Time.deltaTime;
-        rotX += mouseY * verticalInputSensitivity * Time.deltaTime;
+        rotX += -mouseY * verticalInputSensitivity * Time.deltaTime;
 
         rotX = Mathf.Clamp(rotX, -clampAngle, clampAngle);
 
@@ -59,7 +61,7 @@ public class CameraFollow : MonoBehaviour
         Transform target = _target.transform;
 
         float step = CameraMoveSpeed * Time.deltaTime;
-        transform.position = Vector3.MoveTowards(transform.position, target.position, step);
+        transform.position = Vector3.MoveTowards(transform.position, target.position + offSet, step);
     }
 
     public void ChangeTarget()
