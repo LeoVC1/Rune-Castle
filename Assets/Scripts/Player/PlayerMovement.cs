@@ -44,40 +44,48 @@ public class PlayerMovement : MonoBehaviour
 
     private void LateUpdate()
     {
-        Vector3 direction = Camera.main.ScreenPointToRay(Input.mousePosition).direction;
-        direction.y = transform.forward.y;
-        Vector3 newForward = (Vector3.Slerp(spineBone.forward, direction, 0.8f));
+        //Vector3 direction = Camera.main.ScreenPointToRay(Input.mousePosition).direction;
+        //direction.y = transform.forward.y;
+        //Vector3 newForward = (Vector3.Slerp(spineBone.forward, direction, 0.8f));
 
-        Debug.DrawRay(hips.position, hips.forward * 100);
+        //newForward.x = Mathf.Clamp(newForward.x, hips.forward.x - maximumTorque, hips.forward.x + maximumTorque);
 
-        newForward.x = Mathf.Clamp(newForward.x, hips.forward.x - maximumTorque, hips.forward.x + maximumTorque);
+        //newForward.z = Mathf.Clamp(newForward.z, hips.forward.z - maximumTorque, hips.forward.z + maximumTorque);
 
-        newForward.z = Mathf.Clamp(newForward.z, hips.forward.z - maximumTorque, hips.forward.z + maximumTorque);
-
-        spineBone.forward = newForward;
+        //spineBone.forward = newForward;
     }
 
     void BasicMovement()
     {
-        float ver = Mathf.Abs(Input.GetAxis("Vertical"));
-        float hor = Mathf.Abs(Input.GetAxis("Horizontal"));
+        float ver = Input.GetAxis("Vertical");
+        float hor = Input.GetAxis("Horizontal");
 
-        Vector3 horizontalSpeed = (transform.forward * Mathf.Clamp01((ver + hor))) * speed;
+        if (Input.GetKey(KeyCode.LeftShift))
+        {
+            anim.SetMovementSpeed(hor, 2);
+        }
+        else
+        {
+            anim.SetMovementSpeed(hor, ver);
+        }
 
-        rb.velocity = new Vector3(horizontalSpeed.x, rb.velocity.y, horizontalSpeed.z);
+        Vector3 moveDir = (transform.forward * ver + transform.right * hor);
 
-        anim.SetMovementSpeed(ver, hor);
+        if (moveDir.magnitude > 1)
+            moveDir.Normalize();
+
+        rb.velocity = new Vector3(moveDir.x * speed * Time.deltaTime, rb.velocity.y, moveDir.z * speed * Time.deltaTime);
     }
 
     void RotateToForward()
     {
-        //Vector3 direction = Camera.main.ScreenPointToRay(Input.mousePosition).direction;
-        //direction.y = transform.forward.y;
-        //transform.forward = (Vector3.Slerp(transform.forward, direction, 0.8f));
-        Vector3 camF = Vector3.Scale(camT.forward, new Vector3(1, 0, 1)).normalized;
-        Vector3 moveDir = camT.right * Input.GetAxis("Horizontal") + camF * Input.GetAxis("Vertical");
-        if (moveDir.magnitude > 0)
-            transform.forward = Vector3.Lerp(transform.forward, moveDir, 0.5f);
+        Vector3 direction = Camera.main.ScreenPointToRay(Input.mousePosition).direction;
+        direction.y = transform.forward.y;
+        transform.forward = (Vector3.Slerp(transform.forward, direction, 0.8f));
+        //Vector3 camF = Vector3.Scale(camT.forward, new Vector3(1, 0, 1)).normalized;
+        //Vector3 moveDir = camT.right * Input.GetAxis("Horizontal") + camF * Input.GetAxis("Vertical");
+        //if (moveDir.magnitude > 0)
+        //    transform.forward = Vector3.Lerp(transform.forward, moveDir, 0.5f);
     }
 
     void RunningMovement(float speed)
