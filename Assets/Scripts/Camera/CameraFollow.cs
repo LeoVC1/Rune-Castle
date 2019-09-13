@@ -5,6 +5,7 @@ using UnityEngine;
 public class CameraFollow : MonoBehaviour
 {
     public GameManager gameManager;
+    public InputManager inputManager;
 
     public float CameraMoveSpeed = 120.0f;
 
@@ -37,6 +38,9 @@ public class CameraFollow : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (inputManager.isCameraFreezed)
+            return;
+
         float mouseX = Input.GetAxis("Mouse X");
         float mouseY = Input.GetAxis("Mouse Y");
 
@@ -47,8 +51,6 @@ public class CameraFollow : MonoBehaviour
 
         Quaternion localRotation = Quaternion.Euler(rotX, rotY, 0.0f);
         transform.rotation = localRotation;
-
-
     }
 
     void LateUpdate()

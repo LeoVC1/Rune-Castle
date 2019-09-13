@@ -9,6 +9,7 @@ public class Sentinel : PlayerSkill
     public GameObject sentinelPrefab;
     public GameObject sentinelPreview;
     public GameEventListener listener;
+    public LayerMask layerMask;
 
     private GameObject sentinelPreviewInstance;
     private Transform sentinelRangeInstance;
@@ -24,7 +25,7 @@ public class Sentinel : PlayerSkill
 
     public override void CastSkill()
     {
-        (Vector3 newPosition, Vector3 ID) = gridManager.GetClosestPoint(transform.position + transform.forward * gridManager.cellSize);
+        (Vector3 newPosition, Vector3 ID) = gridManager.GetClosestPoint(/*transform.position + transform.forward * gridManager.cellSize*/GetMousePosition());
         if (!gridManager.UsingID(ID))
         {
             DestroyPreview();
@@ -43,13 +44,13 @@ public class Sentinel : PlayerSkill
             if (sentinelPreviewInstance == null)
             {
                 sentinelPreviewInstance = Instantiate(sentinelPreview);
-                sentinelPreviewInstance.transform.position = transform.position + transform.forward * gridManager.cellSize;
+                sentinelPreviewInstance.transform.position = /*transform.position + transform.forward * gridManager.cellSize*/GetMousePosition();
                 sentinelPreviewInstance.transform.localScale = new Vector3(gridManager.cellSize, gridManager.cellSize, gridManager.cellSize);
                 sentinelRangeInstance = GetRangeObject();
             }
             else
             {
-                (Vector3 newPosition, Vector3 ID) = gridManager.GetClosestPoint(transform.position + transform.forward * gridManager.cellSize);
+                (Vector3 newPosition, Vector3 ID) = gridManager.GetClosestPoint(/*transform.position + transform.forward * gridManager.cellSize*/GetMousePosition());
                 if (!gridManager.UsingID(ID))
                     sentinelPreviewInstance.transform.position = newPosition;
 
@@ -114,6 +115,21 @@ public class Sentinel : PlayerSkill
             }
 
         }
+    }
+
+    private Vector3 GetMousePosition()
+    {
+        Vector3 mousePosition = Vector3.zero;
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        RaycastHit hit;
+        if (Physics.Raycast(ray, out hit, Mathf.Infinity, layerMask))
+        {
+            if (hit.collider)
+            {
+                mousePosition = hit.point;
+            }
+        }
+        return mousePosition;
     }
 
 }

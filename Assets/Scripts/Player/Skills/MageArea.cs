@@ -23,7 +23,9 @@ public class MageArea : PlayerSkill
 
     public float moveSkillSpeed = 5;
 
-    public string _AnimationParameter;
+    [Header("Animation Properties:")]
+    public string animationParameter;
+    public float animationTime;
 
     private void Update()
     {
@@ -34,6 +36,8 @@ public class MageArea : PlayerSkill
     {
         DestroyPreview();
         Animate();
+        inputManager.FreezeCamera();
+        inputManager.LockMovement();
         GameObject attack = Instantiate(attackParticle, attackPosition, Quaternion.identity);
     }
 
@@ -49,16 +53,7 @@ public class MageArea : PlayerSkill
             }
             else
             {
-                Vector3 mousePosition = Vector3.zero;
-                Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-                RaycastHit hit;
-                if (Physics.Raycast(ray, out hit, Mathf.Infinity, layerMask))
-                {
-                    if (hit.collider)
-                    {
-                        mousePosition = hit.point;
-                    }
-                }
+                Vector3 mousePosition = GetMousePosition();
                 attackPreviewInstance.transform.position = mousePosition;
             }
             attackPosition = attackPreviewInstance.transform.position;
@@ -74,9 +69,30 @@ public class MageArea : PlayerSkill
         }
     }
 
+    private Vector3 GetMousePosition()
+    {
+        Vector3 mousePosition = Vector3.zero;
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        RaycastHit hit;
+        if (Physics.Raycast(ray, out hit, Mathf.Infinity, layerMask))
+        {
+            if (hit.collider)
+            {
+                mousePosition = hit.point;
+            }
+        }
+        return mousePosition;
+    }
+
     private void Animate()
     {
-        anim.SetTrigger(_AnimationParameter);
+        anim.SetTrigger(animationParameter);
+    }
+
+    public void OnAnimationEnd()
+    {
+        inputManager.UnfreezeCamera();
+        inputManager.UnlockMovement();
     }
 
     public void DestroyPreview()

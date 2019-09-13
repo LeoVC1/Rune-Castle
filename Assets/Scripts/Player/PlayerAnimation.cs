@@ -11,9 +11,10 @@ public class PlayerAnimation : MonoBehaviour
         anim = GetComponent<Animator>();
     }
 
-    public void SetMovementSpeed(float speed)
+    public void SetMovementSpeed(float horizontal, float vertical)
     {
-        anim.SetFloat("_Speed", speed);
+        anim.SetFloat("_Vertical", vertical);
+        anim.SetFloat("_Horizontal", horizontal);
     }
 
     public void SetTrigger(string parameter)

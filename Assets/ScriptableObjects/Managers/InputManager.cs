@@ -8,6 +8,7 @@ public class InputManager : ScriptableObject
     public GameManager gameManager;
 
     public bool isMovementLocked;
+    public bool isCameraFreezed;
 
     public KeyCode interactInput;
     public KeyCode[] confirmInput;
@@ -31,6 +32,16 @@ public class InputManager : ScriptableObject
     public void UnlockMovement()
     {
         isMovementLocked = false;
+    }
+
+    public void FreezeCamera()
+    {
+        isCameraFreezed = true;
+    }
+
+    public void UnfreezeCamera()
+    {
+        isCameraFreezed = false;
     }
 
     public void Interact()
