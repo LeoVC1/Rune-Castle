@@ -60,7 +60,8 @@ public class InputManager : ScriptableObject
 
     public void ChangeClass()
     {
-        gameManager.ChangeCharacter();
+        if(!isMovementLocked)
+            gameManager.ChangeCharacter();
     }
 
     public void Skill1()

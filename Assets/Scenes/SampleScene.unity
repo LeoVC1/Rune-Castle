@@ -16420,8 +16420,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inputManager: {fileID: 11400000, guid: 10443ec4fe1d96b4fa96b66cbb70b889, type: 2}
   camT: {fileID: 963194228}
-  speed: 300
-  runSpeed: 600
+  speed: 400
+  runSpeed: 800
   spineBone: {fileID: 0}
   maximumTorque: 0.15
   hips: {fileID: 0}
@@ -24354,7 +24354,7 @@ Light:
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 0, y: -0.0000008798702, z: 8.56e-43, w: -0.0000009244209}
+  m_BoundingSphereOverride: {x: 4.75e-43, y: 0, z: 1.43e-43, w: 0.1015625}
   m_UseBoundingSphereOverride: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
@@ -39523,8 +39523,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inputManager: {fileID: 11400000, guid: 10443ec4fe1d96b4fa96b66cbb70b889, type: 2}
   camT: {fileID: 963194228}
-  speed: 300
-  runSpeed: 600
+  speed: 400
+  runSpeed: 800
   spineBone: {fileID: 4803256113696193883}
   maximumTorque: 0.15
   hips: {fileID: 4791942292979382525}
