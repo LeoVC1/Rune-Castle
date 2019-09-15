@@ -13,6 +13,7 @@ public class InputManager : ScriptableObject
     public KeyCode interactInput;
     public KeyCode[] confirmInput;
     public KeyCode changeClassInput;
+    public KeyCode sprintInput;
 
     [Space]
     public KeyCode skill1;
@@ -23,10 +24,13 @@ public class InputManager : ScriptableObject
     public GameEvent confirmEvent;
     public GameEvent skill1Event;
     public GameEvent skill2Event;
+    public GameEvent onLockMovement;
+    public GameEvent onUnlockMovement;
 
     public void LockMovement()
     {
         isMovementLocked = true;
+        onLockMovement.Raise();
     }
 
     public void UnlockMovement()

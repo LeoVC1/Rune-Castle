@@ -44,13 +44,13 @@ public class Sentinel : PlayerSkill
             if (sentinelPreviewInstance == null)
             {
                 sentinelPreviewInstance = Instantiate(sentinelPreview);
-                sentinelPreviewInstance.transform.position = /*transform.position + transform.forward * gridManager.cellSize*/GetMousePosition();
+                sentinelPreviewInstance.transform.position = GetMousePosition();
                 sentinelPreviewInstance.transform.localScale = new Vector3(gridManager.cellSize, gridManager.cellSize, gridManager.cellSize);
                 sentinelRangeInstance = GetRangeObject();
             }
             else
             {
-                (Vector3 newPosition, Vector3 ID) = gridManager.GetClosestPoint(/*transform.position + transform.forward * gridManager.cellSize*/GetMousePosition());
+                (Vector3 newPosition, Vector3 ID) = gridManager.GetClosestPoint(GetMousePosition());
                 if (!gridManager.UsingID(ID))
                     sentinelPreviewInstance.transform.position = newPosition;
 
