@@ -111,7 +111,7 @@ public class SentinelInstance : MonoBehaviour
     IEnumerator Failing()
     {
         float shakeTime = 0;
-        
+
         Vector3 minShake = transform.localEulerAngles + Vector3.one * -7.5f;
         Vector3 maxShake = transform.localEulerAngles + Vector3.one * 7.5f;
 
