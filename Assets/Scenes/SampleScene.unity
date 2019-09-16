@@ -16422,9 +16422,16 @@ MonoBehaviour:
   camT: {fileID: 963194228}
   speed: 400
   runSpeed: 800
-  spineBone: {fileID: 0}
   maximumTorque: 0.15
-  hips: {fileID: 0}
+  spine1:
+    bone: {fileID: 0}
+    maxAngle: 0
+  spine2:
+    bone: {fileID: 0}
+    maxAngle: 0
+  spine3:
+    bone: {fileID: 0}
+    maxAngle: 0
 --- !u!114 &492029574
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -39506,7 +39513,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inputManager: {fileID: 11400000, guid: 10443ec4fe1d96b4fa96b66cbb70b889, type: 2}
   attackDelay: 0
-  spine: {fileID: 4803256113696193883}
+  spine: {fileID: 2989701458041994380}
 --- !u!4 &1107943257
 Transform:
   m_ObjectHideFlags: 0
@@ -39541,9 +39548,16 @@ MonoBehaviour:
   camT: {fileID: 963194228}
   speed: 400
   runSpeed: 800
-  spineBone: {fileID: 4803256113696193883}
   maximumTorque: 0.15
-  hips: {fileID: 4791942292979382525}
+  spine1:
+    bone: {fileID: 4803256113696193883}
+    maxAngle: 30
+  spine2:
+    bone: {fileID: 0}
+    maxAngle: 0
+  spine3:
+    bone: {fileID: 0}
+    maxAngle: 0
 --- !u!54 &1107943259
 Rigidbody:
   m_ObjectHideFlags: 0

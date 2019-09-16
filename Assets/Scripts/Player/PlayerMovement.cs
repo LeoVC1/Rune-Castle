@@ -19,11 +19,9 @@ public class PlayerMovement : MonoBehaviour
     Rigidbody rb;
     PlayerAnimation anim;
 
-    public Transform spineBone;
-
     public float maximumTorque = 0.15f;
 
-    public Transform hips;
+    private bool onEnemy;
 
     private void Awake()
     {
@@ -46,19 +44,6 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    private void LateUpdate()
-    {
-        //Vector3 direction = Camera.main.ScreenPointToRay(Input.mousePosition).direction;
-        //direction.y = transform.forward.y;
-        //Vector3 newForward = (Vector3.Slerp(spineBone.forward, direction, 0.8f));
-
-        //newForward.x = Mathf.Clamp(newForward.x, hips.forward.x - maximumTorque, hips.forward.x + maximumTorque);
-
-        //newForward.z = Mathf.Clamp(newForward.z, hips.forward.z - maximumTorque, hips.forward.z + maximumTorque);
-
-        //spineBone.forward = newForward;
-    }
-
     void BasicMovement()
     {
         float ver = Input.GetAxis("Vertical");
@@ -78,9 +63,12 @@ public class PlayerMovement : MonoBehaviour
 
     void RotateToForward()
     {
-        Vector3 direction = Camera.main.ScreenPointToRay(Input.mousePosition).direction;
-        direction.y = transform.forward.y;
-        transform.forward = (Vector3.Slerp(transform.forward, direction, 0.8f));
+        if(isRunning || isMoving)
+        {
+            Vector3 direction = Camera.main.ScreenPointToRay(Input.mousePosition).direction;
+            direction.y = transform.forward.y;
+            transform.forward = (Vector3.Slerp(transform.forward, direction, 0.8f));
+        }
     }
 
     void RunningMovement()
@@ -113,11 +101,17 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
+    void VerifyEnemy()
+    {
+        Ray mouseRay = Camera.main.ScreenPointToRay(Input.mousePosition);
+        RaycastHit hit;
+        if (Physics.Raycast(mouseRay, float.MaxValue, )
+    }
+
     public void FreezeMovement()
     {
         anim.SetMovementSpeed(0, 0);
         rb.velocity = Vector3.zero;
     }
-
 
 }
