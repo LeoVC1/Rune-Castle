@@ -9,6 +9,7 @@ public class InputManager : ScriptableObject
 
     public bool isMovementLocked;
     public bool isCameraFreezed;
+    public bool canAttack;
 
     public KeyCode interactInput;
     public KeyCode[] confirmInput;
