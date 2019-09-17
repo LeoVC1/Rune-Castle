@@ -4,8 +4,11 @@ using UnityEngine;
 
 public class PlayerSkill : MonoBehaviour
 {
-    [Header("Skill Properties:")]
+    [Header("Manager:")]
+    public InputManager inputManager;
     public GameManager gameManager;
+
+    [Header("Skill Properties:")]
     public Character classSkill;
 
     [Space]
@@ -41,6 +44,7 @@ public class PlayerSkill : MonoBehaviour
         else
         {
             waitingConfirmation = !waitingConfirmation;
+            inputManager.isCastingSpell = waitingConfirmation;
         }
         //if (useResource)
         //{

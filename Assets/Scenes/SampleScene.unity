@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44772732, g: 0.49770457, b: 0.57540435, a: 1}
+  m_IndirectSpecularColor: {r: 0.4477269, g: 0.49770373, b: 0.5754036, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -16422,16 +16422,10 @@ MonoBehaviour:
   camT: {fileID: 963194228}
   speed: 400
   runSpeed: 800
-  maximumTorque: 0.15
-  spine1:
-    bone: {fileID: 0}
-    maxAngle: 0
-  spine2:
-    bone: {fileID: 0}
-    maxAngle: 0
-  spine3:
-    bone: {fileID: 0}
-    maxAngle: 0
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 0
+  onEnemy: 0
 --- !u!114 &492029574
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16581,6 +16575,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d2c2fe39089bd34ea88ff56ee2624c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  inputManager: {fileID: 0}
   gameManager: {fileID: 11400000, guid: 85835867e866bc34c9beb8a84457f786, type: 2}
   classSkill: 1
   useResource: 0
@@ -24361,7 +24356,7 @@ Light:
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 4.75e-43, y: 0, z: 1.43e-43, w: 0.1015625}
+  m_BoundingSphereOverride: {x: 0.03125, y: -0.04296875, z: 0, w: 7}
   m_UseBoundingSphereOverride: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
@@ -39512,8 +39507,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inputManager: {fileID: 11400000, guid: 10443ec4fe1d96b4fa96b66cbb70b889, type: 2}
-  attackDelay: 0
-  spine: {fileID: 2989701458041994380}
+  attackDelay: 0.5
+  spine: {fileID: 6055796632253238252}
 --- !u!4 &1107943257
 Transform:
   m_ObjectHideFlags: 0
@@ -39522,7 +39517,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1107943253}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 23.46, y: 9.37, z: 0}
+  m_LocalPosition: {x: 23.46, y: 4.75, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1309847288}
@@ -39548,16 +39543,10 @@ MonoBehaviour:
   camT: {fileID: 963194228}
   speed: 400
   runSpeed: 800
-  maximumTorque: 0.15
-  spine1:
-    bone: {fileID: 4803256113696193883}
-    maxAngle: 30
-  spine2:
-    bone: {fileID: 0}
-    maxAngle: 0
-  spine3:
-    bone: {fileID: 0}
-    maxAngle: 0
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 2048
+  onEnemy: 0
 --- !u!54 &1107943259
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -39733,6 +39722,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de2bcfd15a171184fa344d82466734b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  inputManager: {fileID: 11400000, guid: 10443ec4fe1d96b4fa96b66cbb70b889, type: 2}
   gameManager: {fileID: 11400000, guid: 85835867e866bc34c9beb8a84457f786, type: 2}
   classSkill: 0
   useResource: 0
@@ -39744,7 +39734,6 @@ MonoBehaviour:
   isInstant: 0
   waitingConfirmation: 0
   anim: {fileID: 0}
-  inputManager: {fileID: 11400000, guid: 10443ec4fe1d96b4fa96b66cbb70b889, type: 2}
   attackParticle: {fileID: 2490379667052204961, guid: 8c813f633ef708b4094683abd984f8a6,
     type: 3}
   attackPreview: {fileID: 997401987470106664, guid: 8072ce5f44dc2e84faeb3f457fe1510c,
@@ -83263,9 +83252,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1279993480370519209}
-  m_LocalRotation: {x: -7.763671e-17, y: 0.000000016412145, z: -0.00000041993667,
-    w: 1}
-  m_LocalPosition: {x: -0.0065841675, y: -0.20538235, z: -0.082219735}
+  m_LocalRotation: {x: -0.036467243, y: 0.3670987, z: 0.013326414, w: 0.9293714}
+  m_LocalPosition: {x: -0.036043167, y: 3.7145147, z: -0.08244991}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4557921530578347028}

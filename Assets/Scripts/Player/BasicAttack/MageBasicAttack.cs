@@ -32,6 +32,10 @@ public class MageBasicAttack : MonoBehaviour
 
     private void LateUpdate()
     {
+        //if (!onDelay)
+        //    return;
+
+
         //Vector3 direction = Camera.main.ScreenPointToRay(Input.mousePosition).direction;
         //direction.y = transform.forward.y;
         //Vector3 newForward = (Vector3.Slerp(spine.forward, direction, 0.8f));
@@ -41,7 +45,9 @@ public class MageBasicAttack : MonoBehaviour
 
     void Attack()
     {
-        print("Atacou!");
+        if (inputManager.isCastingSpell)
+            return;
+
         playerAnimation.SetTrigger("_BasicAttack_1");
         StartCoroutine(Delay());
     }

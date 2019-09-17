@@ -10,18 +10,18 @@ public class PlayerMovement : MonoBehaviour
 
     public float speed = 300;
     public float runSpeed = 600;
-
     private float actualSpeed;
 
-    bool isRunning = false;
-    bool isMoving = false;
+    private bool isRunning = false;
+    private bool isMoving = false;
 
-    Rigidbody rb;
-    PlayerAnimation anim;
+    private Rigidbody rb;
+    private PlayerAnimation anim;
 
-    public float maximumTorque = 0.15f;
+    public LayerMask layerMask;
 
-    private bool onEnemy;
+    public bool onEnemy;
+    private Transform target;
 
     private void Awake()
     {
@@ -41,6 +41,7 @@ public class PlayerMovement : MonoBehaviour
             RunningMovement();
             RotateToForward();
             BasicMovement();
+            VerifyEnemy();
         }
     }
 
@@ -63,7 +64,13 @@ public class PlayerMovement : MonoBehaviour
 
     void RotateToForward()
     {
-        if(isRunning || isMoving)
+        if (onEnemy)
+        {
+            Vector3 direction = target.position - transform.position;
+            direction.y = transform.forward.y;
+            transform.forward = (Vector3.Slerp(transform.forward, direction, 0.8f));
+        }
+        else if(isRunning || isMoving)
         {
             Vector3 direction = Camera.main.ScreenPointToRay(Input.mousePosition).direction;
             direction.y = transform.forward.y;
@@ -103,9 +110,26 @@ public class PlayerMovement : MonoBehaviour
 
     void VerifyEnemy()
     {
-        Ray mouseRay = Camera.main.ScreenPointToRay(Input.mousePosition);
+        Ray mouseRay = Camera.main.ScreenPointToRay(new Vector3(Screen.width / 2, Screen.height / 2));
+        Debug.DrawRay(mouseRay.origin, mouseRay.direction, Color.yellow, 10);
         RaycastHit hit;
-        if (Physics.Raycast(mouseRay, float.MaxValue, )
+        if (Physics.Raycast(mouseRay, out hit, float.MaxValue, layerMask)){
+            if (hit.collider)
+            {
+                onEnemy = true;
+                target = hit.collider.gameObject.transform;
+            }
+            else
+            {
+                //onEnemy = false;
+                //target = null;
+            }
+        }
+        else
+        {
+            //onEnemy = false;
+            //target = null;
+        }
     }
 
     public void FreezeMovement()

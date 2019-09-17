@@ -4,9 +4,6 @@ using UnityEngine;
 
 public class MageArea : PlayerSkill
 {
-    [Header("Manager:")]
-    public InputManager inputManager;
-
     [Header("Attack Objects:")]
     public GameObject attackParticle;
     public GameObject attackPreview;
@@ -100,6 +97,7 @@ public class MageArea : PlayerSkill
         Destroy(attackPreviewInstance);
         attackPreviewInstance = null;
         waitingConfirmation = false;
+        inputManager.isCastingSpell = false;
     }
 
     private void OnDrawGizmos()
