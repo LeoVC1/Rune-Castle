@@ -12,7 +12,7 @@ public class PlayerMovement : MonoBehaviour
     public float runSpeed = 600;
     private float actualSpeed;
 
-    private bool isRunning = false;
+    public bool isRunning = false;
     private bool isMoving = false;
 
     private Rigidbody rb;

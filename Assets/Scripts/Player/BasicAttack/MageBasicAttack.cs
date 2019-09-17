@@ -7,6 +7,7 @@ public class MageBasicAttack : MonoBehaviour
     public InputManager inputManager;
 
     private PlayerAnimation playerAnimation;
+    private PlayerMovement playerMovement;
 
     public float attackDelay;
     private float delayTimer;
@@ -14,14 +15,20 @@ public class MageBasicAttack : MonoBehaviour
 
     public Transform spine;
 
+    private bool attack;
+
     private void Start()
     {
         playerAnimation = GetComponent<PlayerAnimation>();
+        playerMovement = GetComponent<PlayerMovement>();
     }
 
     private void FixedUpdate()
     {
         if (onDelay)
+            return;
+
+        if (playerMovement.isRunning)
             return;
 
         if (Input.GetMouseButtonDown(0))
@@ -35,12 +42,15 @@ public class MageBasicAttack : MonoBehaviour
         //if (!onDelay)
         //    return;
 
+        //if (attack)
+        //{
+        //    Vector3 direction = Camera.main.ScreenPointToRay(Input.mousePosition).direction;
+        //    direction.y = transform.forward.y;
+        //    spine.forward = (Vector3.Slerp(spine.forward, direction, 0.8f));
 
-        //Vector3 direction = Camera.main.ScreenPointToRay(Input.mousePosition).direction;
-        //direction.y = transform.forward.y;
-        //Vector3 newForward = (Vector3.Slerp(spine.forward, direction, 0.8f));
-
-        //spine.forward = newForward;
+        //    Attack();
+        //    attack = false;
+        //}
     }
 
     void Attack()
@@ -48,7 +58,11 @@ public class MageBasicAttack : MonoBehaviour
         if (inputManager.isCastingSpell)
             return;
 
-        playerAnimation.SetTrigger("_BasicAttack_1");
+        float rnd = Random.Range(0, 2);
+
+        playerMovement.FreezeMovement();
+
+        playerAnimation.SetTrigger(rnd == 0 ? "_BasicAttack_1" : "_BasicAttack_2");
         StartCoroutine(Delay());
     }
 
