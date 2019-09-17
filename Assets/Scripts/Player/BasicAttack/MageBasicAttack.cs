@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using RootMotion.FinalIK;
+using RootMotion.Demos;
 
 public class MageBasicAttack : MonoBehaviour
 {
@@ -8,28 +10,37 @@ public class MageBasicAttack : MonoBehaviour
 
     private PlayerAnimation playerAnimation;
     private PlayerMovement playerMovement;
+    public AimIK playerIK;
+    public MageAttackPoint point;
+
+    public FBIKBoxing hand;
 
     public float attackDelay;
     private float delayTimer;
     private bool onDelay;
 
+    [SerializeField] private float weight;
+    [SerializeField] private float hitWeight;
+
     public Transform spine;
 
-    private bool attack;
 
     private void Start()
     {
         playerAnimation = GetComponent<PlayerAnimation>();
         playerMovement = GetComponent<PlayerMovement>();
+        //playerIK = GetComponent<AimIK>();
     }
 
-    private void FixedUpdate()
+    private void Update()
     {
+        SetWeight();
+
         if (onDelay)
             return;
 
-        if (playerMovement.isRunning)
-            return;
+        //if (playerMovement.isRunning)
+        //    return;
 
         if (Input.GetMouseButtonDown(0))
         {
@@ -37,20 +48,10 @@ public class MageBasicAttack : MonoBehaviour
         }
     }
 
-    private void LateUpdate()
+    void SetWeight()
     {
-        //if (!onDelay)
-        //    return;
-
-        //if (attack)
-        //{
-        //    Vector3 direction = Camera.main.ScreenPointToRay(Input.mousePosition).direction;
-        //    direction.y = transform.forward.y;
-        //    spine.forward = (Vector3.Slerp(spine.forward, direction, 0.8f));
-
-        //    Attack();
-        //    attack = false;
-        //}
+        playerIK.solver.IKPositionWeight = weight;
+        hand.hitWeight = hitWeight;
     }
 
     void Attack()
@@ -58,17 +59,23 @@ public class MageBasicAttack : MonoBehaviour
         if (inputManager.isCastingSpell)
             return;
 
+        onDelay = true;
+
+        StartCoroutine(Delay());
+
         float rnd = Random.Range(0, 2);
 
         playerMovement.FreezeMovement();
 
+        hand.effector = rnd == 0 ? FullBodyBipedEffector.RightHand : FullBodyBipedEffector.LeftHand;
+
+        point.SetNewOffset(rnd == 0 ? -0.5f : 0.5f);
+
         playerAnimation.SetTrigger(rnd == 0 ? "_BasicAttack_1" : "_BasicAttack_2");
-        StartCoroutine(Delay());
     }
 
     IEnumerator Delay()
     {
-        onDelay = true;
         delayTimer = 0;
         while(delayTimer < attackDelay)
         {

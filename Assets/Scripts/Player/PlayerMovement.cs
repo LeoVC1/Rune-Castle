@@ -23,6 +23,8 @@ public class PlayerMovement : MonoBehaviour
     public bool onEnemy;
     private Transform target;
 
+    public Transform head;
+
     private void Awake()
     {
         anim = GetComponent<PlayerAnimation>();
@@ -38,11 +40,18 @@ public class PlayerMovement : MonoBehaviour
     {
         if (!inputManager.isMovementLocked)
         {
+            VerifyEnemy();
             RunningMovement();
             RotateToForward();
             BasicMovement();
-            VerifyEnemy();
         }
+    }
+
+    private void LateUpdate()
+    {
+        Vector3 direction = Camera.main.ScreenPointToRay(Input.mousePosition).direction;
+        direction.y = transform.forward.y;
+        head.forward = (Vector3.Slerp(head.forward, direction, 0.8f));
     }
 
     void BasicMovement()
@@ -64,18 +73,15 @@ public class PlayerMovement : MonoBehaviour
 
     void RotateToForward()
     {
-        if (onEnemy)
-        {
-            Vector3 direction = target.position - transform.position;
-            direction.y = transform.forward.y;
-            transform.forward = (Vector3.Slerp(transform.forward, direction, 0.8f));
-        }
-        else if(isRunning || isMoving)
-        {
-            Vector3 direction = Camera.main.ScreenPointToRay(Input.mousePosition).direction;
-            direction.y = transform.forward.y;
-            transform.forward = (Vector3.Slerp(transform.forward, direction, 0.8f));
-        }
+        //if(isRunning || isMoving)
+        //{
+        //    Vector3 direction = Camera.main.ScreenPointToRay(Input.mousePosition).direction;
+        //    direction.y = transform.forward.y;
+        //    transform.forward = (Vector3.Slerp(transform.forward, direction, 0.8f));
+        //}
+        Vector3 direction = Camera.main.ScreenPointToRay(Input.mousePosition).direction;
+        direction.y = transform.forward.y;
+        transform.forward = (Vector3.Slerp(transform.forward, direction, 0.8f));
     }
 
     void RunningMovement()
@@ -111,7 +117,6 @@ public class PlayerMovement : MonoBehaviour
     void VerifyEnemy()
     {
         Ray mouseRay = Camera.main.ScreenPointToRay(new Vector3(Screen.width / 2, Screen.height / 2));
-        Debug.DrawRay(mouseRay.origin, mouseRay.direction, Color.yellow, 10);
         RaycastHit hit;
         if (Physics.Raycast(mouseRay, out hit, float.MaxValue, layerMask)){
             if (hit.collider)
@@ -121,14 +126,14 @@ public class PlayerMovement : MonoBehaviour
             }
             else
             {
-                //onEnemy = false;
-                //target = null;
+                onEnemy = false;
+                target = null;
             }
         }
         else
         {
-            //onEnemy = false;
-            //target = null;
+            onEnemy = false;
+            target = null;
         }
     }
 
