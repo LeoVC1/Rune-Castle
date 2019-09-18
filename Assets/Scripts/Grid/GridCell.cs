@@ -17,18 +17,18 @@ public class GridCell : MonoBehaviour
         gridManager.RegisterCell(this);
     }
 
-    void Update()
-    {
-        if ((Application.isPlaying || gridManager._lock))
-            return;
+    //void Update()
+    //{
+    //    if ((Application.isPlaying || gridManager._lock))
+    //        return;
 
-        if (transform.hasChanged)
-        {
-            GetNewPosition();
-            transform.hasChanged = false;
-        }
+    //    if (transform.hasChanged)
+    //    {
+    //        GetNewPosition();
+    //        transform.hasChanged = false;
+    //    }
 
-    }
+    //}
 
     public void GetNewPosition(bool checkPresence = false)
     {

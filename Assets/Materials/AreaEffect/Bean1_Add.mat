@@ -8,7 +8,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Bean1_Add
-  m_Shader: {fileID: -6465566751694194690, guid: f6cd0d6c3db46d44ab95210b8ea330cf,
+  m_Shader: {fileID: -6465566751694194690, guid: 875def59469892e409f029109b29dc3c,
     type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
@@ -22,6 +22,10 @@ Material:
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
+    - Texture2D_B3BD8677:
+        m_Texture: {fileID: 10300, guid: 0000000000000000f000000000000000, type: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - Texture2D_F6121506:
         m_Texture: {fileID: 10300, guid: 0000000000000000f000000000000000, type: 0}
         m_Scale: {x: 1, y: 1}
@@ -29,3 +33,4 @@ Material:
     m_Floats: []
     m_Colors:
     - Color_6042E0EE: {r: 3.9533494, g: 3.9533494, b: 3.9533494, a: 1}
+    - Color_B9A918F4: {r: 1, g: 1, b: 1, a: 1}

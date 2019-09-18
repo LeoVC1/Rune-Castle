@@ -24,6 +24,10 @@ public class MageBasicAttack : MonoBehaviour
 
     public Transform spine;
 
+    private Animator anim;
+
+    public ParticleSystem pSystem;
+
 
     private void Start()
     {
@@ -48,6 +52,11 @@ public class MageBasicAttack : MonoBehaviour
         }
     }
 
+    public void EmitParticle()
+    {
+        pSystem.Emit(1);
+    }
+
     void SetWeight()
     {
         playerIK.solver.IKPositionWeight = weight;
@@ -64,6 +73,10 @@ public class MageBasicAttack : MonoBehaviour
         StartCoroutine(Delay());
 
         float rnd = Random.Range(0, 2);
+
+        float horizontalSpeed = playerAnimation.GetFloat("_Horizontal");
+
+        rnd = horizontalSpeed == 0 ? rnd : horizontalSpeed > 0 ? 1 : 0;
 
         playerMovement.FreezeMovement();
 

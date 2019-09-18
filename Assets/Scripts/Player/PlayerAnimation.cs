@@ -21,4 +21,9 @@ public class PlayerAnimation : MonoBehaviour
     {
         anim.SetTrigger(parameter);
     }
+
+    public float GetFloat(string parameter)
+    {
+        return anim.GetFloat(parameter);
+    }
 }
