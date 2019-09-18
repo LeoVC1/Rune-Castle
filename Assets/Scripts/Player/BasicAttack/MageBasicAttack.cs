@@ -11,11 +11,11 @@ public class MageBasicAttack : MonoBehaviour
 
     private PlayerAnimation playerAnimation;
     private PlayerMovement playerMovement;
-    public AimIK playerIK;
+    private AimIK playerIK;
+    private FBIKBoxing handIK;
     public MageAttackPoint point;
     public CameraCollision pointCollision;
-
-    public FBIKBoxing hand;
+    
 
     public float attackDelay;
     private float delayTimer;
@@ -31,11 +31,13 @@ public class MageBasicAttack : MonoBehaviour
     public ParticleSystem pSystem;
 
 
-    private void Start()
+    private void Awake()
     {
         playerAnimation = GetComponent<PlayerAnimation>();
         playerMovement = GetComponent<PlayerMovement>();
-        //playerIK = GetComponent<AimIK>();
+        playerIK = GetComponent<AimIK>();
+        handIK = GetComponent<FBIKBoxing>();
+        OnChangeClass();
     }
 
     private void Update()
@@ -62,7 +64,7 @@ public class MageBasicAttack : MonoBehaviour
     void SetWeight()
     {
         playerIK.solver.IKPositionWeight = weight;
-        hand.hitWeight = hitWeight;
+        handIK.hitWeight = hitWeight;
     }
 
     void Attack()
@@ -82,7 +84,7 @@ public class MageBasicAttack : MonoBehaviour
 
         playerMovement.FreezeMovement();
 
-        hand.effector = rnd == 0 ? FullBodyBipedEffector.RightHand : FullBodyBipedEffector.LeftHand;
+        handIK.effector = rnd == 0 ? FullBodyBipedEffector.RightHand : FullBodyBipedEffector.LeftHand;
 
         point.SetNewOffset(rnd == 0 ? -0.5f : 0.5f);
 
@@ -107,6 +109,6 @@ public class MageBasicAttack : MonoBehaviour
         playerIK.enabled = isMage;
         point.enabled = isMage;
         pointCollision.enabled = isMage;
-        hand.enabled = isMage;
+        handIK.enabled = isMage;
     }
 }

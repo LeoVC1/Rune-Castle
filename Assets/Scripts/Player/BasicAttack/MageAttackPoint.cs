@@ -17,7 +17,7 @@ public class MageAttackPoint : MonoBehaviour
 
     public GameObject _target;
 
-    // Use this for initialization
+   
     void Start()
     {
         Vector3 rot = transform.localRotation.eulerAngles;
