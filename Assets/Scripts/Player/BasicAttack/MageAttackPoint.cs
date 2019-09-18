@@ -42,9 +42,17 @@ public class MageAttackPoint : MonoBehaviour
         transform.rotation = localRotation;
     }
 
+    void RotateToForward()
+    {
+        Vector3 direction = Camera.main.ScreenPointToRay(Input.mousePosition).direction;
+        direction.y = transform.forward.y;
+        transform.forward = (Vector3.Slerp(transform.forward, direction, 0.8f));
+    }
+
     void LateUpdate()
     {
         CameraUpdater();
+        RotateToForward();
     }
 
     void CameraUpdater()

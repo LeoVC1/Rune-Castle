@@ -6,12 +6,14 @@ using RootMotion.Demos;
 
 public class MageBasicAttack : MonoBehaviour
 {
+    public GameManager gameManager;
     public InputManager inputManager;
 
     private PlayerAnimation playerAnimation;
     private PlayerMovement playerMovement;
     public AimIK playerIK;
     public MageAttackPoint point;
+    public CameraCollision pointCollision;
 
     public FBIKBoxing hand;
 
@@ -96,5 +98,15 @@ public class MageBasicAttack : MonoBehaviour
             yield return null;
         }
         onDelay = false;
+    }
+
+    public void OnChangeClass()
+    {
+        bool isMage = gameManager.characterClass == Character.MAGE ? true : false;
+        this.enabled = isMage;
+        playerIK.enabled = isMage;
+        point.enabled = isMage;
+        pointCollision.enabled = isMage;
+        hand.enabled = isMage;
     }
 }
