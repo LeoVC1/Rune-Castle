@@ -22,6 +22,10 @@ public class InputManager : ScriptableObject
     public KeyCode skill2;
 
     [Space]
+    public KeyCode item1;
+    public KeyCode item2;
+
+    [Space]
     public GameEvent interactEvent;
     public GameEvent confirmEvent;
     public GameEvent skill1Event;
@@ -68,13 +72,17 @@ public class InputManager : ScriptableObject
 
     public void Skill1()
     {
-        Debug.Log("Skill 1");
+        if (!canAttack)
+            return;
+
         skill1Event.Raise();
     }
 
     public void Skill2()
     {
-        Debug.Log("Skill 2");
+        if (!canAttack)
+            return;
+
         skill2Event.Raise();
     }
 }

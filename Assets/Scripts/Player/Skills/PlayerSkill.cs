@@ -17,8 +17,8 @@ public class PlayerSkill : MonoBehaviour
     public FloatVariable mainResource;
     [Space]
     public bool useCooldown;
-    public float cooldownTime;
     public FloatVariable cooldown;
+    public GameEvent onCooldownStart;
     private bool onCooldown;
     [Space]
     public bool isInstant;
@@ -36,48 +36,49 @@ public class PlayerSkill : MonoBehaviour
         if (gameManager.characterClass != classSkill)
             return;
 
-        if (useCooldown && !onCooldown)
-        {
-            if (isInstant)
-            {
-                CastSkill();
-            }
-            else
-            {
-                waitingConfirmation = !waitingConfirmation;
-                inputManager.isCastingSpell = waitingConfirmation;
-            }
-        }
-
-        //if (useResource)
+        //if (useCooldown && !onCooldown)
         //{
-        //    if (mainResource.Value >= resourceCost)
+        //    if (isInstant)
         //    {
-        //        if (useCooldown && !onCooldown)
-        //        {
-        //            if (isInstant)
-        //            {
-        //                CastSkill();
-        //            }
-        //            else
-        //            {
-        //                waitingConfirmation = !waitingConfirmation;
-        //                inputManager.isCastingSpell = waitingConfirmation;
-        //            }
-        //        }
+        //        CastSkill();
+        //    }
+        //    else
+        //    {
+        //        waitingConfirmation = !waitingConfirmation;
+        //        inputManager.isCastingSpell = waitingConfirmation;
         //    }
         //}
+
+        if (useResource)
+        {
+            if (mainResource.Value >= resourceCost)
+            {
+                if (useCooldown && !onCooldown)
+                {
+                    if (isInstant)
+                    {
+                        CastSkill();
+                    }
+                    else
+                    {
+                        waitingConfirmation = !waitingConfirmation;
+                        inputManager.isCastingSpell = waitingConfirmation;
+                    }
+                }
+            }
+        }
     }
 
    public IEnumerator Cooldown()
     {
         onCooldown = true;
-        float t = 0;
-        while(t < cooldownTime)
+        cooldown.Value = 0;
+        while(cooldown.Value < cooldown.ConstantValue)
         {
-            t += Time.deltaTime;
+            cooldown.Value += Time.deltaTime;
             yield return null;
         }
+        cooldown.Value = 0;
         onCooldown = false;
     }
 

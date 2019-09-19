@@ -14421,7 +14421,7 @@ MonoBehaviour:
   damage: 100
   startDelay: 1.2
   impactLifetime: 0.1
-  lifeTime: 2
+  lifeTime: 4
 --- !u!136 &6957260215386919446
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -72335,7 +72335,7 @@ ParticleSystem:
       serializedVersion: 2
       minMaxState: 0
       minColor: {r: 1, g: 1, b: 1, a: 1}
-      maxColor: {r: 0.90588236, g: 0.45205575, b: 0.082352914, a: 0.5019608}
+      maxColor: {r: 0.9150943, g: 0.7353716, b: 0.18560876, a: 0.5019608}
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
@@ -73414,7 +73414,7 @@ ParticleSystem:
     curve:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 12.56637
+      scalar: 6.283185
       minScalar: 0.7853982
       maxCurve:
         serializedVersion: 2

@@ -16,52 +16,56 @@ public class ResourceFont : Interactable
     public bool delay;
     public float delayTime;
     public FloatVariable delayTimer;
+    public bool onDelay;
 
 
     public void GetResource()
     {
-        if (inventoryManager.CanAddItem(item))
+        if (onDelay)
+            return;
+
+        if (removeItem)
         {
-            if (delay)
+            if (inventoryManager.CheckItemAcquirement(itemToRemove) > 0 && inventoryManager.CanAddItem(item))
             {
+                onDelay = true;
+                inputManager.canAttack = false;
                 StartCoroutine(Delay());
             }
-            else
-            {
-                UpdateInventory();
-            }
+
+        }
+        else
+        {
+            UpdateInventory();
         }
     }
 
     IEnumerator Delay()
     {
         inputManager.LockMovement();
-
-        float t = 0;
+        inputManager.FreezeCamera();
 
         delayTimer.ConstantValue = delayTime;
 
-
-        while(t <= 1)
+        while(delayTimer.Value <= delayTimer.ConstantValue)
         {
-
-            delayTimer.Value = Mathf.Lerp(0, delayTime, t);
-            t += Time.deltaTime / delayTime;
-
-            yield return new WaitForEndOfFrame();
+            delayTimer.Value += Time.deltaTime;
+            yield return null;
         }
 
         UpdateInventory();
 
-        delayTimer.ConstantValue = delayTime;
         delayTimer.Value = 0;
 
+        inputManager.canAttack = true;
+        onDelay = false;
         inputManager.UnlockMovement();
+        inputManager.UnfreezeCamera();
     }
 
     public void UpdateInventory()
     {
-        if (removeItem)
+        if (removeItem && inventoryManager.CheckItemAcquirement(itemToRemove) > 0)
         {
             inventoryManager.AddItem(item);
             inventoryManager.RemoveItem(itemToRemove);

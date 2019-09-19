@@ -20,17 +20,16 @@ public class MageBasicAttack : MonoBehaviour
     public MageAttackPoint point;
     public CameraCollision pointCollision;
     public Transform head;
-    public ParticleSystem pSystem;
+    public GameObject pSystem;
 
     [Header("Properties:")]
+    public LayerMask layerMask;
     public float attackDelay;
     private float delayTimer;
     private bool onDelay;
 
     [SerializeField] private float weight;
     [SerializeField] private float hitWeight;
-
-
 
     private void Awake()
     {
@@ -43,25 +42,10 @@ public class MageBasicAttack : MonoBehaviour
 
     private void Update()
     {
-        SetWeight();
-
-        print(inputManager.isCastingSpell);
-
-        if (inputManager.isCastingSpell)
-        {
-            playerIK.enabled = false;
-            point.enabled = false;
-            pointCollision.enabled = false;
-            handIK.enabled = false;
+        if (!inputManager.canAttack)
             return;
-        }
-        else
-        {
-            playerIK.enabled = true;
-            point.enabled = true;
-            pointCollision.enabled = true;
-            handIK.enabled = true;
-        }
+
+        SetWeight();
 
         if (onDelay)
             return;
@@ -81,7 +65,22 @@ public class MageBasicAttack : MonoBehaviour
 
     public void EmitParticle()
     {
-        pSystem.Emit(1);
+        Vector3 hitPoint = Vector3.zero;
+
+        Ray ray = Camera.main.ScreenPointToRay(new Vector2(Screen.width / 2, Screen.height / 2));
+
+        if (Physics.Raycast(ray, out RaycastHit hit, 1000, layerMask, QueryTriggerInteraction.Ignore))
+        {
+            hitPoint = hit.point;
+        }
+        else
+        {
+            hitPoint = Camera.main.transform.position + Camera.main.transform.forward * 100;
+        }
+
+        GameObject particle = Instantiate(pSystem, pointCollision.transform.position, Quaternion.identity);
+
+        particle.transform.forward = hitPoint - particle.transform.position;
     }
 
     void SetWeight()
@@ -97,11 +96,11 @@ public class MageBasicAttack : MonoBehaviour
 
         onDelay = true;
 
-        StartCoroutine(Delay());
-
         float rnd = Random.Range(0, 2);
 
         float horizontalSpeed = playerAnimation.GetFloat("_Horizontal");
+
+        bool isMoving = horizontalSpeed == 0 ? false : true;
 
         rnd = horizontalSpeed == 0 ? rnd : horizontalSpeed > 0 ? 1 : 0;
 
@@ -109,24 +108,23 @@ public class MageBasicAttack : MonoBehaviour
 
         handIK.effector = rnd == 0 ? FullBodyBipedEffector.RightHand : FullBodyBipedEffector.LeftHand;
 
-        hitWeight = 0;
-        weight = 0;
-        SetWeight();
+        ResetIK();
 
+        point.SetNewOffset(isMoving == false ? (rnd == 0 ? 0.7f : -0.7f) : (rnd == 0 ? 0.3f : -0.3f));
 
-        point.SetNewOffset(rnd == 0 ? 0.5f : -0.5f);
+        pointCollision.SetNewDistance(isMoving == false ? 2.8f : 3.2f);
 
         playerAnimation.SetTrigger(rnd == 0 ? "_BasicAttack_1" : "_BasicAttack_2");
     }
-
-    IEnumerator Delay()
+    public void ResetIK()
     {
-        delayTimer = 0;
-        while(delayTimer < attackDelay)
-        {
-            delayTimer += Time.deltaTime;
-            yield return null;
-        }
+        hitWeight = 0;
+        weight = 0;
+        SetWeight();
+    }
+
+    public void FinishDelay()
+    {
         onDelay = false;
     }
 
@@ -135,8 +133,22 @@ public class MageBasicAttack : MonoBehaviour
         bool isMage = gameManager.characterClass == Character.MAGE ? true : false;
         this.enabled = isMage;
         playerIK.enabled = isMage;
-        //point.enabled = isMage;
-        //pointCollision.enabled = isMage;
         handIK.enabled = isMage;
+    }
+
+    public void LockBasicAttack()
+    {
+        playerIK.enabled = false;
+        point.enabled = false;
+        pointCollision.enabled = false;
+        handIK.enabled = false;
+    }
+
+    public void UnlockBasicAttack()
+    {
+        playerIK.enabled = true;
+        point.enabled = true;
+        pointCollision.enabled = true;
+        handIK.enabled = true;
     }
 }

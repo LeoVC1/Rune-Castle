@@ -10,6 +10,7 @@ public class CameraCollision : MonoBehaviour
     Vector3 dollyDir;
     public float distance;
     public LayerMask mask;
+    public bool isntCamera;
     // Use this for initialization
     void Awake()
     {
@@ -35,5 +36,14 @@ public class CameraCollision : MonoBehaviour
         }
 
         transform.localPosition = Vector3.Lerp(transform.localPosition, dollyDir * distance, Time.deltaTime * smooth);
+
+        //if (isntCamera)
+        //    RotateToForward();
     }
+
+    public void SetNewDistance(float distance)
+    {
+        maxDistance = distance;
+    }
+
 }

@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e90e3a247f6e784c9fed341c7605252, type: 3}
   m_Name: Cooldown
   m_EditorClassIdentifier: 
-  Value: 0
-  ConstantValue: 0
+  _value: 0
+  constantValue: 5

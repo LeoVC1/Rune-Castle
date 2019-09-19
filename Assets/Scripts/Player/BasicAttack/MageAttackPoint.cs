@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class MageAttackPoint : MonoBehaviour
 {
+    public InputManager inputManager;
+
     public float CameraMoveSpeed = 120.0f;
 
     public Vector3 offSet;
@@ -17,7 +19,6 @@ public class MageAttackPoint : MonoBehaviour
 
     public GameObject _target;
 
-   
     void Start()
     {
         Vector3 rot = transform.localRotation.eulerAngles;
@@ -30,6 +31,9 @@ public class MageAttackPoint : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (inputManager.isCameraFreezed)
+            return;
+
         float mouseX = Input.GetAxis("Mouse X");
         float mouseY = Input.GetAxis("Mouse Y");
 

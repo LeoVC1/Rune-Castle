@@ -9,11 +9,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3e90e3a247f6e784c9fed341c7605252, type: 3}
-  m_Name: ResourceDelay
+  m_Script: {fileID: 11500000, guid: 68a2ca150f90ad2428f3b20d7b0313aa, type: 3}
+  m_Name: OnCooldownStart
   m_EditorClassIdentifier: 
-  _value: 0
-  constantValue: 1.5
-  clamp: 0
-  min: 0
-  max: 0

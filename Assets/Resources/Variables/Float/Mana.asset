@@ -12,5 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e90e3a247f6e784c9fed341c7605252, type: 3}
   m_Name: Mana
   m_EditorClassIdentifier: 
-  Value: 106.38
-  ConstantValue: 0
+  _value: 60
+  constantValue: 100
+  clamp: 1
+  min: 0
+  max: 100

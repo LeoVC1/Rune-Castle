@@ -22,7 +22,6 @@ public class MageArea : PlayerSkill
 
     [Header("Animation Properties:")]
     public string animationParameter;
-    public float animationTime;
 
     private void Update()
     {
@@ -31,7 +30,9 @@ public class MageArea : PlayerSkill
 
     public override void CastSkill()
     {
+        mainResource.Value -= resourceCost;
         StartCoroutine(Cooldown());
+        onCooldownStart.Raise();
         DestroyPreview();
         Animate();
         inputManager.FreezeCamera();
@@ -47,7 +48,7 @@ public class MageArea : PlayerSkill
             if (attackPreviewInstance == null)
             {
                 attackPreviewInstance = Instantiate(attackPreview);
-                attackPreviewInstance.transform.position = (transform.position - (new Vector3(0, 1.4f, 0))) + transform.forward * attackRange;
+                attackPreviewInstance.transform.position = (transform.position - (new Vector3(0, 1f, 0))) + transform.forward * attackRange;
             }
             else
             {
@@ -70,7 +71,7 @@ public class MageArea : PlayerSkill
     private Vector3 GetMousePosition()
     {
         Vector3 mousePosition = Vector3.zero;
-        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        Ray ray = Camera.main.ScreenPointToRay(new Vector2(Screen.width / 2, Screen.height / 2));
         RaycastHit hit;
         if (Physics.Raycast(ray, out hit, Mathf.Infinity, layerMask))
         {
