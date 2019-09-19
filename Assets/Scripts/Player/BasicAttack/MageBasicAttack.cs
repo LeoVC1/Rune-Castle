@@ -6,6 +6,7 @@ using RootMotion.Demos;
 
 public class MageBasicAttack : MonoBehaviour
 {
+    [Header("Managers:")]
     public GameManager gameManager;
     public InputManager inputManager;
 
@@ -13,10 +14,15 @@ public class MageBasicAttack : MonoBehaviour
     private PlayerMovement playerMovement;
     private AimIK playerIK;
     private FBIKBoxing handIK;
+    private Animator anim;
+
+    [Header("References:")]
     public MageAttackPoint point;
     public CameraCollision pointCollision;
-    
+    public Transform head;
+    public ParticleSystem pSystem;
 
+    [Header("Properties:")]
     public float attackDelay;
     private float delayTimer;
     private bool onDelay;
@@ -24,11 +30,6 @@ public class MageBasicAttack : MonoBehaviour
     [SerializeField] private float weight;
     [SerializeField] private float hitWeight;
 
-    public Transform spine;
-
-    private Animator anim;
-
-    public ParticleSystem pSystem;
 
 
     private void Awake()
@@ -50,10 +51,17 @@ public class MageBasicAttack : MonoBehaviour
         //if (playerMovement.isRunning)
         //    return;
 
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButton(0))
         {
             Attack();
         }
+    }
+
+    private void LateUpdate()
+    {
+        Vector3 direction = Camera.main.ScreenPointToRay(Input.mousePosition).direction;
+        direction.y = transform.forward.y;
+        head.forward = (Vector3.Slerp(head.forward, direction, 1f));
     }
 
     public void EmitParticle()
@@ -86,6 +94,11 @@ public class MageBasicAttack : MonoBehaviour
 
         handIK.effector = rnd == 0 ? FullBodyBipedEffector.RightHand : FullBodyBipedEffector.LeftHand;
 
+        hitWeight = 0;
+        weight = 0;
+        SetWeight();
+
+
         point.SetNewOffset(rnd == 0 ? -0.5f : 0.5f);
 
         playerAnimation.SetTrigger(rnd == 0 ? "_BasicAttack_1" : "_BasicAttack_2");
@@ -107,8 +120,8 @@ public class MageBasicAttack : MonoBehaviour
         bool isMage = gameManager.characterClass == Character.MAGE ? true : false;
         this.enabled = isMage;
         playerIK.enabled = isMage;
-        point.enabled = isMage;
-        pointCollision.enabled = isMage;
+        //point.enabled = isMage;
+        //pointCollision.enabled = isMage;
         handIK.enabled = isMage;
     }
 }

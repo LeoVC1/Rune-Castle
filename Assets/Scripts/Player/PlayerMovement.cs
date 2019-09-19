@@ -23,8 +23,6 @@ public class PlayerMovement : MonoBehaviour
     public bool onEnemy;
     private Transform target;
 
-    public Transform head;
-
     private void Awake()
     {
         anim = GetComponent<PlayerAnimation>();
@@ -47,13 +45,6 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    private void LateUpdate()
-    {
-        Vector3 direction = Camera.main.ScreenPointToRay(Input.mousePosition).direction;
-        direction.y = transform.forward.y;
-        head.forward = (Vector3.Slerp(head.forward, direction, 0.8f));
-    }
-
     void BasicMovement()
     {
         float ver = Input.GetAxis("Vertical");
@@ -64,7 +55,12 @@ public class PlayerMovement : MonoBehaviour
         if (moveDir.magnitude > 1)
             moveDir.Normalize();
 
-        rb.velocity = new Vector3(moveDir.x * actualSpeed * Time.deltaTime, rb.velocity.y, moveDir.z * actualSpeed * Time.deltaTime);
+        Vector3 MoveDirection = new Vector3(moveDir.x * actualSpeed * Time.deltaTime, 0, moveDir.z * actualSpeed * Time.deltaTime);
+
+        
+        //rb.velocity = new Vector3(moveDir.x * actualSpeed * Time.deltaTime, rb.velocity.y, moveDir.z * actualSpeed * Time.deltaTime);
+        //rb.AddForce(new Vector3(moveDir.x * actualSpeed * Time.deltaTime, 0, moveDir.z * actualSpeed * Time.deltaTime));
+        rb.MovePosition(transform.position + MoveDirection * Time.deltaTime);
 
         isMoving = (ver != 0 || hor != 0) ? true : false;
 
