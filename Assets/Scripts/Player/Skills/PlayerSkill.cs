@@ -36,21 +36,24 @@ public class PlayerSkill : MonoBehaviour
         if (gameManager.characterClass != classSkill)
             return;
 
+        if (useCooldown && !onCooldown)
+        {
+            if (isInstant)
+            {
+                CastSkill();
+            }
+            else
+            {
+                waitingConfirmation = !waitingConfirmation;
+                inputManager.isCastingSpell = waitingConfirmation;
+            }
+        }
 
-        if (isInstant)
-        {
-            CastSkill();
-        }
-        else
-        {
-            waitingConfirmation = !waitingConfirmation;
-            inputManager.isCastingSpell = waitingConfirmation;
-        }
         //if (useResource)
         //{
-        //    if(mainResource.Value >= resourceCost)
+        //    if (mainResource.Value >= resourceCost)
         //    {
-        //        if(useCooldown && !onCooldown)
+        //        if (useCooldown && !onCooldown)
         //        {
         //            if (isInstant)
         //            {
@@ -58,11 +61,24 @@ public class PlayerSkill : MonoBehaviour
         //            }
         //            else
         //            {
-        //                waitingConfirmation = true;
+        //                waitingConfirmation = !waitingConfirmation;
+        //                inputManager.isCastingSpell = waitingConfirmation;
         //            }
         //        }
         //    }
         //}
+    }
+
+   public IEnumerator Cooldown()
+    {
+        onCooldown = true;
+        float t = 0;
+        while(t < cooldownTime)
+        {
+            t += Time.deltaTime;
+            yield return null;
+        }
+        onCooldown = false;
     }
 
     public virtual void CastSkill() { }

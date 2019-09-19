@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.4477269, g: 0.49770373, b: 0.5754036, a: 1}
+  m_IndirectSpecularColor: {r: 0.44772732, g: 0.49770457, b: 0.57540435, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -47531,9 +47531,9 @@ MonoBehaviour:
   useResource: 0
   resourceCost: 0
   mainResource: {fileID: 0}
-  useCooldown: 0
-  cooldownTime: 0
-  cooldown: {fileID: 0}
+  useCooldown: 1
+  cooldownTime: 2
+  cooldown: {fileID: 11400000, guid: d5bb285f683dc9e40b83bf3a1a035486, type: 2}
   isInstant: 0
   waitingConfirmation: 0
   anim: {fileID: 0}

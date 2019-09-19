@@ -31,6 +31,7 @@ public class MageArea : PlayerSkill
 
     public override void CastSkill()
     {
+        StartCoroutine(Cooldown());
         DestroyPreview();
         Animate();
         inputManager.FreezeCamera();
@@ -53,7 +54,7 @@ public class MageArea : PlayerSkill
                 Vector3 mousePosition = GetMousePosition();
                 attackPreviewInstance.transform.position = mousePosition;
             }
-            attackPosition = attackPreviewInstance.transform.position;
+            attackPosition = attackPreviewInstance.transform.position + Vector3.up * 0.5f;
         }
         else
         {
@@ -90,6 +91,7 @@ public class MageArea : PlayerSkill
     {
         inputManager.UnfreezeCamera();
         inputManager.UnlockMovement();
+        inputManager.isCastingSpell = false;
     }
 
     public void DestroyPreview()
@@ -97,7 +99,6 @@ public class MageArea : PlayerSkill
         Destroy(attackPreviewInstance);
         attackPreviewInstance = null;
         waitingConfirmation = false;
-        inputManager.isCastingSpell = false;
     }
 
     private void OnDrawGizmos()

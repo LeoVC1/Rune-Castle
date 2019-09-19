@@ -45,11 +45,26 @@ public class MageBasicAttack : MonoBehaviour
     {
         SetWeight();
 
+        print(inputManager.isCastingSpell);
+
+        if (inputManager.isCastingSpell)
+        {
+            playerIK.enabled = false;
+            point.enabled = false;
+            pointCollision.enabled = false;
+            handIK.enabled = false;
+            return;
+        }
+        else
+        {
+            playerIK.enabled = true;
+            point.enabled = true;
+            pointCollision.enabled = true;
+            handIK.enabled = true;
+        }
+
         if (onDelay)
             return;
-
-        //if (playerMovement.isRunning)
-        //    return;
 
         if (Input.GetMouseButton(0))
         {
@@ -99,7 +114,7 @@ public class MageBasicAttack : MonoBehaviour
         SetWeight();
 
 
-        point.SetNewOffset(rnd == 0 ? -0.5f : 0.5f);
+        point.SetNewOffset(rnd == 0 ? 0.5f : -0.5f);
 
         playerAnimation.SetTrigger(rnd == 0 ? "_BasicAttack_1" : "_BasicAttack_2");
     }

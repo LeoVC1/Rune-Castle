@@ -60,7 +60,8 @@ public class MageAttackPoint : MonoBehaviour
         Transform target = _target.transform;
 
         float step = CameraMoveSpeed * Time.deltaTime;
-        transform.position = Vector3.MoveTowards(transform.position, target.position + offSet, step);
+        transform.position = Vector3.MoveTowards(transform.position, target.position + (offSet.y * Vector3.up), step);
+        transform.position = transform.position + transform.right * offSet.z;
     }
 
     public void SetNewOffset(float newOffset)
