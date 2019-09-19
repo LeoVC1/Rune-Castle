@@ -18,7 +18,6 @@ public class SkillSlotUI : MonoBehaviour
     {
         while(cooldownTimer.Value > 0)
         {
-            Debug.Log("A");
             coolDownImage.fillAmount = (cooldownTimer.ConstantValue - cooldownTimer.Value) / cooldownTimer.ConstantValue;
             yield return null;
         }

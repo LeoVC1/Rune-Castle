@@ -11,6 +11,8 @@ public class PlayerResources : MonoBehaviour
     [Header("References:")]
     public Item itemResource;
     public FloatVariable resource;
+    public IntVariable activeRune;
+    public GameObject[] runesPrefab;
 
     [Header("Properties:")]
     public float generateAmount;
@@ -32,6 +34,16 @@ public class PlayerResources : MonoBehaviour
                 inventoryManager.RemoveItem(itemResource);
                 resource.Value += generateAmount;
             }
+        }
+    }
+
+    public void DropRune()
+    {
+        if (activeRune.Value != -1)
+        {
+            GameObject rune = Instantiate(runesPrefab[activeRune.Value], transform.position + Vector3.up * 5, Quaternion.identity);
+            Rigidbody rb = rune.GetComponent<Rigidbody>();
+            rb.AddForce(transform.forward * 300);
         }
     }
 }

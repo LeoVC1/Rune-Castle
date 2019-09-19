@@ -9,7 +9,7 @@ public class Interactable : MonoBehaviour
     public Character intectableClasses;
     GameEventListener listener;
 
-    private void Start()
+    public virtual void Start()
     {
         listener = GetComponent<GameEventListener>();
         listener.enabled = false;

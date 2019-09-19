@@ -16,7 +16,7 @@ public class ResourceFont : Interactable
     public bool delay;
     public float delayTime;
     public FloatVariable delayTimer;
-    public bool onDelay;
+    private bool onDelay;
 
 
     public void GetResource()
