@@ -8,10 +8,12 @@ namespace Manager
     {
         public GridManager gridManager;
         public EnemyTargetManager enemyTargetManager;
+        public InteractableManager interactableManager;
         void Awake()
         {
             gridManager.Initialize();
             //enemyTargetManager.Initialize();
+            interactableManager.Initialize();
         }
     }
 }

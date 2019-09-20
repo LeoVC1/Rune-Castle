@@ -41,7 +41,7 @@ public class PlayerResources : MonoBehaviour
     {
         if (activeRune.Value != -1)
         {
-            GameObject rune = Instantiate(runesPrefab[activeRune.Value], transform.position + Vector3.up * 5, Quaternion.identity);
+            GameObject rune = Instantiate(runesPrefab[activeRune.Value], transform.position + transform.forward + Vector3.up * 5, Quaternion.identity);
             Rigidbody rb = rune.GetComponent<Rigidbody>();
             rb.AddForce(transform.forward * 300);
         }

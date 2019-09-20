@@ -18,6 +18,7 @@ public class RuneFont : Interactable
     private float onDelayTime;
     public IntVariable number;
 
+    private bool activated;
     private GameObject activeRune;
 
     public override void Start()
@@ -32,6 +33,8 @@ public class RuneFont : Interactable
             return;
 
         UpdateInventory();
+
+        ActivateCanvas();
     }
 
     IEnumerator Delay()
@@ -56,6 +59,7 @@ public class RuneFont : Interactable
         inventoryManager.AddItem(runesProperties[number.Value]);
         number.Value = -1;
         Destroy(activeRune);
+        activeRune = null;
         StartCoroutine(Delay());
     }
 
@@ -64,6 +68,32 @@ public class RuneFont : Interactable
         number.Value = Random.Range(0, runes.Length);
 
         activeRune = Instantiate(runes[number.Value], runeSpawnPoint.position, Quaternion.identity);
+
+        ActivateCanvas();
+    }
+
+    public override void ActivateInteraction()
+    {
+        base.ActivateInteraction();
+        activated = true;
+        ActivateCanvas();
+    }
+
+    public override void DesactivateInteraction()
+    {
+        base.DesactivateInteraction();
+        activated = false;
+    }
+
+    private void ActivateCanvas()
+    {
+        if (!activated)
+            return;
+
+        if (activeRune)
+            canvas.SetActive(true);
+        else
+            canvas.SetActive(false);
     }
 
 }

@@ -132,5 +132,4 @@ public class PlayerMovement : MonoBehaviour
         anim.SetMovementSpeed(0, 0);
         rb.velocity = Vector3.zero;
     }
-
 }

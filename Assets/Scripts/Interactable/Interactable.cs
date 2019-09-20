@@ -5,19 +5,36 @@ using UnityEngine;
 [RequireComponent(typeof(GameEventListener))]
 public class Interactable : MonoBehaviour
 {
+    [Header("(Interactable) Managers:")]
     public GameManager gameManager;
+    public InteractableManager interactableManager;
     public Character intectableClasses;
+
     GameEventListener listener;
+    public GameObject canvas;
 
     public virtual void Start()
     {
         listener = GetComponent<GameEventListener>();
         listener.enabled = false;
+        canvas = GetComponentInChildren<Canvas>(true).gameObject;
     }
 
     public void InteractionResponseTest()
     {
-        Debug.Log(name + " is responding with input event.");
+        Debug.Log(name + " is responding input event.");
+    }
+
+    public virtual void ActivateInteraction()
+    {
+        listener.enabled = true;
+        canvas.SetActive(true);
+    }
+
+    public virtual void DesactivateInteraction()
+    {
+        listener.enabled = false;
+        canvas.SetActive(false);
     }
 
     public virtual void TriggerEnter() { }
@@ -27,8 +44,8 @@ public class Interactable : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
-            if(gameManager.characterClass == intectableClasses || intectableClasses == Character.BOTH)
-                listener.enabled = true;
+            if (gameManager.characterClass == intectableClasses || intectableClasses == Character.BOTH)
+                interactableManager.RegisterInteractable(this);
         TriggerEnter();
     }
 
@@ -36,7 +53,7 @@ public class Interactable : MonoBehaviour
     {
         if (other.CompareTag("Player"))
             if (gameManager.characterClass == intectableClasses || intectableClasses == Character.BOTH)
-                listener.enabled = false;
+                interactableManager.UnregisterInteractable(this);
         TriggerExit();
     }
 }
