@@ -113,7 +113,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 7886b82139adb104fbbd94814406f791, type: 2}
+  - {fileID: 2100000, guid: a0b218ef66ea0eb4ca40e1e63f16fa9d, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -356,7 +356,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 21f2cc3f1e383b54f8e76ad01335f529, type: 2}
+  - {fileID: 2100000, guid: 222049136444e5b4490e634bfac6d698, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -825,6 +825,30 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 0.7990096
       objectReference: {fileID: 0}
+    - target: {fileID: 5182563335486321664, guid: 9be5450ba2cc5b9469cabc9b2a926128,
+        type: 3}
+      propertyPath: scalingMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6241095861548231106, guid: 9be5450ba2cc5b9469cabc9b2a926128,
+        type: 3}
+      propertyPath: scalingMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5182563335613494470, guid: 9be5450ba2cc5b9469cabc9b2a926128,
+        type: 3}
+      propertyPath: CollisionModule.collidesWith.m_Bits
+      value: 7479
+      objectReference: {fileID: 0}
+    - target: {fileID: 5182563335613494470, guid: 9be5450ba2cc5b9469cabc9b2a926128,
+        type: 3}
+      propertyPath: scalingMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 691203888, guid: 9be5450ba2cc5b9469cabc9b2a926128, type: 3}
+      propertyPath: scalingMode
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5182563335486321666, guid: 9be5450ba2cc5b9469cabc9b2a926128,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -840,44 +864,20 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 10b623f88a6947b458d510dc9802ccb9, type: 2}
-    - target: {fileID: 5182563335486321664, guid: 9be5450ba2cc5b9469cabc9b2a926128,
-        type: 3}
-      propertyPath: scalingMode
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 6241095861548231117, guid: 9be5450ba2cc5b9469cabc9b2a926128,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 10b623f88a6947b458d510dc9802ccb9, type: 2}
-    - target: {fileID: 6241095861548231106, guid: 9be5450ba2cc5b9469cabc9b2a926128,
-        type: 3}
-      propertyPath: scalingMode
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 5182563335613494471, guid: 9be5450ba2cc5b9469cabc9b2a926128,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 10b623f88a6947b458d510dc9802ccb9, type: 2}
-    - target: {fileID: 5182563335613494470, guid: 9be5450ba2cc5b9469cabc9b2a926128,
-        type: 3}
-      propertyPath: CollisionModule.collidesWith.m_Bits
-      value: 7479
-      objectReference: {fileID: 0}
-    - target: {fileID: 5182563335613494470, guid: 9be5450ba2cc5b9469cabc9b2a926128,
-        type: 3}
-      propertyPath: scalingMode
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 691203887, guid: 9be5450ba2cc5b9469cabc9b2a926128, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 10b623f88a6947b458d510dc9802ccb9, type: 2}
-    - target: {fileID: 691203888, guid: 9be5450ba2cc5b9469cabc9b2a926128, type: 3}
-      propertyPath: scalingMode
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9be5450ba2cc5b9469cabc9b2a926128, type: 3}
 --- !u!1 &4289771376437607116 stripped

@@ -24,7 +24,7 @@ MonoBehaviour:
   skill1: 49
   skill2: 50
   item1: 51
-  item2: 52
+  item2: 0
   interactEvent: {fileID: 11400000, guid: 007752841372dfb4bb04e4b1e2ab2c43, type: 2}
   confirmEvent: {fileID: 11400000, guid: 8b3bafe04561ca240b903312bdfc356c, type: 2}
   skill1Event: {fileID: 11400000, guid: 5edf41fe69122b146ba59e030393d944, type: 2}
