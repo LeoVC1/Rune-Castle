@@ -67,6 +67,11 @@ public class PlayerSkill : MonoBehaviour
                 }
             }
         }
+        else
+        {
+            waitingConfirmation = !waitingConfirmation;
+            inputManager.isCastingSpell = waitingConfirmation;
+        }
     }
 
    public IEnumerator Cooldown()
