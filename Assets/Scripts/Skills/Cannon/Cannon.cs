@@ -12,15 +12,15 @@ public class Cannon : Interactable
         Instantiate(projectil, transform.position + new Vector3(0.5f, 0.5f, 0), transform.rotation);
     }
 
-    public override void TriggerEnter()
-    {
-        base.TriggerEnter();
-        lineRenderer.enabled = true;
-    }
+    //public override void TriggerEnter()
+    //{
+    //    base.TriggerEnter();
+    //    lineRenderer.enabled = true;
+    //}
 
-    public override void TriggerExit()
-    {
-        base.TriggerExit();
-        lineRenderer.enabled = false;
-    }
+    //public override void TriggerExit()
+    //{
+    //    base.TriggerExit();
+    //    lineRenderer.enabled = false;
+    //}
 }

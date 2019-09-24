@@ -7,9 +7,30 @@ public class Rune : Interactable
     [Header("Managers:")]
     public InventoryManager inventoryManager;
 
+    public GameObject particles;
+    public GameObject rune;
+
+    Rigidbody rb;
+
+    public override void Start()
+    {
+        base.Start();
+        rb = GetComponent<Rigidbody>();
+    }
+
     public void GetRune()
     {
         
+    }
+
+    public override void TriggerEnter(Collider other)
+    {
+        base.TriggerEnter(other);
+        if (other.gameObject.layer == 8)
+        {
+            rb.isKinematic = true;
+            particles.SetActive(true);
+        }
     }
 }
 

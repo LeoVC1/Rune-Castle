@@ -37,16 +37,16 @@ public class Interactable : MonoBehaviour
         canvas.SetActive(false);
     }
 
-    public virtual void TriggerEnter() { }
+    public virtual void TriggerEnter(Collider other) { }
 
-    public virtual void TriggerExit() { }
+    public virtual void TriggerExit(Collider other) { }
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
             if (gameManager.characterClass == intectableClasses || intectableClasses == Character.BOTH)
                 interactableManager.RegisterInteractable(this);
-        TriggerEnter();
+        TriggerEnter(other);
     }
 
     private void OnTriggerExit(Collider other)
@@ -54,6 +54,6 @@ public class Interactable : MonoBehaviour
         if (other.CompareTag("Player"))
             if (gameManager.characterClass == intectableClasses || intectableClasses == Character.BOTH)
                 interactableManager.UnregisterInteractable(this);
-        TriggerExit();
+        TriggerExit(other);
     }
 }
