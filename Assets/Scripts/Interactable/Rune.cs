@@ -10,6 +10,8 @@ public class Rune : Interactable
     public GameObject particles;
     public GameObject rune;
 
+    public int runeID;
+
     Rigidbody rb;
 
     public override void Start()

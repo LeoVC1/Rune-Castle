@@ -4,11 +4,10 @@ using UnityEngine;
 
 public class RuneFont : Interactable
 {
-    public InventoryManager inventoryManager;
+    public RuneInventoryManager runeManager;
 
     [Space]
     public GameObject[] runes;
-    public Item[] runesProperties;
     public Transform runeSpawnPoint;
     public GameEvent onGetNewRune;
 
@@ -55,8 +54,7 @@ public class RuneFont : Interactable
 
     private void UpdateInventory()
     {
-        onGetNewRune.Raise();
-        inventoryManager.AddItem(runesProperties[number.Value]);
+        runeManager.AddRune(number.Value);
         number.Value = -1;
         Destroy(activeRune);
         activeRune = null;
@@ -74,9 +72,12 @@ public class RuneFont : Interactable
 
     public override void ActivateInteraction()
     {
-        base.ActivateInteraction();
-        activated = true;
-        ActivateCanvas();
+        if (runeManager.CanGetRune(number.Value))
+        {
+            base.ActivateInteraction();
+            activated = true;
+            ActivateCanvas();
+        }
     }
 
     public override void DesactivateInteraction()

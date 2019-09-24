@@ -28892,7 +28892,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4352122895587169943}
   m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 0.169, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4352122896035198922}
@@ -33671,7 +33671,7 @@ ParticleSystemRenderer:
   m_ApplyActiveColorSpace: 1
   m_AllowRoll: 1
   m_VertexStreams: 00010304
-  m_Mesh: {fileID: 6264829698390748322, guid: 997aa6906bac56c40baa7da1ebf87c99, type: 3}
+  m_Mesh: {fileID: 6264829698390748322, guid: a36ceb04c3982e84a8814ba6412fa46e, type: 3}
   m_Mesh1: {fileID: 0}
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
@@ -53156,7 +53156,7 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 12
+      scalar: 17
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -62777,8 +62777,8 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 3
-      scalar: 6.5
-      minScalar: 6
+      scalar: 8.5
+      minScalar: 8
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -72139,7 +72139,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4352122897076480396}
   m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 0.306, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4352122895692478578}
@@ -76918,7 +76918,7 @@ ParticleSystemRenderer:
   m_ApplyActiveColorSpace: 1
   m_AllowRoll: 1
   m_VertexStreams: 00010304
-  m_Mesh: {fileID: 6264829698390748322, guid: 997aa6906bac56c40baa7da1ebf87c99, type: 3}
+  m_Mesh: {fileID: 6264829698390748322, guid: a36ceb04c3982e84a8814ba6412fa46e, type: 3}
   m_Mesh1: {fileID: 0}
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}

@@ -12,4 +12,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c64c20b6ebcb2d43be343e5dba75cd4, type: 3}
   m_Name: InventoryManager
   m_EditorClassIdentifier: 
-  itens: []
+  itens:
+  - {fileID: 11400000, guid: 17f9a9dee99eddd41b9a87feb62193a5, type: 2}
+  runes: 
+  onGetNewRune: {fileID: 0}
+  allSequencies:
+  - name: Mana Effect
+    combos: 
+  - name: 
+    combos: 
+  - name: 
+    combos: 
+  - name: 
+    combos: 
+  - name: 
+    combos: 

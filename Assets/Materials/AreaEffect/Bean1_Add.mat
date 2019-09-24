@@ -8,7 +8,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Bean1_Add
-  m_Shader: {fileID: -6465566751694194690, guid: 875def59469892e409f029109b29dc3c,
+  m_Shader: {fileID: -6465566751694194690, guid: 20b1243bf020f9f4eba17f70a00f4af2,
     type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4

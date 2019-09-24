@@ -16,8 +16,8 @@ public class Interactable : MonoBehaviour
     public virtual void Start()
     {
         listener = GetComponent<GameEventListener>();
-        listener.enabled = false;
         canvas = GetComponentInChildren<Canvas>(true).gameObject;
+        DesactivateInteraction();
     }
 
     public void InteractionResponseTest()
