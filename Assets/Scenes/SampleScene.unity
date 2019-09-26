@@ -43265,8 +43265,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inputManager: {fileID: 11400000, guid: 10443ec4fe1d96b4fa96b66cbb70b889, type: 2}
   camT: {fileID: 963194228}
-  speed: 400
-  runSpeed: 800
+  speed: 500
+  runSpeed: 1000
   isRunning: 0
   layerMask:
     serializedVersion: 2
