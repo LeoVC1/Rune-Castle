@@ -11,13 +11,13 @@ GameObject:
   - component: {fileID: 3281469271894257659}
   - component: {fileID: 3281469271894257657}
   - component: {fileID: 3281469271894257658}
-  m_Layer: 9
+  m_Layer: 15
   m_Name: Particles
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &3281469271894257659
 Transform:
   m_ObjectHideFlags: 0
@@ -4766,7 +4766,7 @@ ParticleSystemRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 7da9250b0f492f24f85a15db8a0683b2, type: 2}
+  - {fileID: 2100000, guid: 10b623f88a6947b458d510dc9802ccb9, type: 2}
   - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
@@ -4821,7 +4821,7 @@ GameObject:
   - component: {fileID: 3281469272357904926}
   - component: {fileID: 3281469272357904924}
   - component: {fileID: 3281469272357904925}
-  m_Layer: 9
+  m_Layer: 15
   m_Name: Beam
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6172,7 +6172,7 @@ ParticleSystem:
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
-        key1: {r: 1, g: 1, b: 1, a: 0}
+        key1: {r: 0, g: 0, b: 0, a: 0}
         key2: {r: 0, g: 0, b: 0, a: 0}
         key3: {r: 0, g: 0, b: 0, a: 0}
         key4: {r: 0, g: 0, b: 0, a: 0}
@@ -9576,7 +9576,7 @@ ParticleSystemRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 7da9250b0f492f24f85a15db8a0683b2, type: 2}
+  - {fileID: 2100000, guid: 10b623f88a6947b458d510dc9802ccb9, type: 2}
   - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
@@ -9629,7 +9629,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5433132046188745689}
-  m_Layer: 9
+  m_Layer: 15
   m_Name: vfx_Muzzle_Fire_v1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9664,7 +9664,7 @@ GameObject:
   - component: {fileID: 5433132046471057030}
   - component: {fileID: 5433132046471057024}
   - component: {fileID: 5433132046471057031}
-  m_Layer: 9
+  m_Layer: 15
   m_Name: Muzzle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9768,8 +9768,8 @@ ParticleSystem:
     startLifetime:
       serializedVersion: 2
       minMaxState: 3
-      scalar: 0.3
-      minScalar: 0.2
+      scalar: 0.15
+      minScalar: 0.1
       maxCurve:
         serializedVersion: 2
         m_Curve:

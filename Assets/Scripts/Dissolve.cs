@@ -13,7 +13,7 @@ public class Dissolve : MonoBehaviour
         Invoke("StartLerp", delayTime);
     }
 
-    void StartLerp()
+    public void StartLerp()
     {
         StartCoroutine(LerpMaterial());
     }

@@ -15,12 +15,13 @@ public class MageBasicAttack : MonoBehaviour
     private AimIK playerIK;
     private FBIKBoxing handIK;
     private Animator anim;
+    private SpawnProjectilesScript spawnProjectiles;
 
     [Header("References:")]
     public MageAttackPoint point;
     public CameraCollision pointCollision;
     public Transform head;
-    public GameObject pSystem;
+    public GameObject VFX;
 
     [Header("Properties:")]
     public LayerMask layerMask;
@@ -37,6 +38,7 @@ public class MageBasicAttack : MonoBehaviour
         playerMovement = GetComponent<PlayerMovement>();
         playerIK = GetComponent<AimIK>();
         handIK = GetComponent<FBIKBoxing>();
+        spawnProjectiles = GetComponent<SpawnProjectilesScript>();
         OnChangeClass();
     }
 
@@ -65,22 +67,8 @@ public class MageBasicAttack : MonoBehaviour
 
     public void EmitParticle()
     {
-        Vector3 hitPoint = Vector3.zero;
-
-        Ray ray = Camera.main.ScreenPointToRay(new Vector2(Screen.width / 2, Screen.height / 2));
-
-        if (Physics.Raycast(ray, out RaycastHit hit, 1000, layerMask, QueryTriggerInteraction.Ignore))
-        {
-            hitPoint = hit.point;
-        }
-        else
-        {
-            hitPoint = Camera.main.transform.position + Camera.main.transform.forward * 100;
-        }
-
-        GameObject particle = Instantiate(pSystem, pointCollision.transform.position, Quaternion.identity);
-
-        particle.transform.forward = hitPoint - particle.transform.position;
+        GameObject vfx = Instantiate(VFX, pointCollision.transform.position, Quaternion.identity);
+        vfx.transform.forward = pointCollision.transform.forward;
     }
 
     void SetWeight()

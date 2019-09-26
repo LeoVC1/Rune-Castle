@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3916625559898272273}
   - component: {fileID: 3916625559898272275}
   - component: {fileID: 3916625559898272272}
-  m_Layer: 9
+  m_Layer: 15
   m_Name: Impact
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1371,7 +1371,7 @@ ParticleSystem:
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
-        key1: {r: 1, g: 1, b: 1, a: 0}
+        key1: {r: 0, g: 0, b: 0, a: 0}
         key2: {r: 0, g: 0, b: 0, a: 0}
         key3: {r: 0, g: 0, b: 0, a: 0}
         key4: {r: 0, g: 0, b: 0, a: 0}
@@ -4793,8 +4793,8 @@ ParticleSystemRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -1466417117
+  m_SortingLayer: 1
   m_SortingOrder: 0
   m_RenderMode: 0
   m_SortMode: 0
@@ -4830,7 +4830,7 @@ GameObject:
   - component: {fileID: 3916625560296734140}
   - component: {fileID: 3916625560296734142}
   - component: {fileID: 3916625560296734143}
-  m_Layer: 9
+  m_Layer: 15
   m_Name: Shockwave
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4934,7 +4934,7 @@ ParticleSystem:
     startLifetime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0.3
+      scalar: 0.2
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -9603,8 +9603,8 @@ ParticleSystemRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -1466417117
+  m_SortingLayer: 1
   m_SortingOrder: 0
   m_RenderMode: 0
   m_SortMode: 0
@@ -9640,7 +9640,7 @@ GameObject:
   - component: {fileID: 3916625561313207306}
   - component: {fileID: 3916625561313207308}
   - component: {fileID: 3916625561313207309}
-  m_Layer: 9
+  m_Layer: 15
   m_Name: Particles
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9850,8 +9850,8 @@ ParticleSystem:
     startColor:
       serializedVersion: 2
       minMaxState: 2
-      minColor: {r: 0.7921569, g: 0.18430085, b: 0.01960786, a: 0.4117647}
-      maxColor: {r: 0.7921569, g: 0.551036, b: 0.01960786, a: 0.44705883}
+      minColor: {r: 0.8584906, g: 0.33914942, b: 0.19842473, a: 0.4117647}
+      maxColor: {r: 0.9056604, g: 0.63713264, b: 0.03844783, a: 0.44705883}
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
@@ -10991,7 +10991,7 @@ ParticleSystem:
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
-        key1: {r: 1, g: 1, b: 1, a: 1}
+        key1: {r: 0, g: 0, b: 0, a: 1}
         key2: {r: 0, g: 0, b: 0, a: 0}
         key3: {r: 0, g: 0, b: 0, a: 0}
         key4: {r: 0, g: 0, b: 0, a: 0}
@@ -14395,7 +14395,7 @@ ParticleSystemRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 7da9250b0f492f24f85a15db8a0683b2, type: 2}
+  - {fileID: 2100000, guid: 10b623f88a6947b458d510dc9802ccb9, type: 2}
   - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
@@ -14413,8 +14413,8 @@ ParticleSystemRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -1466417117
+  m_SortingLayer: 1
   m_SortingOrder: 0
   m_RenderMode: 1
   m_SortMode: 0
@@ -14448,7 +14448,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5866232022098020732}
-  m_Layer: 9
+  m_Layer: 15
   m_Name: vfx_Hit_Fire_v1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14484,7 +14484,7 @@ GameObject:
   - component: {fileID: 5866232023450469838}
   - component: {fileID: 5866232023450469836}
   - component: {fileID: 5866232023450469837}
-  m_Layer: 9
+  m_Layer: 15
   m_Name: Beam
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -19239,7 +19239,7 @@ ParticleSystemRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 7da9250b0f492f24f85a15db8a0683b2, type: 2}
+  - {fileID: 2100000, guid: 10b623f88a6947b458d510dc9802ccb9, type: 2}
   - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
@@ -19257,8 +19257,8 @@ ParticleSystemRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -1466417117
+  m_SortingLayer: 1
   m_SortingOrder: 0
   m_RenderMode: 0
   m_SortMode: 0
