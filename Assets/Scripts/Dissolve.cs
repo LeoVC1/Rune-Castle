@@ -4,13 +4,27 @@ using UnityEngine;
 
 public class Dissolve : MonoBehaviour
 {
-    private Material dissolveMaterial;
+    private Material[] dissolveMaterials;
+    public bool dissolveInStart;
+    public RendererMaterial rendererType;
     public float delayTime;
 
     private void Start()
     {
-        dissolveMaterial = GetComponent<ParticleSystemRenderer>().material;
-        Invoke("StartLerp", delayTime);
+        switch (rendererType)
+        {
+            case RendererMaterial.MESH:
+                dissolveMaterials = GetComponent<MeshRenderer>().materials;
+                break;
+            case RendererMaterial.PARTICLE:
+                dissolveMaterials = GetComponent<ParticleSystemRenderer>().materials;
+                break;
+            default:
+                dissolveMaterials = GetComponent<MeshRenderer>().materials;
+                break;
+        }
+        if (dissolveInStart)
+            Invoke("StartLerp", delayTime);
     }
 
     public void StartLerp()
@@ -22,11 +36,20 @@ public class Dissolve : MonoBehaviour
     {
         float t = -1;
 
-        while(t <= 1)
+        while (t <= 1)
         {
-            dissolveMaterial.SetFloat("_Dissolve", t += Time.deltaTime);
+            foreach (Material material in dissolveMaterials)
+            {
+                material.SetFloat("_Dissolve", t += Time.deltaTime);
+            }
 
             yield return null;
         }
     }
+}
+
+public enum RendererMaterial
+{
+    MESH,
+    PARTICLE
 }
