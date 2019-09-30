@@ -14,7 +14,7 @@ public class Enemy : MonoBehaviour
 
     private GameObject _target;
     private NavMeshAgent _agent;
-    private float myHealth;
+    public float myHealth;
 
     public float deathAnimationTime;
     private bool dead;
@@ -27,12 +27,6 @@ public class Enemy : MonoBehaviour
 
     void Update()
     {
-        if (myHealth <= 0 && !dead)
-        {
-            OnDeath();
-            dead = true;
-            return;
-        }
 
         if (dead)
             return;
@@ -61,10 +55,17 @@ public class Enemy : MonoBehaviour
         //SetTarget(enemyTarget.GetNewTarget(transform.position));
     }
 
-    public void ReceiveDamage(int damage)
+    public bool ReceiveDamage(int damage)
     {
         myHealth -= damage;
-        print("Damage: " + damage + "/Health: " + myHealth);
+        if (myHealth <= 0 && !dead)
+        {
+            OnDeath();
+            dead = true;
+            return true;
+        }
+        else
+            return false;
     }
 
     public void SetTarget(GameObject newTarget)

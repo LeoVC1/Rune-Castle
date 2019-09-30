@@ -1,0 +1,117 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class Totem : PlayerSkill
+{
+    [Header("Totem Properties:")]
+    public GridManager gridManager;
+    public GameObject totemPrefab;
+    public GameObject totemPreview;
+    public GameEventListener listener;
+    public LayerMask layerMask;
+
+    private GameObject totemPreviewInstance;
+    private Transform totemRangeInstance;
+    private Vector3 totemLocation;
+
+    [Header("Animation Properties:")]
+    public string animationParameter;
+
+    private void Update()
+    {
+        WaitingConfirmation();
+    }
+
+    public override void CastSkill()
+    {
+        if (this.enabled)
+        {
+            (Vector3 newPosition, Vector3 ID) = gridManager.GetClosestPoint(/*transform.position + transform.forward * gridManager.cellSize*/GetMousePosition());
+            if (!gridManager.UsingID(ID))
+            {
+                DestroyPreview();
+
+                //mainResource.Value -= resourceCost;
+                //StartCoroutine(Cooldown());
+
+                //onCooldownStart.Raise();
+
+                Animate();
+
+                inputManager.FreezeCamera();
+                inputManager.LockMovement();
+
+                GameObject totem = Instantiate(totemPrefab);
+                totem.transform.position = newPosition;
+                gridManager.SetID(ID);
+            }
+        }
+    }
+
+    public override void WaitingConfirmation()
+    {
+        if (waitingConfirmation)
+        {
+            listener.enabled = true;
+            if (totemPreviewInstance == null)
+            {
+                totemPreviewInstance = Instantiate(totemPreview);
+                totemPreviewInstance.transform.position = GetMousePosition();
+                totemPreviewInstance.transform.localScale = new Vector3(gridManager.cellSize, gridManager.cellSize, gridManager.cellSize);
+            }
+            else
+            {
+                (Vector3 newPosition, Vector3 ID) = gridManager.GetClosestPoint(GetMousePosition());
+                if (!gridManager.UsingID(ID))
+                    totemPreviewInstance.transform.position = newPosition;
+            }
+        }
+        else
+        {
+            listener.enabled = false;
+            if (totemPreviewInstance != null)
+            {
+                Destroy(totemPreviewInstance);
+                totemPreviewInstance = null;
+            }
+        }
+    }
+
+    public void DestroyPreview()
+    {
+        Destroy(totemPreviewInstance);
+        totemPreviewInstance = null;
+        totemRangeInstance = null;
+        waitingConfirmation = false;
+    }
+
+    private void Animate()
+    {
+        anim.SetTrigger(animationParameter);
+    }
+
+    public void OnAnimationEnd()
+    {
+        inputManager.UnfreezeCamera();
+        inputManager.UnlockMovement();
+        inputManager.isCastingSpell = false;
+        EnableOtherSkills(true);
+    }
+
+    private Vector3 GetMousePosition()
+    {
+        Vector3 mousePosition = Vector3.zero;
+        Ray ray = Camera.main.ScreenPointToRay(new Vector2(Screen.width / 2, Screen.height / 2));
+        RaycastHit hit;
+        if (Physics.Raycast(ray, out hit, Mathf.Infinity, layerMask))
+        {
+            if (hit.collider)
+            {
+                mousePosition = hit.point;
+            }
+        }
+        return mousePosition;
+    }
+
+}

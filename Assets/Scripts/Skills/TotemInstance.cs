@@ -1,84 +1,64 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DigitalRuby.LightningBolt;
 
 public class TotemInstance : MonoBehaviour
 {
     public SpawnerController spawnerController;
 
-    Vector3 idleTarget;
-    Vector3 idleDirection;
-
-    Rigidbody rb;
-    LineRenderer lr;
     Enemy myEnemy;
-
-    public Vector3 offset;
+    LightningBoltScript lightningBolt;
+    Animator anim;
 
     [Space]
     [Header("Properties:")]
     public int damage;
     public float distance;
-    public float recoilPower;
     public float lifeTime;
-    public float forcePower;
-    [Range(0.2f, 5)] public float cooldown;
-
-    [Header("Particles:")]
-    public GameObject loopingSparks;
-    public GameObject explosionSparks;
-    public GameObject smokeParticles;
+    [Range(0f, 5)] public float cooldown;
 
     [Header("GameObject References:")]
+    public GameObject blackhole;
     public GameObject _parent;
     public GameObject _base;
-    private Dissolve _myDissolve;
-    private Dissolve _baseDissolve;
 
-    private bool _lockRotation;
+    [Header("Sounds:")]
+    public AudioSource idleSound;
+    public AudioSource attackSound;
+    public AudioClip[] attackClip;
+
     private float lifeTimer = 0;
     private float cooldownTimer;
     private bool onTarget;
-    private bool onShooting;
     private bool isDead;
+    private bool awaked;
 
     private void Start()
     {
-        rb = GetComponent<Rigidbody>();
-        lr = GetComponent<LineRenderer>();
-        _myDissolve = GetComponent<Dissolve>();
-        _baseDissolve = _base.GetComponent<Dissolve>();
+        anim = GetComponent<Animator>();
+        lightningBolt = GetComponentInChildren<LightningBoltScript>();
         StartCoroutine(TryToAttack());
         StartCoroutine(LifeTimer());
+        Invoke("Awaked", 1.2f);
     }
 
     private void Update()
     {
+        if (!awaked)
+            return;
+
         if (isDead)
             return;
 
-        (Transform target, float _distance) = spawnerController.GetClosestEnemy(transform);
-        if (target && _distance < distance)
+        if(myEnemy == null)
         {
-            RotateToEnemy(target);
-            onTarget = true;
+            (Transform target, float _distance) = spawnerController.GetClosestEnemy(transform);
+            if (target && _distance < distance)
+            {
+                OnGetTarget(target);
+            }
         }
-        else if (!_lockRotation)
-        {
-            RotateToIdle();
-            onTarget = false;
-        }
-        else if (onShooting)
-        {
-            onShooting = false;
-            RotateToIdle();
-        }
-        else
-        {
-            transform.forward = -(Vector3.Slerp(-transform.forward, idleDirection, 0.03f));
-            onTarget = false;
-        }
-        DrawLaser();
     }
 
     IEnumerator TryToAttack()
@@ -108,129 +88,39 @@ public class TotemInstance : MonoBehaviour
         }
         DeathAnimation();
     }
-    IEnumerator Failing()
-    {
-        float shakeTime = 0;
-
-        Vector3 minShake = transform.localEulerAngles + Vector3.one * -7.5f;
-        Vector3 maxShake = transform.localEulerAngles + Vector3.one * 7.5f;
-
-        loopingSparks.SetActive(true);
-
-        while (shakeTime < 1)
-        {
-            transform.localEulerAngles = new Vector3(Random.Range(minShake.x, maxShake.x), Random.Range(minShake.y, maxShake.y), Random.Range(minShake.z, maxShake.z));
-            shakeTime += Time.deltaTime;
-            yield return new WaitForEndOfFrame();
-        }
-
-        Explosion();
-    }
 
     void Attack()
     {
         if (myEnemy)
         {
-            myEnemy.ReceiveDamage(damage);
-            RecoilAnimation(myEnemy.transform);
-        }
-    }
+            //attackSound.clip = attackClip[Random.Range(0, attackClip.Length)];
+            //attackSound.Play();
+            attackSound.PlayOneShot(attackClip[Random.Range(0, attackClip.Length)]);
 
-    void RecoilAnimation(Transform _target)
-    {
-        Vector3 direction = _target.position + new Vector3(0, recoilPower, 0) - transform.position;
-        transform.forward = -(Vector3.Slerp(-transform.forward, direction, 0.8f));
-        onShooting = true;
+            lightningBolt.Trigger();
+            if (myEnemy.ReceiveDamage(damage))
+                myEnemy = null;
+        }
     }
 
     void DeathAnimation()
     {
         isDead = true;
-
+        anim.SetBool("isDead", true);
+        blackhole.SetActive(true);
+        Destroy(_parent, 1.6f);
         StopAllCoroutines();
-
-        Destroy(lr);
-
-        StartCoroutine(Failing());
     }
 
-    void Explosion()
+    void OnGetTarget(Transform _target)
     {
-        explosionSparks.SetActive(true);
-        loopingSparks.SetActive(false);
-
-        rb.isKinematic = false;
-        rb.AddForce(new Vector3(Random.Range(-45, 45), 45, Random.Range(-45, 45)) * forcePower, ForceMode.Impulse);
-        rb.AddTorque(new Vector3(Random.Range(-45, 45), 45, Random.Range(-45, 45)) * forcePower, ForceMode.Impulse);
-
-        Invoke("ChangeMaterial", 1f);
+        lightningBolt.EndObject = _target.gameObject;
+        myEnemy = _target.gameObject.GetComponent<Enemy>();
     }
 
-    void ChangeMaterial()
+    void Awaked()
     {
-        _myDissolve.StartLerp();
-        _baseDissolve.StartLerp();
-        DestroyObject();
-    }
-
-    void DestroyObject()
-    {
-        smokeParticles.SetActive(false);
-        Destroy(_parent, 2f);
-    }
-
-    void RotateToEnemy(Transform _target)
-    {
-        Vector3 direction = _target.position - transform.position;
-        direction.y = transform.forward.y;
-        transform.forward = -(Vector3.Slerp(-transform.forward, direction, 0.1f));
-    }
-
-    void RotateToIdle()
-    {
-        _lockRotation = true;
-
-        idleTarget = new Vector3(Random.Range(-360, 360), 0, Random.Range(-360, 360));
-        idleDirection = idleTarget - transform.position;
-        idleDirection.y = transform.forward.y;
-
-        Invoke("Timer", Random.Range(1f, 2.5f));
-    }
-
-    void Timer()
-    {
-        _lockRotation = false;
-    }
-
-    void DrawLaser()
-    {
-        lr.SetPosition(0, transform.position - new Vector3(offset.x, offset.y, offset.z));
-        RaycastHit hit;
-        if (onTarget)
-        {
-            lr.enabled = true;
-            if (Physics.Raycast(transform.position, -transform.forward, out hit))
-            {
-                if (hit.collider)
-                {
-                    lr.SetPosition(1, hit.point);
-                    myEnemy = hit.collider.GetComponentInChildren<Enemy>();
-                }
-            }
-            else
-            {
-                lr.SetPosition(1, -transform.forward * 5000);
-                myEnemy = null;
-            }
-        }
-        else
-        {
-            lr.enabled = false;
-        }
-    }
-
-    public void SetDistance(float _distance)
-    {
-        distance = _distance;
+        awaked = true;
+        idleSound.Play();
     }
 }

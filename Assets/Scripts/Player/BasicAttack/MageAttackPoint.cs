@@ -31,6 +31,8 @@ public class MageAttackPoint : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        RotateToForward();
+
         if (inputManager.isCameraFreezed)
             return;
 

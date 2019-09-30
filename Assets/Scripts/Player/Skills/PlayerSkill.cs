@@ -1,5 +1,4 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerSkill : MonoBehaviour
@@ -26,9 +25,11 @@ public class PlayerSkill : MonoBehaviour
 
     public PlayerAnimation anim;
 
+    public PlayerSkill[] otherSkills;
     public void Start()
     {
         anim = GetComponent<PlayerAnimation>();
+        otherSkills = GetComponents<PlayerSkill>();
     }
 
     public void TryToCast()
@@ -36,18 +37,7 @@ public class PlayerSkill : MonoBehaviour
         if (gameManager.characterClass != classSkill)
             return;
 
-        //if (useCooldown && !onCooldown)
-        //{
-        //    if (isInstant)
-        //    {
-        //        CastSkill();
-        //    }
-        //    else
-        //    {
-        //        waitingConfirmation = !waitingConfirmation;
-        //        inputManager.isCastingSpell = waitingConfirmation;
-        //    }
-        //}
+        CancelOtherSkills();
 
         if (useResource)
         {
@@ -71,6 +61,27 @@ public class PlayerSkill : MonoBehaviour
         {
             waitingConfirmation = !waitingConfirmation;
             inputManager.isCastingSpell = waitingConfirmation;
+        }
+        EnableOtherSkills(!waitingConfirmation);
+    }
+
+    public void CancelOtherSkills()
+    {
+        foreach(PlayerSkill skill in otherSkills)
+        {
+            if (skill.waitingConfirmation && skill != this)
+            {
+                skill.TryToCast();
+            }
+        }
+    }
+
+    public void EnableOtherSkills(bool value)
+    {
+        foreach(PlayerSkill skill in otherSkills)
+        {
+            if(skill != this)
+                skill.enabled = value;
         }
     }
 

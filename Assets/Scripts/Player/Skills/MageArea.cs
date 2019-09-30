@@ -30,14 +30,17 @@ public class MageArea : PlayerSkill
 
     public override void CastSkill()
     {
-        mainResource.Value -= resourceCost;
-        StartCoroutine(Cooldown());
-        onCooldownStart.Raise();
-        DestroyPreview();
-        Animate();
-        inputManager.FreezeCamera();
-        inputManager.LockMovement();
-        GameObject attack = Instantiate(attackParticle, attackPosition, Quaternion.identity);
+        if (this.enabled)
+        {
+            mainResource.Value -= resourceCost;
+            StartCoroutine(Cooldown());
+            onCooldownStart.Raise();
+            DestroyPreview();
+            Animate();
+            inputManager.FreezeCamera();
+            inputManager.LockMovement();
+            GameObject attack = Instantiate(attackParticle, attackPosition, Quaternion.identity);
+        }
     }
 
     public override void WaitingConfirmation()
@@ -93,6 +96,7 @@ public class MageArea : PlayerSkill
         inputManager.UnfreezeCamera();
         inputManager.UnlockMovement();
         inputManager.isCastingSpell = false;
+        EnableOtherSkills(true);
     }
 
     public void DestroyPreview()
