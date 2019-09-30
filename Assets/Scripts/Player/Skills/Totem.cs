@@ -11,6 +11,9 @@ public class Totem : PlayerSkill
     public GameEventListener listener;
     public LayerMask layerMask;
 
+    [Range(1, 30)]
+    public float attackRange;
+
     private GameObject totemPreviewInstance;
     private Transform totemRangeInstance;
     private Vector3 totemLocation;
@@ -27,45 +30,84 @@ public class Totem : PlayerSkill
     {
         if (this.enabled)
         {
-            (Vector3 newPosition, Vector3 ID) = gridManager.GetClosestPoint(/*transform.position + transform.forward * gridManager.cellSize*/GetMousePosition());
-            if (!gridManager.UsingID(ID))
-            {
-                DestroyPreview();
+            //(Vector3 newPosition, Vector3 ID) = gridManager.GetClosestPoint(/*transform.position + transform.forward * gridManager.cellSize*/GetMousePosition());
+            //if (!gridManager.UsingID(ID))
+            //{
+            //    DestroyPreview();
 
-                //mainResource.Value -= resourceCost;
-                //StartCoroutine(Cooldown());
+            //    //mainResource.Value -= resourceCost;
+            //    //StartCoroutine(Cooldown());
 
-                //onCooldownStart.Raise();
+            //    //onCooldownStart.Raise();
 
-                Animate();
+            //    Animate();
 
-                inputManager.FreezeCamera();
-                inputManager.LockMovement();
+            //    inputManager.FreezeCamera();
+            //    inputManager.LockMovement();
 
-                GameObject totem = Instantiate(totemPrefab);
-                totem.transform.position = newPosition;
-                gridManager.SetID(ID);
-            }
+            //    GameObject totem = Instantiate(totemPrefab);
+            //    totem.transform.position = totemLocation;
+            //    //gridManager.SetID(ID);
+            //}
+            DestroyPreview();
+
+            //mainResource.Value -= resourceCost;
+            //StartCoroutine(Cooldown());
+
+            //onCooldownStart.Raise();
+
+            Animate();
+
+            inputManager.FreezeCamera();
+            inputManager.LockMovement();
+
+            GameObject totem = Instantiate(totemPrefab);
+            totem.transform.position = totemLocation;
+            //gridManager.SetID(ID);
         }
     }
 
     public override void WaitingConfirmation()
     {
+        //if (waitingConfirmation)
+        //{
+        //    listener.enabled = true;
+        //    if (totemPreviewInstance == null)
+        //    {
+        //        totemPreviewInstance = Instantiate(totemPreview);
+        //        totemPreviewInstance.transform.position = GetMousePosition();
+        //        totemPreviewInstance.transform.localScale = new Vector3(gridManager.cellSize, gridManager.cellSize, gridManager.cellSize);
+        //    }
+        //    else
+        //    {
+        //        (Vector3 newPosition, Vector3 ID) = gridManager.GetClosestPoint(GetMousePosition());
+        //        if (!gridManager.UsingID(ID))
+        //            totemPreviewInstance.transform.position = newPosition;
+        //    }
+        //}
+        //else
+        //{
+        //    listener.enabled = false;
+        //    if (totemPreviewInstance != null)
+        //    {
+        //        Destroy(totemPreviewInstance);
+        //        totemPreviewInstance = null;
+        //    }
+        //}
         if (waitingConfirmation)
         {
             listener.enabled = true;
+            Vector3 mousePosition = GetMousePosition();
             if (totemPreviewInstance == null)
             {
                 totemPreviewInstance = Instantiate(totemPreview);
-                totemPreviewInstance.transform.position = GetMousePosition();
-                totemPreviewInstance.transform.localScale = new Vector3(gridManager.cellSize, gridManager.cellSize, gridManager.cellSize);
+                totemPreviewInstance.transform.position = mousePosition + Vector3.up * 1.6f;
             }
             else
             {
-                (Vector3 newPosition, Vector3 ID) = gridManager.GetClosestPoint(GetMousePosition());
-                if (!gridManager.UsingID(ID))
-                    totemPreviewInstance.transform.position = newPosition;
+                totemPreviewInstance.transform.position = mousePosition + Vector3.up * 1.6f;
             }
+            totemLocation = totemPreviewInstance.transform.position;
         }
         else
         {

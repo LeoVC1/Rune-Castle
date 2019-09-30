@@ -56,7 +56,7 @@ public class PlayerMovement : MonoBehaviour
         if (moveDir.magnitude > 1)
             moveDir.Normalize();
 
-        Vector3 MoveDirection = new Vector3(moveDir.x * actualSpeed * Time.deltaTime, 0, moveDir.z * actualSpeed * Time.deltaTime);
+        Vector3 MoveDirection = new Vector3(moveDir.x * actualSpeed, 0, moveDir.z * actualSpeed);
 
         
         //rb.velocity = new Vector3(moveDir.x * actualSpeed * Time.deltaTime, rb.velocity.y, moveDir.z * actualSpeed * Time.deltaTime);
