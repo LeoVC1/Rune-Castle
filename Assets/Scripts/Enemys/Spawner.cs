@@ -6,6 +6,8 @@ public class Spawner : MonoBehaviour
 {
     public GameController gameController;
 
+    public TargetObject mainTarget;
+
     public int timeToSpawn;
 
     public int spawnCount;
@@ -41,6 +43,7 @@ public class Spawner : MonoBehaviour
                     for(int i = 0; i < spawnCount; i++)
                     {
                         GameObject newEnemy = Instantiate(enemyPrefabs[Random.Range(0, enemyPrefabs.Length)], transform.position + GetRandomPosition(), Quaternion.identity);
+                        newEnemy.GetComponent<Enemy>().mainTarget = mainTarget;
                         yield return null;
                     }
                     Destroy(gameObject);

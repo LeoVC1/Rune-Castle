@@ -1,18 +1,39 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class TargetObject : MonoBehaviour
 {
-    public EnemyTargetManager enemyTargetManager;
+    public int priority;
 
-    private void OnEnable()
+    public float health;
+
+    public Image healthBar;
+
+    private float maxHealth;
+
+    private void Start()
     {
-        enemyTargetManager.Register(this.gameObject);
+        maxHealth = health;
     }
 
-    private void OnDisable()
+    public bool ReceiveDamage(int damage)
     {
-        enemyTargetManager.Unregister(this.gameObject);
+        health -= damage;
+        healthBar.fillAmount = health / maxHealth;
+        if (health <= 0)
+        {
+            OnDeath();
+            return true;
+        }
+        else
+            return false;
+    }
+
+    private void OnDeath()
+    {
+        //throw new NotImplementedException();
     }
 }

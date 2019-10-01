@@ -20,6 +20,7 @@ public class MageBasicAttack : MonoBehaviour
     [Header("References:")]
     public MageAttackPoint point;
     public CameraCollision pointCollision;
+    public Transform pointTransform;
     public Transform head;
     public GameObject VFX;
 
@@ -80,7 +81,7 @@ public class MageBasicAttack : MonoBehaviour
             hitPoint = Camera.main.transform.position + Camera.main.transform.forward * 100;
         }
 
-        GameObject vfx = Instantiate(VFX, pointCollision.transform.position, Quaternion.identity);
+        GameObject vfx = Instantiate(VFX, pointTransform.position, Quaternion.identity);
 
         vfx.transform.forward = hitPoint - vfx.transform.position;
     }
@@ -120,9 +121,8 @@ public class MageBasicAttack : MonoBehaviour
     }
     public void ResetIK()
     {
-        hitWeight = 0;
-        weight = 0;
-        SetWeight();
+        playerIK.solver.IKPositionWeight = 0;
+        handIK.hitWeight = 0;
     }
 
     public void FinishDelay()
@@ -139,11 +139,9 @@ public class MageBasicAttack : MonoBehaviour
     }
 
     public void LockBasicAttack()
-    {
-        playerIK.enabled = false;
+    { 
         point.enabled = false;
         pointCollision.enabled = false;
-        handIK.enabled = false;
     }
 
     public void UnlockBasicAttack()

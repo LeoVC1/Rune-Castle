@@ -14,7 +14,7 @@ namespace Manager
         void Awake()
         {
             gridManager.Initialize();
-            //enemyTargetManager.Initialize();
+            enemyTargetManager.Initialize();
             interactableManager.Initialize();
             runeManager.Initialize();
         }

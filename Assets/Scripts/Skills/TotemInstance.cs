@@ -5,15 +5,16 @@ using DigitalRuby.LightningBolt;
 
 public class TotemInstance : MonoBehaviour
 {
-    public SpawnerController spawnerController;
+    public LightningBoltScript[] bolts;
 
-    Enemy myEnemy;
-    LightningBoltScript lightningBolt;
-    Animator anim;
+    [SerializeField] private List<Transform> nearbyEnemys = new List<Transform>();
+    [SerializeField] private List<Enemy> aimingEnemys = new List<Enemy>();
+    private Animator anim;
 
     [Space]
     [Header("Properties:")]
     public int damage;
+    public int targets;
     public float distance;
     public float lifeTime;
     [Range(0f, 5)] public float cooldown;
@@ -21,7 +22,6 @@ public class TotemInstance : MonoBehaviour
     [Header("GameObject References:")]
     public GameObject blackhole;
     public GameObject _parent;
-    public GameObject _base;
 
     [Header("Sounds:")]
     public AudioSource idleSound;
@@ -37,13 +37,14 @@ public class TotemInstance : MonoBehaviour
     private void Start()
     {
         anim = GetComponent<Animator>();
-        lightningBolt = GetComponentInChildren<LightningBoltScript>();
         StartCoroutine(TryToAttack());
         StartCoroutine(LifeTimer());
         Invoke("Awaked", 1.2f);
+
+        targets = bolts.Length;
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
         if (!awaked)
             return;
@@ -51,17 +52,33 @@ public class TotemInstance : MonoBehaviour
         if (isDead)
             return;
 
-        if(myEnemy == null)
+        GetNearestTarget();
+
+        if (aimingEnemys.Count > 0)
         {
-            (Transform target, float _distance) = spawnerController.GetClosestEnemy(transform);
-            if (target && _distance < distance)
+            for (int i = aimingEnemys.Count - 1; i >= 0; i--)
             {
-                OnGetTarget(target);
+                OnGetTarget(aimingEnemys[i].transform, bolts[i]);
             }
         }
+
     }
 
-    IEnumerator TryToAttack()
+    //private void UpdateList()
+    //{
+    //    for (int i = nearbyEnemys.Count - 1; i >= 0; i--)
+    //    {
+    //        if (!nearbyEnemys[i])
+    //            nearbyEnemys.Remove(nearbyEnemys[i]);
+    //    }
+    //    for (int i = aimingEnemys.Count - 1; i >= 0; i--)
+    //    {
+    //        if (!aimingEnemys[i])
+    //            aimingEnemys.Remove(aimingEnemys[i]);
+    //    }
+    //}
+
+    private IEnumerator TryToAttack()
     {
         while (true)
         {
@@ -73,13 +90,17 @@ public class TotemInstance : MonoBehaviour
             else
             {
                 cooldownTimer = 0;
-                Attack();
+                for(int i = aimingEnemys.Count - 1; i >= 0; i--)
+                {
+                    Attack(aimingEnemys[i], bolts[i]);
+                }
                 yield return new WaitForSeconds(Time.deltaTime);
             }
             yield return null;
         }
     }
-    IEnumerator LifeTimer()
+
+    private IEnumerator LifeTimer()
     {
         while (lifeTimer < lifeTime)
         {
@@ -89,21 +110,22 @@ public class TotemInstance : MonoBehaviour
         DeathAnimation();
     }
 
-    void Attack()
+    private void Attack(Enemy myEnemy, LightningBoltScript bolt)
     {
+        if (!awaked)
+            return;
+
         if (myEnemy)
         {
-            //attackSound.clip = attackClip[Random.Range(0, attackClip.Length)];
-            //attackSound.Play();
             attackSound.PlayOneShot(attackClip[Random.Range(0, attackClip.Length)]);
 
-            lightningBolt.Trigger();
+            bolt.Trigger();
             if (myEnemy.ReceiveDamage(damage))
-                myEnemy = null;
+                GetNearestTarget();
         }
     }
 
-    void DeathAnimation()
+    private void DeathAnimation()
     {
         isDead = true;
         anim.SetBool("isDead", true);
@@ -112,15 +134,90 @@ public class TotemInstance : MonoBehaviour
         StopAllCoroutines();
     }
 
-    void OnGetTarget(Transform _target)
+    private void OnGetTarget(Transform _target, LightningBoltScript bolt)
     {
-        lightningBolt.EndObject = _target.gameObject;
-        myEnemy = _target.gameObject.GetComponent<Enemy>();
+        bolt.EndObject = _target.gameObject;
     }
 
-    void Awaked()
+    private void Awaked()
     {
         awaked = true;
         idleSound.Play();
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Enemy"))
+        {
+            if (!nearbyEnemys.Contains(other.transform))
+            {
+                nearbyEnemys.Add(other.transform);
+                GetNearestTarget();
+            }
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("Enemy"))
+        {
+            if (nearbyEnemys.Contains(other.transform))
+            {
+                nearbyEnemys.Remove(other.transform);
+                GetNearestTarget();
+            }
+        }
+    }
+
+    private void GetNearestTarget()
+    {
+        if (nearbyEnemys.Count == 0)
+            return;
+
+        aimingEnemys.Clear();
+
+        for (int i = nearbyEnemys.Count - 1, j = 0; i >= 0; i--, j++)
+        {
+            if (!nearbyEnemys[i])
+                nearbyEnemys.Remove(nearbyEnemys[i]);
+        }
+
+        float[] distances = new float[nearbyEnemys.Count];
+
+        for (int i = nearbyEnemys.Count - 1, j = 0; i >= 0; i--, j++)
+        {
+            distances[j] = Vector3.Distance(transform.position, nearbyEnemys[i].position);
+        }
+
+        List<Transform> enemysByDistance = InsertionSort(distances, nearbyEnemys);
+
+        for(int i = 0; i < enemysByDistance.Count; i++)
+        {
+            if (i >= targets)
+                break;
+
+            aimingEnemys.Add(enemysByDistance[i].GetComponent<Enemy>());
+        }
+    }
+
+    private List<Transform> InsertionSort(float[] distances, List<Transform> enemys)
+    {
+        for (var i = 1; i < distances.Length; i++)
+        {
+            Transform aux1 = enemys[i];
+            var aux = distances[i];
+            var j = i - 1;
+
+            while (j >= 0 && distances[j] > aux)
+            {
+                distances[j + 1] = distances[j];
+                enemys[j + 1] = enemys[j];
+                j -= 1;
+            }
+            enemys[j + 1] = aux1;
+            distances[j + 1] = aux;
+        }
+
+        return enemys;
     }
 }

@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class ProjectileMoveScript : MonoBehaviour {
 
+    public int damage;
 	public float speed;
 	[Tooltip("From 0% to 100%")]
 	public float accuracy;
@@ -104,6 +105,10 @@ public class ProjectileMoveScript : MonoBehaviour {
 
 			StartCoroutine (DestroyParticle (0f));
 		}
+        if (co.gameObject.CompareTag("Enemy"))
+        {
+            co.gameObject.GetComponent<Enemy>().ReceiveDamage(damage);
+        }
 	}
 
 	public IEnumerator DestroyParticle (float waitTime) {

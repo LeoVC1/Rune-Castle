@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1732135917226532020}
   - component: {fileID: 1732135917226532022}
   - component: {fileID: 1732135917226532023}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: Sphere
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4822,7 +4822,7 @@ GameObject:
   - component: {fileID: 3784751488881677829}
   - component: {fileID: -1432590514284448322}
   - component: {fileID: -2544914044052506704}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: vfx_PlasmaBall_v1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4864,7 +4864,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 12ba759cd568c0e47a7018ab70867a0d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 30
+  damage: 25
+  speed: 70
   accuracy: 100
   fireRate: 1
   muzzlePrefab: {fileID: 5433132046188745688, guid: 8e25ed8655bb2c1458b57748fa17b468,
@@ -4875,7 +4876,7 @@ MonoBehaviour:
   hitSFX: {fileID: 0}
   trails:
   - {fileID: 3840840174100195552}
-  - {fileID: 2355823290352191508, guid: a5253f4426059b348ab83b2040ec8ae3, type: 3}
+  - {fileID: 1732135917900163070}
 --- !u!135 &-1432590514284448322
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -4916,7 +4917,7 @@ GameObject:
   - component: {fileID: 1732135917243597388}
   - component: {fileID: 1732135917243597390}
   - component: {fileID: 1732135917243597391}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: Circles
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9668,7 +9669,7 @@ GameObject:
   - component: {fileID: 1732135917499093807}
   - component: {fileID: 1732135917499093809}
   - component: {fileID: 1732135917499093806}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: Particles Rays
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14420,7 +14421,7 @@ GameObject:
   - component: {fileID: 1732135917900162945}
   - component: {fileID: 1732135917900162947}
   - component: {fileID: 1732135917900162944}
-  m_Layer: 9
+  m_Layer: 15
   m_Name: Particles Beam
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -19172,7 +19173,7 @@ GameObject:
   - component: {fileID: 1732135918432732989}
   - component: {fileID: 1732135918432732991}
   - component: {fileID: 1732135918432732988}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: Beam Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -23978,7 +23979,7 @@ GameObject:
   - component: {fileID: 1732135918704187265}
   - component: {fileID: 1732135918704187267}
   - component: {fileID: 1732135918704187264}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: Sphere Reverse
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -28788,7 +28789,7 @@ GameObject:
   - component: {fileID: 1732135918851218697}
   - component: {fileID: 1732135918851218699}
   - component: {fileID: 1732135918851218696}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: Flash
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -33598,7 +33599,7 @@ GameObject:
   - component: {fileID: 1732135919074953447}
   - component: {fileID: 1732135919074953449}
   - component: {fileID: 1732135919074953446}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: Beam
   m_TagString: Untagged
   m_Icon: {fileID: 0}
