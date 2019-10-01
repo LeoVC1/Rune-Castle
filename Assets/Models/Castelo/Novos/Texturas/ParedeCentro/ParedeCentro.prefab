@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 5981928218155296515}
   - component: {fileID: 3341410039776091445}
   - component: {fileID: 9035236599537656268}
+  - component: {fileID: 4758407945884750761}
   m_Layer: 0
   m_Name: ParedeCentro
   m_TagString: Untagged
@@ -77,3 +78,17 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!64 &4758407945884750761
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7304642735365870864}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_Mesh: {fileID: 6406631032871165182, guid: 275f456f109a8ad489788d99b2e6ccf0, type: 3}

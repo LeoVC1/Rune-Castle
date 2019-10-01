@@ -52,7 +52,7 @@ public class Enemy : MonoBehaviour
 
     private void GetTarget()
     {
-        //SetTarget(enemyTarget.GetNewTarget(transform.position));
+        SetTarget(enemyTarget.GetNewTarget(transform.position));
     }
 
     public bool ReceiveDamage(int damage)

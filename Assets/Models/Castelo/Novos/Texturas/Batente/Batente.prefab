@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 3607066452166142906}
   - component: {fileID: 5716714363458965900}
   - component: {fileID: 2047255499171409269}
+  - component: {fileID: -16153276297242}
   m_Layer: 0
   m_Name: Batente
   m_TagString: Untagged
@@ -77,3 +78,17 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!64 &-16153276297242
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 312303131729959337}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_Mesh: {fileID: 1127168246706004398, guid: c15a0cf17772c9a4e9f2ac86d7e691dc, type: 3}

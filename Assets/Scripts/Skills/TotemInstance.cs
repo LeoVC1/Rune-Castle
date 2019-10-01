@@ -67,14 +67,14 @@ public class TotemInstance : MonoBehaviour
         {
             if (cooldownTimer < cooldown)
             {
-                cooldownTimer += 0.1f;
-                yield return new WaitForSeconds(0.1f);
+                cooldownTimer += Time.deltaTime;
+                yield return new WaitForSeconds(Time.deltaTime);
             }
             else
             {
                 cooldownTimer = 0;
                 Attack();
-                yield return new WaitForSeconds(0.1f);
+                yield return new WaitForSeconds(Time.deltaTime);
             }
             yield return null;
         }

@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 2124427723203901755}
   - component: {fileID: 6926674203361952525}
   - component: {fileID: 3683086972396224500}
+  - component: {fileID: 6026993614504491833}
   m_Layer: 0
   m_Name: Mercado
   m_TagString: Untagged
@@ -77,3 +78,17 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!64 &6026993614504491833
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3107521241693129512}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_Mesh: {fileID: -4992233350392311390, guid: d918f26fcfca7a0429f0e96591eca208, type: 3}

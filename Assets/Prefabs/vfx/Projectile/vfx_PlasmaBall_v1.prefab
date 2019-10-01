@@ -4869,7 +4869,7 @@ MonoBehaviour:
   fireRate: 1
   muzzlePrefab: {fileID: 5433132046188745688, guid: 8e25ed8655bb2c1458b57748fa17b468,
     type: 3}
-  hitPrefab: {fileID: 5866232022098020733, guid: 3d71d2c895c13a9459e0c2540653b6dc,
+  hitPrefab: {fileID: 5866232022098020733, guid: 331b92128766ace4ea3cef3884769509,
     type: 3}
   shotSFX: {fileID: 0}
   hitSFX: {fileID: 0}

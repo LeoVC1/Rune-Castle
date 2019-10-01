@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 8801640361246457209}
   - component: {fileID: 540066889810495311}
   - component: {fileID: 6071479650126740406}
+  - component: {fileID: 1381002622262391564}
   m_Layer: 0
   m_Name: PilarEscada
   m_TagString: Untagged
@@ -77,3 +78,17 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!64 &1381002622262391564
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5512103159096610666}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_Mesh: {fileID: -9042769120580864293, guid: 30ddaefe5d3ae94439e951dad0b2413f, type: 3}

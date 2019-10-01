@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 4153596357036973960}
   - component: {fileID: 7680889757273973617}
   - component: {fileID: 109559259340803770}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Chao (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}

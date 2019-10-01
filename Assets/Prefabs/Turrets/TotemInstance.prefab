@@ -38859,6 +38859,16 @@ PrefabInstance:
       propertyPath: _parent
       value: 
       objectReference: {fileID: 3587443535031336747}
+    - target: {fileID: 1890482909310559747, guid: 0ae3920c7029f644d9f31c6cac2e88ef,
+        type: 3}
+      propertyPath: lifeTime
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 1890482909310559747, guid: 0ae3920c7029f644d9f31c6cac2e88ef,
+        type: 3}
+      propertyPath: cooldown
+      value: 0.05
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0ae3920c7029f644d9f31c6cac2e88ef, type: 3}
 --- !u!4 &1947676550645940483 stripped
