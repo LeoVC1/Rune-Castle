@@ -17,6 +17,9 @@ public class PlayerInput : MonoBehaviour
         if (Input.GetKeyDown(inputManager.confirmInput[0]) || Input.GetKeyDown(inputManager.confirmInput[1]))
             inputManager.Confirm();
 
+        if (inputManager.isCastingSpell)
+            return;
+
         if (Input.GetKeyDown(inputManager.skill1))
             inputManager.Skill1();
 

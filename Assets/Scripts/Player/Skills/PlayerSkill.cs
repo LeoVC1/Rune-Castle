@@ -52,7 +52,6 @@ public class PlayerSkill : MonoBehaviour
                     else
                     {
                         waitingConfirmation = !waitingConfirmation;
-                        inputManager.isCastingSpell = waitingConfirmation;
                     }
                 }
             }
@@ -60,8 +59,13 @@ public class PlayerSkill : MonoBehaviour
         else
         {
             waitingConfirmation = !waitingConfirmation;
-            inputManager.isCastingSpell = waitingConfirmation;
         }
+
+        if (waitingConfirmation)
+            inputManager.isWaitingConfirmEvent = true;
+        else
+            inputManager.isWaitingConfirmEvent = false;
+
         EnableOtherSkills(!waitingConfirmation);
     }
 

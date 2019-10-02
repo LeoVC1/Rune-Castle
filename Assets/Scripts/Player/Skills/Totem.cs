@@ -30,6 +30,8 @@ public class Totem : PlayerSkill
     {
         if (this.enabled)
         {
+            inputManager.isCastingSpell = true;
+            inputManager.isWaitingConfirmEvent = false;
             //(Vector3 newPosition, Vector3 ID) = gridManager.GetClosestPoint(/*transform.position + transform.forward * gridManager.cellSize*/GetMousePosition());
             //if (!gridManager.UsingID(ID))
             //{
@@ -138,6 +140,7 @@ public class Totem : PlayerSkill
         inputManager.UnfreezeCamera();
         inputManager.UnlockMovement();
         inputManager.isCastingSpell = false;
+        inputManager.canAttack = true;
         EnableOtherSkills(true);
     }
 

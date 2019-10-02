@@ -25,6 +25,8 @@ public class Enemy : MonoBehaviour
 
     private bool dead;
 
+    private bool isAttacking;
+
     void Start()
     {
         _agent = GetComponent<NavMeshAgent>();
@@ -41,24 +43,29 @@ public class Enemy : MonoBehaviour
         else
             _target = mainTarget;
 
-        float distance = Vector3.Distance(transform.position, _target.transform.position);
+        float distance = Vector3.Distance(transform.position, _target.targetPoint.transform.position);
 
         if(distance < enemyData.range)
         {
             _agent.isStopped = true;
-            transform.forward = _target.transform.position - transform.position;
-            InvokeRepeating("Attack", 0, 1);
+            transform.forward = _target.targetPoint.transform.position - transform.position;
+            if (!isAttacking)
+            {
+                isAttacking = true;
+                InvokeRepeating("Attack", 0, 4);
+            }
             if (anim)
                 anim.SetTrigger("Attack");
         }
         else
         {
+            isAttacking = false;
             _agent.isStopped = false;
             CancelInvoke("Attack");
         }
 
         if (_target)
-            _agent.destination = _target.transform.position;
+            _agent.destination = _target.targetPoint.transform.position;
     }
 
     private void GetTarget()
@@ -76,7 +83,11 @@ public class Enemy : MonoBehaviour
 
     public void Attack()
     {
-        _target.ReceiveDamage(enemyData.damage);
+        if(_target.ReceiveDamage(enemyData.damage))
+        {
+            nearbyTargets.Remove(_target);
+            GetTarget();
+        }
     }
 
     public bool ReceiveDamage(int damage)

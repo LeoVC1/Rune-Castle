@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Events;
 
 public class TargetObject : MonoBehaviour
 {
@@ -12,7 +13,13 @@ public class TargetObject : MonoBehaviour
 
     public Image healthBar;
 
+    public Transform targetPoint;
+
     private float maxHealth;
+
+    public bool useEvent;
+
+    public UnityEvent onDeathEvents;
 
     private void Start()
     {
@@ -34,6 +41,9 @@ public class TargetObject : MonoBehaviour
 
     private void OnDeath()
     {
-        //throw new NotImplementedException();
+        if (useEvent)
+            onDeathEvents.Invoke();
+        else
+            Destroy(this.gameObject);
     }
 }

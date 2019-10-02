@@ -48,6 +48,12 @@ public class MageBasicAttack : MonoBehaviour
         if (!inputManager.canAttack)
             return;
 
+        if (inputManager.isWaitingConfirmEvent)
+            return;
+
+        if (inputManager.isCastingSpell)
+            return;
+
         SetWeight();
 
         if (onDelay)
@@ -94,9 +100,6 @@ public class MageBasicAttack : MonoBehaviour
 
     void Attack()
     {
-        if (inputManager.isCastingSpell)
-            return;
-
         onDelay = true;
 
         float rnd = Random.Range(0, 2);

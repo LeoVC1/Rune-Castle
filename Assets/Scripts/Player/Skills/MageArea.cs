@@ -32,6 +32,8 @@ public class MageArea : PlayerSkill
     {
         if (this.enabled)
         {
+            inputManager.isCastingSpell = true;
+            inputManager.isWaitingConfirmEvent = false;
             mainResource.Value -= resourceCost;
             StartCoroutine(Cooldown());
             onCooldownStart.Raise();
@@ -96,6 +98,7 @@ public class MageArea : PlayerSkill
         inputManager.UnfreezeCamera();
         inputManager.UnlockMovement();
         inputManager.isCastingSpell = false;
+        inputManager.canAttack = true;
         EnableOtherSkills(true);
     }
 

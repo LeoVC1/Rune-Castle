@@ -9,6 +9,7 @@ public class InputManager : ScriptableObject
 
     public bool isMovementLocked;
     public bool isCameraFreezed;
+    public bool isWaitingConfirmEvent;
     public bool isCastingSpell;
     public bool canAttack;
 

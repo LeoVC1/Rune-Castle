@@ -15,6 +15,7 @@ MonoBehaviour:
   gameManager: {fileID: 11400000, guid: 85835867e866bc34c9beb8a84457f786, type: 2}
   isMovementLocked: 0
   isCameraFreezed: 0
+  isWaitingConfirmEvent: 0
   isCastingSpell: 0
   canAttack: 1
   interactInput: 101
