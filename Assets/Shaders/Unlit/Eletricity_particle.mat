@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Eletricity_particle
+  m_Shader: {fileID: -6465566751694194690, guid: 8bd8d348ca669e34ab5c4b8116dad556,
+    type: 3}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs: []
+    m_Floats:
+    - Vector1_2A18784F: 2
+    - Vector1_512EE362: 1
+    - Vector1_63BAA57E: 1
+    - Vector1_7119AEA4: 20
+    - Vector1_A6087E83: 1
+    m_Colors:
+    - Color_1FCBBD98: {r: 8, g: 8, b: 8, a: 1}
+    - Vector2_543E90B5: {r: 0.1, g: -0.5, b: 0, a: 0}
+    - Vector2_A04A5476: {r: -0.1, g: 0.5, b: 0, a: 0}

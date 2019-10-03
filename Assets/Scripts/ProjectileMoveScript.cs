@@ -15,7 +15,7 @@ public class ProjectileMoveScript : MonoBehaviour {
 	public AudioClip hitSFX;
 	public List<GameObject> trails;
 
-	private float speedRandomness;
+    private float speedRandomness;
 	private Vector3 offset;
 	private bool collided;
 	private Rigidbody rb;

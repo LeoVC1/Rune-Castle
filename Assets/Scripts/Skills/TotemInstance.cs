@@ -125,7 +125,7 @@ public class TotemInstance : MonoBehaviour
         }
     }
 
-    private void DeathAnimation()
+    public void DeathAnimation()
     {
         isDead = true;
         anim.SetBool("isDead", true);

@@ -4823,7 +4823,7 @@ GameObject:
   - component: {fileID: -1432590514284448322}
   - component: {fileID: -2544914044052506704}
   m_Layer: 15
-  m_Name: vfx_PlasmaBall_v1
+  m_Name: vfx_EletricBall_v1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4877,6 +4877,7 @@ MonoBehaviour:
   trails:
   - {fileID: 3840840174100195552}
   - {fileID: 1732135917900163070}
+  myElement: 1
 --- !u!135 &-1432590514284448322
 SphereCollider:
   m_ObjectHideFlags: 0

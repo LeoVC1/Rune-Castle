@@ -104,6 +104,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyData: {fileID: 11400000, guid: 695b8e5ca4bf81648a3b01c207d8c05f, type: 2}
+  materialReference: {fileID: 11400000, guid: 02b6e2e1c83675545b35dab3c4076028, type: 2}
+  renderers:
+  - {fileID: 492592513540424559}
   deathParticle: {fileID: 1490043199212184133, guid: 216130ac4b3404f428e79f16477ac82b,
     type: 3}
   anim: {fileID: 5060786293169481946}
@@ -630,9 +633,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -1504981713932161579, guid: ea2aaa2a84a310f4d8fce8db3452ac66,
         type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -1504981713932161579, guid: ea2aaa2a84a310f4d8fce8db3452ac66,
+        type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: c25f406ef49c3e14d86529d565b60269, type: 2}
+    - target: {fileID: -1504981713932161579, guid: ea2aaa2a84a310f4d8fce8db3452ac66,
+        type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: -5782096289205891937, guid: ea2aaa2a84a310f4d8fce8db3452ac66,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1249,6 +1262,12 @@ PrefabInstance:
 --- !u!4 &2932271701596882336 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -4216859302048453862, guid: ea2aaa2a84a310f4d8fce8db3452ac66,
+    type: 3}
+  m_PrefabInstance: {fileID: 7911471446562795194}
+  m_PrefabAsset: {fileID: 0}
+--- !u!23 &492592513540424559 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: -1504981713932161579, guid: ea2aaa2a84a310f4d8fce8db3452ac66,
     type: 3}
   m_PrefabInstance: {fileID: 7911471446562795194}
   m_PrefabAsset: {fileID: 0}

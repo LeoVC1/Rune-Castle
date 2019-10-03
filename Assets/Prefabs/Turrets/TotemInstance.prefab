@@ -34081,9 +34081,26 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   priority: 20
-  health: 400
+  health: 2000
   healthBar: {fileID: 2070108010646590314}
   targetPoint: {fileID: 3401462973426379306}
+  useEvent: 1
+  onDeathEvents:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1443595981}
+        m_MethodName: DeathAnimation
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
 --- !u!1 &3287040797707860017
 GameObject:
   m_ObjectHideFlags: 0
@@ -39562,12 +39579,18 @@ PrefabInstance:
     - {fileID: 1890482909428092035, guid: 0ae3920c7029f644d9f31c6cac2e88ef, type: 3}
     - {fileID: 1890482909428092034, guid: 0ae3920c7029f644d9f31c6cac2e88ef, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 0ae3920c7029f644d9f31c6cac2e88ef, type: 3}
---- !u!1 &6808665617395193810 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4918323863633082140, guid: 0ae3920c7029f644d9f31c6cac2e88ef,
+--- !u!114 &1443595981 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1890482909310559747, guid: 0ae3920c7029f644d9f31c6cac2e88ef,
     type: 3}
   m_PrefabInstance: {fileID: 1890482910015561934}
   m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3268716506024440592}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 298ec9f12b194e4468ce4fd62e8056bf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &1947676550645940483 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 88895172245496269, guid: 0ae3920c7029f644d9f31c6cac2e88ef,
@@ -39577,6 +39600,12 @@ Transform:
 --- !u!1 &3268716506024440592 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3990339253403276254, guid: 0ae3920c7029f644d9f31c6cac2e88ef,
+    type: 3}
+  m_PrefabInstance: {fileID: 1890482910015561934}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &6808665617395193810 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4918323863633082140, guid: 0ae3920c7029f644d9f31c6cac2e88ef,
     type: 3}
   m_PrefabInstance: {fileID: 1890482910015561934}
   m_PrefabAsset: {fileID: 0}
@@ -39591,21 +39620,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: HP
-      objectReference: {fileID: 0}
-    - target: {fileID: 4985812967023159068, guid: a42a60c788a51a6429356a75a8ff4a60,
-        type: 3}
-      propertyPath: m_Color.r
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4985812967023159068, guid: a42a60c788a51a6429356a75a8ff4a60,
-        type: 3}
-      propertyPath: m_Color.g
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4985812967023159068, guid: a42a60c788a51a6429356a75a8ff4a60,
-        type: 3}
-      propertyPath: m_Color.b
-      value: 0.0408051
       objectReference: {fileID: 0}
     - target: {fileID: 7939191336926911689, guid: a42a60c788a51a6429356a75a8ff4a60,
         type: 3}
@@ -39731,6 +39745,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchoredPosition.x
       value: -0.012000084
+      objectReference: {fileID: 0}
+    - target: {fileID: 4985812967023159068, guid: a42a60c788a51a6429356a75a8ff4a60,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4985812967023159068, guid: a42a60c788a51a6429356a75a8ff4a60,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4985812967023159068, guid: a42a60c788a51a6429356a75a8ff4a60,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 0.0408051
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a42a60c788a51a6429356a75a8ff4a60, type: 3}

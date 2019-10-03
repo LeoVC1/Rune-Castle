@@ -56,10 +56,12 @@ public class PlayerMovement : MonoBehaviour
         if (moveDir.magnitude > 1)
             moveDir.Normalize();
 
+        moveDir *= actualSpeed;
+
         //Vector3 MoveDirection = new Vector3(moveDir.x * actualSpeed, 0, moveDir.z * actualSpeed);
 
         
-        rb.velocity = new Vector3(moveDir.x * Time.deltaTime * actualSpeed, rb.velocity.y, moveDir.z * Time.deltaTime * actualSpeed);
+        rb.velocity = new Vector3(moveDir.x, rb.velocity.y, moveDir.z);
         //rb.AddForce(new Vector3(moveDir.x * actualSpeed, 0, moveDir.z * actualSpeed) * Time.deltaTime);
         //rb.MovePosition(transform.position + MoveDirection * Time.deltaTime);
 

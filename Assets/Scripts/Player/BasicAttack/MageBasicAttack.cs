@@ -19,7 +19,6 @@ public class MageBasicAttack : MonoBehaviour
 
     [Header("References:")]
     public MageAttackPoint point;
-    public CameraCollision pointCollision;
     public Transform pointTransform;
     public Transform head;
     public GameObject VFX;
@@ -118,7 +117,7 @@ public class MageBasicAttack : MonoBehaviour
 
         point.SetNewOffset(isMoving == false ? (rnd == 0 ? 0.7f : -0.7f) : (rnd == 0 ? 0.3f : -0.3f));
 
-        pointCollision.SetNewDistance(isMoving == false ? 2.8f : 3.2f);
+        //pointCollision.SetNewDistance(isMoving == false ? 2.8f : 3.2f);
 
         playerAnimation.SetTrigger(rnd == 0 ? "_BasicAttack_1" : "_BasicAttack_2");
     }
@@ -144,14 +143,14 @@ public class MageBasicAttack : MonoBehaviour
     public void LockBasicAttack()
     { 
         point.enabled = false;
-        pointCollision.enabled = false;
+       // pointCollision.enabled = false;
     }
 
     public void UnlockBasicAttack()
     {
         playerIK.enabled = true;
         point.enabled = true;
-        pointCollision.enabled = true;
+       // pointCollision.enabled = true;
         handIK.enabled = true;
     }
 }

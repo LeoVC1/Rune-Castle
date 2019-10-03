@@ -9,6 +9,7 @@ public class Enemy : MonoBehaviour
 {
     [Header("References:")]
     public EnemyData enemyData;
+    public Renderer[] renderers;
     public GameObject deathParticle;
     public Animator anim;
     public Image healthBar;
