@@ -4877,7 +4877,6 @@ MonoBehaviour:
   trails:
   - {fileID: 3840840174100195552}
   - {fileID: 1732135917900163070}
-  myElement: 1
 --- !u!135 &-1432590514284448322
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -14367,7 +14366,7 @@ ParticleSystemRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 7da9250b0f492f24f85a15db8a0683b2, type: 2}
+  - {fileID: 0}
   - {fileID: 2100000, guid: 63d32d09ba4c0e54aa08642895673f31, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
@@ -33704,7 +33703,7 @@ ParticleSystem:
     startLifetime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 5
+      scalar: 40
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -34189,7 +34188,7 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     randomizeRotationDirection: 0
-    maxNumParticles: 1
+    maxNumParticles: 2
     size3D: 0
     rotation3D: 0
     gravityModifier:

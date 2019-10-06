@@ -31,22 +31,22 @@ public class MageAttackPoint : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        RotateToForward();
+        //RotateToForward();
 
-        if (inputManager.isCameraFreezed)
-            return;
+        //if (inputManager.isCameraFreezed)
+        //    return;
 
-        float mouseX = Input.GetAxis("Mouse X");
-        float mouseY = Input.GetAxis("Mouse Y");
+        //float mouseX = Input.GetAxis("Mouse X");
+        //float mouseY = Input.GetAxis("Mouse Y");
 
-        rotY += mouseX * horizontalInputSensitivityX * Time.deltaTime;
-        rotX += -mouseY * verticalInputSensitivity * Time.deltaTime;
+        //rotY += mouseX * horizontalInputSensitivityX * Time.deltaTime;
+        //rotX += -mouseY * verticalInputSensitivity * Time.deltaTime;
 
-        rotX = Mathf.Clamp(rotX, -clampAngle, clampAngle);
+        //rotX = Mathf.Clamp(rotX, -clampAngle, clampAngle);
 
-        Quaternion localRotation = Quaternion.Euler(rotX, rotY, 0.0f);
-        transform.rotation = localRotation;
-
+        //Quaternion localRotation = Quaternion.Euler(rotX, rotY, 0.0f);
+        //transform.rotation = localRotation;
+        transform.rotation = Camera.main.transform.rotation;
         CameraUpdater();
         RotateToForward();
     }

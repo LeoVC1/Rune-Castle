@@ -6,6 +6,7 @@ public class PlayerSkill : MonoBehaviour
     [Header("Manager:")]
     public InputManager inputManager;
     public GameManager gameManager;
+    public InventoryManager inventoryManager;
 
     [Header("Skill Properties:")]
     public Character classSkill;
@@ -14,6 +15,9 @@ public class PlayerSkill : MonoBehaviour
     public bool useResource;
     public float resourceCost;
     public FloatVariable mainResource;
+    [Space]
+    public bool useItem;
+    public Item itemResource;
     [Space]
     public bool useCooldown;
     public FloatVariable cooldown;
@@ -39,9 +43,9 @@ public class PlayerSkill : MonoBehaviour
 
         CancelOtherSkills();
 
-        if (useResource)
+        if (useResource || useItem)
         {
-            if (mainResource.Value >= resourceCost)
+            if (mainResource.Value >= resourceCost || inventoryManager.CheckItemAcquirement(itemResource) > 0)
             {
                 if (useCooldown && !onCooldown)
                 {
@@ -104,4 +108,23 @@ public class PlayerSkill : MonoBehaviour
 
     public virtual void CastSkill() { }
     public virtual void WaitingConfirmation() { }
+
+    private void OnValidate()
+    {
+#if UNITY_EDITOR
+        if (!inputManager)
+        {
+            inputManager = Resources.Load("Managers/InputManager") as InputManager;
+        }
+        if (!gameManager)
+        {
+            gameManager = Resources.Load("Managers/GameManager") as GameManager;
+        }
+        if (!inventoryManager)
+        {
+            inventoryManager = Resources.Load("Managers/InventoryManager") as InventoryManager;
+        }
+        UnityEditor.EditorUtility.SetDirty(this);
+#endif
+    }
 }

@@ -22,6 +22,8 @@ public class MageBasicAttack : MonoBehaviour
     public Transform pointTransform;
     public Transform head;
     public GameObject VFX;
+    public GameObject rightHandOrb;
+    public GameObject leftHandOrb;
 
     [Header("Properties:")]
     public LayerMask layerMask;
@@ -73,6 +75,9 @@ public class MageBasicAttack : MonoBehaviour
 
     public void EmitParticle()
     {
+        rightHandOrb.SetActive(false);
+        leftHandOrb.SetActive(false);
+
         Vector3 hitPoint = Vector3.zero;
 
         Ray ray = Camera.main.ScreenPointToRay(new Vector2(Screen.width / 2, Screen.height / 2));
@@ -109,13 +114,18 @@ public class MageBasicAttack : MonoBehaviour
 
         rnd = horizontalSpeed == 0 ? rnd : horizontalSpeed > 0 ? 1 : 0;
 
+        if (rnd == 0)
+            rightHandOrb.SetActive(true);
+        else
+            leftHandOrb.SetActive(true);
+
         playerMovement.FreezeMovement();
 
         handIK.effector = rnd == 0 ? FullBodyBipedEffector.RightHand : FullBodyBipedEffector.LeftHand;
 
         ResetIK();
 
-        point.SetNewOffset(isMoving == false ? (rnd == 0 ? 0.7f : -0.7f) : (rnd == 0 ? 0.3f : -0.3f));
+        point.SetNewOffset(isMoving == false ? (rnd == 0 ? 1.2f : -1.2f) : (rnd == 0 ? 0.5f : -0.5f));
 
         //pointCollision.SetNewDistance(isMoving == false ? 2.8f : 3.2f);
 

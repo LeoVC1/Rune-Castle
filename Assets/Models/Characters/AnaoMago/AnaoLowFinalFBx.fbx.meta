@@ -8,7 +8,7 @@ ModelImporter:
     second: mixamo.com
   externalObjects: {}
   materials:
-    importMaterials: 1
+    importMaterials: 0
     materialName: 0
     materialSearch: 1
     materialLocation: 1
@@ -101,7 +101,7 @@ ModelImporter:
   referencedClips:
   - c11894e83694f084e926d597151bb497
   - bd677c5544a7dc147aeaac09e350c988
-  importAnimation: 1
+  importAnimation: 0
   copyAvatar: 0
   humanDescription:
     serializedVersion: 3
