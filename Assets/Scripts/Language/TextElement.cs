@@ -7,7 +7,9 @@ using TMPro;
 public class TextElement : MonoBehaviour
 {
     public LanguageManager languageManager;
+    [TextArea(0, 4)]
     public string englishVersion;
+    [TextArea(0, 4)]
     public string portugueseVersion;
 
     public TextMeshProUGUI textComponent;

@@ -46,6 +46,9 @@ public class MageAttackPoint : MonoBehaviour
 
         Quaternion localRotation = Quaternion.Euler(rotX, rotY, 0.0f);
         transform.rotation = localRotation;
+
+        CameraUpdater();
+        RotateToForward();
     }
 
     void RotateToForward()
@@ -55,11 +58,11 @@ public class MageAttackPoint : MonoBehaviour
         transform.forward = (Vector3.Slerp(transform.forward, direction, 0.8f));
     }
 
-    void LateUpdate()
-    {
-        CameraUpdater();
-        RotateToForward();
-    }
+    //void LateUpdate()
+    //{
+    //    CameraUpdater();
+    //    RotateToForward();
+    //}
 
     void CameraUpdater()
     {
