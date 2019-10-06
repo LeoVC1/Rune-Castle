@@ -25,5 +25,8 @@ public class PlayerInput : MonoBehaviour
 
         if (Input.GetKeyDown(inputManager.skill2))
             inputManager.Skill2();
+
+        if (Input.GetKeyDown(inputManager.item2))
+            inputManager.Item2();
     }
 }

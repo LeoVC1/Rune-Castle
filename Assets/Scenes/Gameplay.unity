@@ -5150,12 +5150,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inputManager: {fileID: 11400000, guid: 10443ec4fe1d96b4fa96b66cbb70b889, type: 2}
   gameManager: {fileID: 11400000, guid: 85835867e866bc34c9beb8a84457f786, type: 2}
+  inventoryManager: {fileID: 11400000, guid: 089e520297e86674a98d2424a9339559, type: 2}
   classSkill: 1
   useResource: 0
   resourceCost: 0
   mainResource: {fileID: 0}
   useItem: 0
-  itemCost: 0
   itemResource: {fileID: 0}
   useCooldown: 1
   cooldown: {fileID: 0}
@@ -26907,6 +26907,11 @@ PrefabInstance:
       propertyPath: solver.target
       value: 
       objectReference: {fileID: 59051124}
+    - target: {fileID: 8264909309328874182, guid: a3b48376961d1ea498c1d1039fd3c784,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 4552fb0e49d24074495639c2f900d10a, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a3b48376961d1ea498c1d1039fd3c784, type: 3}
 --- !u!1 &8296172669215523247 stripped

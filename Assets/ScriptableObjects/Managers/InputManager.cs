@@ -31,6 +31,7 @@ public class InputManager : ScriptableObject
     public GameEvent confirmEvent;
     public GameEvent skill1Event;
     public GameEvent skill2Event;
+    public GameEvent item2Event;
     public GameEvent onLockMovement;
     public GameEvent onUnlockMovement;
 
@@ -80,6 +81,14 @@ public class InputManager : ScriptableObject
     }
 
     public void Skill2()
+    {
+        if (!canAttack)
+            return;
+
+        skill2Event.Raise();
+    }
+
+    public void Item2()
     {
         if (!canAttack)
             return;

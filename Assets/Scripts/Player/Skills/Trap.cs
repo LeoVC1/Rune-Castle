@@ -28,20 +28,16 @@ public class Trap : PlayerSkill
     {
         if (this.enabled)
         {
-            inputManager.isCastingSpell = true;
-            inputManager.isWaitingConfirmEvent = false;
-
             inventoryManager.RemoveItem(itemResource);
 
             DestroyPreview();
 
-            Animate();
-
-            inputManager.FreezeCamera();
-            inputManager.LockMovement();
+            //Animate();
 
             GameObject totem = Instantiate(trapPrefab);
             totem.transform.position = trapLocation;
+
+            EnableOtherSkills(true);
         }
     }
 

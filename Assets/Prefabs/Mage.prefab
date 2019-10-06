@@ -7828,6 +7828,7 @@ GameObject:
   - component: {fileID: 8264909310376297722}
   - component: {fileID: 8264909310376297713}
   - component: {fileID: 8264909310376297676}
+  - component: {fileID: 1828229507}
   - component: {fileID: 8264909310376297664}
   - component: {fileID: 8264909310376297677}
   - component: {fileID: 8264909310376297669}
@@ -7840,7 +7841,6 @@ GameObject:
   - component: {fileID: 8264909310376297725}
   - component: {fileID: 8264909310376297724}
   - component: {fileID: 8264909310376297719}
-  - component: {fileID: 1828229507}
   m_Layer: 13
   m_Name: Mage
   m_TagString: Player
@@ -7978,12 +7978,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inputManager: {fileID: 11400000, guid: 10443ec4fe1d96b4fa96b66cbb70b889, type: 2}
   gameManager: {fileID: 11400000, guid: 85835867e866bc34c9beb8a84457f786, type: 2}
+  inventoryManager: {fileID: 11400000, guid: 089e520297e86674a98d2424a9339559, type: 2}
   classSkill: 0
   useResource: 1
   resourceCost: 20
   mainResource: {fileID: 11400000, guid: 10758d7ef4ab45942b9b6a67fa597ea5, type: 2}
   useItem: 0
-  itemCost: 0
   itemResource: {fileID: 0}
   useCooldown: 1
   cooldown: {fileID: 11400000, guid: d5bb285f683dc9e40b83bf3a1a035486, type: 2}
@@ -8018,12 +8018,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inputManager: {fileID: 11400000, guid: 10443ec4fe1d96b4fa96b66cbb70b889, type: 2}
   gameManager: {fileID: 11400000, guid: 85835867e866bc34c9beb8a84457f786, type: 2}
+  inventoryManager: {fileID: 11400000, guid: 089e520297e86674a98d2424a9339559, type: 2}
   classSkill: 0
   useResource: 0
   resourceCost: 0
   mainResource: {fileID: 0}
   useItem: 0
-  itemCost: 0
   itemResource: {fileID: 0}
   useCooldown: 1
   cooldown: {fileID: 0}
@@ -8069,6 +8069,42 @@ MonoBehaviour:
   attackDelay: 0.75
   weight: 0
   hitWeight: 0
+--- !u!114 &1828229507
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8264909310376297678}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3a476c40c250a9c4c9d52b7d78a84f7a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inputManager: {fileID: 11400000, guid: 10443ec4fe1d96b4fa96b66cbb70b889, type: 2}
+  gameManager: {fileID: 11400000, guid: 85835867e866bc34c9beb8a84457f786, type: 2}
+  inventoryManager: {fileID: 11400000, guid: 089e520297e86674a98d2424a9339559, type: 2}
+  classSkill: 0
+  useResource: 0
+  resourceCost: 0
+  mainResource: {fileID: 0}
+  useItem: 0
+  itemResource: {fileID: 0}
+  useCooldown: 0
+  cooldown: {fileID: 0}
+  onCooldownStart: {fileID: 0}
+  isInstant: 0
+  waitingConfirmation: 0
+  anim: {fileID: 0}
+  otherSkills: []
+  trapPrefab: {fileID: 0}
+  trapPreview: {fileID: 0}
+  listener: {fileID: 0}
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 0
+  attackRange: 0
+  animationParameter: 
 --- !u!54 &8264909310376297664
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -8932,42 +8968,6 @@ AudioListener:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8264909310376297678}
   m_Enabled: 1
---- !u!114 &1828229507
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8264909310376297678}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3a476c40c250a9c4c9d52b7d78a84f7a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  inputManager: {fileID: 11400000, guid: 10443ec4fe1d96b4fa96b66cbb70b889, type: 2}
-  gameManager: {fileID: 11400000, guid: 85835867e866bc34c9beb8a84457f786, type: 2}
-  classSkill: 0
-  useResource: 0
-  resourceCost: 0
-  mainResource: {fileID: 0}
-  useItem: 0
-  itemCost: 0
-  itemResource: {fileID: 0}
-  useCooldown: 0
-  cooldown: {fileID: 0}
-  onCooldownStart: {fileID: 0}
-  isInstant: 0
-  waitingConfirmation: 0
-  anim: {fileID: 0}
-  otherSkills: []
-  trapPrefab: {fileID: 0}
-  trapPreview: {fileID: 0}
-  listener: {fileID: 0}
-  layerMask:
-    serializedVersion: 2
-    m_Bits: 0
-  attackRange: 0
-  animationParameter: 
 --- !u!1 &8264909310385900185
 GameObject:
   m_ObjectHideFlags: 0
