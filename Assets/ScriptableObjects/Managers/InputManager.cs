@@ -93,6 +93,6 @@ public class InputManager : ScriptableObject
         if (!canAttack)
             return;
 
-        skill2Event.Raise();
+        item2Event.Raise();
     }
 }

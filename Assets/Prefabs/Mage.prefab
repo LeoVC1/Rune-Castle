@@ -107,7 +107,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -3033667219593020291, guid: 55465226686bb4b4aa5cc821ced31a99, type: 3}
+  - {fileID: 2100000, guid: 4552fb0e49d24074495639c2f900d10a, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -7834,6 +7834,7 @@ GameObject:
   - component: {fileID: 8264909310376297669}
   - component: {fileID: 8264909310376297723}
   - component: {fileID: 8264909310376297712}
+  - component: {fileID: 8264909309335673757}
   - component: {fileID: 8264909310376297668}
   - component: {fileID: 8264909310376297727}
   - component: {fileID: 8264909310376297714}
@@ -8097,14 +8098,15 @@ MonoBehaviour:
   waitingConfirmation: 0
   anim: {fileID: 0}
   otherSkills: []
-  trapPrefab: {fileID: 0}
-  trapPreview: {fileID: 0}
-  listener: {fileID: 0}
+  trapPrefab: {fileID: 275928729466391712, guid: 6629b3c29d8b068428cc692b8d165f19,
+    type: 3}
+  trapPreview: {fileID: 7450532657317554188, guid: 9fc93d013bed27545aea39f569bdb1a2,
+    type: 3}
+  listener: {fileID: 8264909310376297668}
   layerMask:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 256
   attackRange: 0
-  animationParameter: 
 --- !u!54 &8264909310376297664
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -8246,17 +8248,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 8264909310376297713}
-        m_MethodName: DestroyPreview
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &8264909310376297712
@@ -8297,8 +8288,26 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 8264909310376297722}
-        m_MethodName: DestroyPreview
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+--- !u!114 &8264909309335673757
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8264909310376297678}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 376aae6e70994594caaa09befa199dcd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Event: {fileID: 11400000, guid: 15c4c4e1945f3034fb41ef2c2df1a495, type: 2}
+  Response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1828229507}
+        m_MethodName: TryToCast
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -8360,6 +8369,17 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 8264909310376297722}
+        m_MethodName: CastSkill
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1828229507}
         m_MethodName: CastSkill
         m_Mode: 1
         m_Arguments:
@@ -9349,11 +9369,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3840840174100195552, guid: 3f86ea9eb8d53b946bbbc7d01327f781,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 3784751488881677829, guid: 3f86ea9eb8d53b946bbbc7d01327f781,
         type: 3}
       propertyPath: m_Enabled
@@ -9364,7 +9379,14 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3840840174100195552, guid: 3f86ea9eb8d53b946bbbc7d01327f781,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents:
+    - {fileID: 3784751488881677829, guid: 3f86ea9eb8d53b946bbbc7d01327f781, type: 3}
+    - {fileID: -1432590514284448322, guid: 3f86ea9eb8d53b946bbbc7d01327f781, type: 3}
     - {fileID: -2544914044052506704, guid: 3f86ea9eb8d53b946bbbc7d01327f781, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 3f86ea9eb8d53b946bbbc7d01327f781, type: 3}
 --- !u!1 &7690762000415760778 stripped
@@ -9546,11 +9568,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3840840174100195552, guid: 3f86ea9eb8d53b946bbbc7d01327f781,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 3784751488881677829, guid: 3f86ea9eb8d53b946bbbc7d01327f781,
         type: 3}
       propertyPath: m_Enabled
@@ -9561,18 +9578,25 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3840840174100195552, guid: 3f86ea9eb8d53b946bbbc7d01327f781,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents:
+    - {fileID: 3784751488881677829, guid: 3f86ea9eb8d53b946bbbc7d01327f781, type: 3}
+    - {fileID: -1432590514284448322, guid: 3f86ea9eb8d53b946bbbc7d01327f781, type: 3}
     - {fileID: -2544914044052506704, guid: 3f86ea9eb8d53b946bbbc7d01327f781, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 3f86ea9eb8d53b946bbbc7d01327f781, type: 3}
---- !u!4 &7690762001022495996 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 1732135917241343824, guid: 3f86ea9eb8d53b946bbbc7d01327f781,
-    type: 3}
-  m_PrefabInstance: {fileID: 8264909309991269292}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &7690762001022495997 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1732135917241343825, guid: 3f86ea9eb8d53b946bbbc7d01327f781,
+    type: 3}
+  m_PrefabInstance: {fileID: 8264909309991269292}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &7690762001022495996 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1732135917241343824, guid: 3f86ea9eb8d53b946bbbc7d01327f781,
     type: 3}
   m_PrefabInstance: {fileID: 8264909309991269292}
   m_PrefabAsset: {fileID: 0}

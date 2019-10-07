@@ -5,67 +5,121 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "Spawner Controller", menuName = "Scriptable Objects/Enemy/Spawner Controller")]
 public class SpawnerController : ScriptableObject
 {
-    private List<Transform> activeEnemys;
+    public float globalDifficultiesPoint = 10;
+    public float statusPoint = 1;
+    public float statusMultiplier = 1;
+    public float goldPoint = 1;
+    public float goldMultiplier;
+    public float spawnPoint = 1;
+    public float spawnMultiplier = 1;
 
-    public void RegisterEnemy(Transform enemy)
+    public void CalculateByHealthLost(float startWaveHealth, float endWaveHealth)
     {
-        activeEnemys.Add(enemy);
-    }
+        float healthLost = endWaveHealth * 100 / startWaveHealth;
 
-    public void UnregisterEnemy(Transform enemy)
-    {
-        activeEnemys.Remove(enemy);
-    }
-
-    public (Transform, float) GetClosestEnemy(Transform position)
-    {
-        float distance = float.MaxValue;
-        Transform closestEnemy = null;
-
-        foreach(Transform t in activeEnemys)
+        if (healthLost == 0)
         {
-            float t_distance = Vector3.Distance(t.position, position.position);
-            if (t_distance < distance)
-            {
-                distance = t_distance;
-                closestEnemy = t;
-            }
+            statusMultiplier += 0.07f;
+            spawnMultiplier += 0.05f;
+            goldMultiplier += -0.05f;
+            statusPoint += 1;
+            spawnPoint += 1;
         }
-
-        return (closestEnemy, distance);
-    }
-
-    public List<Transform> GetNearbyEnemys(Transform position, float range, DistanceMode mode)
-    {
-        Vector3 position2D = position.position;
-
-        List<Transform> nearbyEnemys = new List<Transform>();
-
-        foreach (Transform t in activeEnemys)
+        else if (healthLost < 4)
         {
-            float t_distance = 0;
-            Vector3 tPostion2D = Vector3.one;
-
-            if (mode == DistanceMode._2D)
-            {
-                tPostion2D = new Vector3(t.position.x, position2D.y, t.position.z);
-                t_distance = Vector2.Distance(tPostion2D, position2D);
-            }
-            else
-            {
-                t_distance = Vector3.Distance(t.position, position.position);
-            }
-
-            if (t_distance < range)
-            {
-                nearbyEnemys.Add(t);
-            }
+            statusMultiplier += -0.10f;
+            spawnMultiplier += -0.08f;
+            goldMultiplier += 0.07f;
+            statusPoint += 0;
+            spawnPoint += 0;
         }
-
-        return nearbyEnemys;
+        else if (healthLost < 8)
+        {
+            statusMultiplier += -0.12f;
+            spawnMultiplier += -0.1f;
+            goldMultiplier += 0.09f;
+            statusPoint += -2;
+            spawnPoint += -2;
+        }
+        else if (healthLost < 12)
+        {
+            statusMultiplier += -0.17f;
+            spawnMultiplier += -0.14f;
+            goldMultiplier += 0.12f;
+            statusPoint += -3;
+            spawnPoint += -3;
+        }
+        else
+        {
+            statusMultiplier += -0.2f;
+            spawnMultiplier += -0.16f;
+            goldMultiplier += 0.15f;
+            statusPoint += -4;
+            spawnPoint += -4;
+        }
     }
 
-    
+    public void CalculateByEnemies(float startEnemiesAmount, float unstopableEnemies)
+    {
+        float enemiesMultiplier = unstopableEnemies * 100 / startEnemiesAmount;
+
+        if (enemiesMultiplier == 0)
+        {
+            statusMultiplier += 0.06f;
+            spawnMultiplier += 0.05f;
+            goldMultiplier += -0.04f;
+            globalDifficultiesPoint += 4;
+        }
+        else if (enemiesMultiplier < 4)
+        {
+            statusMultiplier += -0.04f;
+            spawnMultiplier += -0.03f;
+            goldMultiplier += 0.02f;
+            globalDifficultiesPoint += -2;
+        }
+        else if (enemiesMultiplier < 10)
+        {
+            statusMultiplier += -0.05f;
+            spawnMultiplier += -0.04f;
+            goldMultiplier += 0.03f;
+            globalDifficultiesPoint += -4;
+        }
+        else if (enemiesMultiplier < 20)
+        {
+            statusMultiplier += -0.07f;
+            spawnMultiplier += -0.05f;
+            goldMultiplier += 0.05f;
+            globalDifficultiesPoint += -6;
+        }
+        else
+        {
+            statusMultiplier += -0.1f;
+            spawnMultiplier += -0.075f;
+            goldMultiplier += 0.075f;
+            globalDifficultiesPoint += -8;
+        }
+    }
+
+    public void UpdatePoints()
+    {
+        statusPoint *= statusMultiplier;
+        spawnPoint *= spawnMultiplier;
+        goldPoint *= goldMultiplier;
+    }
+
+    public float GetEnemiesAmount()
+    {
+        return 20 + (30 * globalDifficultiesPoint / 100) + spawnPoint;
+    }
+
+    public float GetBonusGold()
+    {
+        return (50 * globalDifficultiesPoint / 100) + goldPoint * 2;
+    }
+
+    public float GetEnemiesMaxHealth(float baseHealth)
+    {
+        return baseHealth * statusPoint + (20 * globalDifficultiesPoint / 100);
+    }
+
 }
-
-public enum DistanceMode { _3D, _2D }

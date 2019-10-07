@@ -30,7 +30,8 @@ public class PlayerSkill : MonoBehaviour
     public PlayerAnimation anim;
 
     public PlayerSkill[] otherSkills;
-    public void Start()
+
+    public virtual void Start()
     {
         anim = GetComponent<PlayerAnimation>();
         otherSkills = GetComponents<PlayerSkill>();
@@ -89,9 +90,14 @@ public class PlayerSkill : MonoBehaviour
         foreach(PlayerSkill skill in otherSkills)
         {
             if(skill != this)
+            {
+                skill.DestroyPreview();
                 skill.enabled = value;
+            }
         }
     }
+
+    public virtual void DestroyPreview() { }
 
    public IEnumerator Cooldown()
     {

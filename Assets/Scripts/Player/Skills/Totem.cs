@@ -32,31 +32,8 @@ public class Totem : PlayerSkill
         {
             inputManager.isCastingSpell = true;
             inputManager.isWaitingConfirmEvent = false;
-            //(Vector3 newPosition, Vector3 ID) = gridManager.GetClosestPoint(/*transform.position + transform.forward * gridManager.cellSize*/GetMousePosition());
-            //if (!gridManager.UsingID(ID))
-            //{
-            //    DestroyPreview();
-
-            //    //mainResource.Value -= resourceCost;
-            //    //StartCoroutine(Cooldown());
-
-            //    //onCooldownStart.Raise();
-
-            //    Animate();
-
-            //    inputManager.FreezeCamera();
-            //    inputManager.LockMovement();
-
-            //    GameObject totem = Instantiate(totemPrefab);
-            //    totem.transform.position = totemLocation;
-            //    //gridManager.SetID(ID);
-            //}
+            
             DestroyPreview();
-
-            //mainResource.Value -= resourceCost;
-            //StartCoroutine(Cooldown());
-
-            //onCooldownStart.Raise();
 
             Animate();
 
@@ -65,7 +42,6 @@ public class Totem : PlayerSkill
 
             GameObject totem = Instantiate(totemPrefab);
             totem.transform.position = totemLocation;
-            //gridManager.SetID(ID);
         }
     }
 
@@ -122,7 +98,7 @@ public class Totem : PlayerSkill
         }
     }
 
-    public void DestroyPreview()
+    public override void DestroyPreview()
     {
         Destroy(totemPreviewInstance);
         totemPreviewInstance = null;

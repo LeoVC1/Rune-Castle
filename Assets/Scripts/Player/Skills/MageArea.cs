@@ -102,7 +102,7 @@ public class MageArea : PlayerSkill
         EnableOtherSkills(true);
     }
 
-    public void DestroyPreview()
+    public override void DestroyPreview()
     {
         Destroy(attackPreviewInstance);
         attackPreviewInstance = null;

@@ -54,31 +54,31 @@ public class SentinelInstance : MonoBehaviour
 
     private void Update()
     {
-        if (isDead)
-            return;
+        //if (isDead)
+        //    return;
 
-        (Transform target, float _distance) = spawnerController.GetClosestEnemy(transform);
-        if (target && _distance < distance)
-        {
-            RotateToEnemy(target);
-            onTarget = true;
-        }
-        else if (!_lockRotation)
-        {
-            RotateToIdle();
-            onTarget = false;
-        }
-        else if (onShooting)
-        {
-            onShooting = false;
-            RotateToIdle();
-        }
-        else
-        {
-            transform.forward = -(Vector3.Slerp(-transform.forward, idleDirection, 0.03f));
-            onTarget = false;
-        }
-        DrawLaser();
+        //(Transform target, float _distance) = spawnerController.GetClosestEnemy(transform);
+        //if (target && _distance < distance)
+        //{
+        //    RotateToEnemy(target);
+        //    onTarget = true;
+        //}
+        //else if (!_lockRotation)
+        //{
+        //    RotateToIdle();
+        //    onTarget = false;
+        //}
+        //else if (onShooting)
+        //{
+        //    onShooting = false;
+        //    RotateToIdle();
+        //}
+        //else
+        //{
+        //    transform.forward = -(Vector3.Slerp(-transform.forward, idleDirection, 0.03f));
+        //    onTarget = false;
+        //}
+        //DrawLaser();
     }
 
     IEnumerator TryToAttack()

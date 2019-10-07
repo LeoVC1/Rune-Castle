@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: RangeUnlit
+  m_Shader: {fileID: -6465566751694194690, guid: 87b59c35afb97ca43ad896abcc73d730,
+    type: 3}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs: []
+    m_Floats:
+    - Vector1_174A664C: 1.14
+    - Vector1_5EC2F45E: 5
+    - Vector1_7C36A88: -0.18
+    - Vector1_857C4B08: 11.8
+    m_Colors:
+    - Color_A0A7519D: {r: 0.35761362, g: 0.0434746, b: 0, a: 1}
+    - Vector2_6C22DD6F: {r: 1.35, g: 1, b: 0, a: 0}

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Trap : PlayerSkill
 {
-    [Header("Totem Properties:")]
+    [Header("Trap Properties:")]
     public GameObject trapPrefab;
     public GameObject trapPreview;
     public GameEventListener listener;
@@ -13,11 +13,15 @@ public class Trap : PlayerSkill
     [Range(1, 30)]
     public float attackRange;
 
+    private MageBasicAttack basicAttack;
     private GameObject trapPreviewInstance;
     private Vector3 trapLocation;
 
-    [Header("Animation Properties:")]
-    public string animationParameter;
+    public override void Start()
+    {
+        base.Start();
+        basicAttack = GetComponent<MageBasicAttack>();
+    }
 
     private void Update()
     {
@@ -28,17 +32,30 @@ public class Trap : PlayerSkill
     {
         if (this.enabled)
         {
+            inputManager.isCastingSpell = true;
+            inputManager.isWaitingConfirmEvent = false;
+            inputManager.FreezeCamera();
+
             inventoryManager.RemoveItem(itemResource);
 
             DestroyPreview();
-
-            //Animate();
 
             GameObject totem = Instantiate(trapPrefab);
             totem.transform.position = trapLocation;
 
             EnableOtherSkills(true);
+
+            Invoke("UnlockBasicAttack", 0.2f);
         }
+    }
+
+    void UnlockBasicAttack()
+    {
+        basicAttack.UnlockBasicAttack();
+        inputManager.UnfreezeCamera();
+        inputManager.isCastingSpell = false;
+        inputManager.canAttack = true;
+        EnableOtherSkills(true);
     }
 
     public override void WaitingConfirmation()
@@ -50,11 +67,11 @@ public class Trap : PlayerSkill
             if (trapPreviewInstance == null)
             {
                 trapPreviewInstance = Instantiate(trapPreview);
-                trapPreviewInstance.transform.position = mousePosition + Vector3.up * 1.6f;
+                trapPreviewInstance.transform.position = mousePosition + Vector3.up * 0.2f;
             }
             else
             {
-                trapPreviewInstance.transform.position = mousePosition + Vector3.up * 1.6f;
+                trapPreviewInstance.transform.position = mousePosition + Vector3.up * 0.2f;
             }
             trapLocation = trapPreviewInstance.transform.position;
         }
@@ -69,25 +86,11 @@ public class Trap : PlayerSkill
         }
     }
 
-    public void DestroyPreview()
+    public override void DestroyPreview()
     {
         Destroy(trapPreviewInstance);
         trapPreviewInstance = null;
         waitingConfirmation = false;
-    }
-
-    private void Animate()
-    {
-        anim.SetTrigger(animationParameter);
-    }
-
-    public void OnAnimationEnd()
-    {
-        inputManager.UnfreezeCamera();
-        inputManager.UnlockMovement();
-        inputManager.isCastingSpell = false;
-        inputManager.canAttack = true;
-        EnableOtherSkills(true);
     }
 
     private Vector3 GetMousePosition()
