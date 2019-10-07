@@ -9,9 +9,21 @@ public class SpawnerController : ScriptableObject
     public float statusPoint = 1;
     public float statusMultiplier = 1;
     public float goldPoint = 1;
-    public float goldMultiplier;
+    public float goldMultiplier = 1;
     public float spawnPoint = 1;
     public float spawnMultiplier = 1;
+    public int minimumEnemyAmount = 5;
+
+    public void Initialize()
+    {
+        globalDifficultiesPoint = 10;
+        statusPoint = 1;
+        statusMultiplier = 1;
+        goldPoint = 1;
+        goldMultiplier = 1;
+        spawnPoint = 1;
+        spawnMultiplier = 1;
+    }
 
     public void CalculateByHealthLost(float startWaveHealth, float endWaveHealth)
     {
@@ -109,7 +121,7 @@ public class SpawnerController : ScriptableObject
 
     public float GetEnemiesAmount()
     {
-        return 20 + (30 * globalDifficultiesPoint / 100) + spawnPoint;
+        return minimumEnemyAmount + (30 * globalDifficultiesPoint / 100) + spawnPoint;
     }
 
     public float GetBonusGold()

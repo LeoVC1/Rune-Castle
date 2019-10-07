@@ -4,17 +4,13 @@ using UnityEngine;
 
 public class Spawner : MonoBehaviour
 {
+    public SpawnerManager spawnerManager;
+
     public GameController gameController;
 
     public TargetObject mainTarget;
 
-    public int timeToSpawn;
-
-    public int spawnCount;
-
     public GameObject[] enemyPrefabs;
-
-    private int timer = 0;
 
     private void OnDrawGizmos()
     {
@@ -22,31 +18,35 @@ public class Spawner : MonoBehaviour
         Gizmos.DrawCube(transform.position, Vector3.one);
     }
 
-    private void Start()
+    public void StartSpawn(int enemiesCount, float timeToSpawn, float timeSpawning)
     {
-        StartCoroutine(Spawn());
+        StartCoroutine(Spawn(enemiesCount, timeToSpawn, timeSpawning));
     }
 
-    private IEnumerator Spawn()
+    private IEnumerator Spawn(int enemiesCount, float timeToSpawn, float timeSpawning)
     {
-        while (true)
+        float timer = 0;
+        bool finish = false;
+        while (!finish)
         {
             if(gameController.gameState == GameState.GAMEPLAY)
             {
                 if (timer < timeToSpawn)
                 {
-                    timer += 1;
-                    yield return new WaitForSeconds(1f);
+                    timer += Time.deltaTime;
+                    yield return null;
                 }
                 else
                 {
-                    for(int i = 0; i < spawnCount; i++)
+                    for(int i = 0; i < enemiesCount; i++)
                     {
                         GameObject newEnemy = Instantiate(enemyPrefabs[Random.Range(0, enemyPrefabs.Length)], transform.position + GetRandomPosition(), Quaternion.identity);
-                        newEnemy.GetComponent<Enemy>().mainTarget = mainTarget;
-                        yield return null;
+                        Enemy enemyScript = newEnemy.GetComponent<Enemy>();
+                        enemyScript.mainTarget = mainTarget;
+                        enemyScript.spawnerManager = spawnerManager;
+                        yield return new WaitForSeconds(Random.Range(1, 4));
                     }
-                    Destroy(gameObject);
+                    finish = true;
                 }
                 yield return null;
             }
@@ -56,8 +56,8 @@ public class Spawner : MonoBehaviour
 
     private Vector3 GetRandomPosition()
     {
-        float x = Random.Range(-2, 2);
-        float z = Random.Range(-2, 2);
+        float x = Random.Range(-3, 3);
+        float z = Random.Range(-3, 3);
 
         return new Vector3(x, 0, z);
     }

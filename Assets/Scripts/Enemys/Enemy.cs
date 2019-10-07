@@ -8,6 +8,8 @@ using UnityEngine.UI;
 public class Enemy : MonoBehaviour
 {
     [Header("References:")]
+    public SpawnerManager spawnerManager;
+    public SpawnerController spawnerController;
     public EnemyData enemyData;
     public Renderer[] renderers;
     public GameObject deathParticle;
@@ -22,7 +24,9 @@ public class Enemy : MonoBehaviour
 
     [Header("Properties:")]
     public float myHealth;
+    public float maxHealth;
     public float deathAnimationTime;
+    private bool arriveAtCrystal;
 
     private bool dead;
 
@@ -31,7 +35,9 @@ public class Enemy : MonoBehaviour
     void Start()
     {
         _agent = GetComponent<NavMeshAgent>();
-        myHealth = enemyData.maxHealth;
+        myHealth = spawnerController.GetEnemiesMaxHealth(enemyData.maxHealth);
+        maxHealth = myHealth;
+        spawnerManager.OnEnemySpawn();
     }
 
     void Update()
@@ -111,6 +117,7 @@ public class Enemy : MonoBehaviour
         GameObject particle = Instantiate(deathParticle, particlePoint, Quaternion.identity);
         Destroy(particle, 3.5f);
         StartCoroutine(DeathScale(particlePoint));
+        spawnerManager.OnEnemyDie();
     }
 
     IEnumerator DeathScale(Vector3 point)
@@ -132,6 +139,11 @@ public class Enemy : MonoBehaviour
         TargetObject target = other.GetComponent<TargetObject>();
         if (target)
         {
+            if(!arriveAtCrystal && other.name == "Crystal")
+            {
+                arriveAtCrystal = true;
+                spawnerManager.OnEnemiesGetCrystal();
+            }
             if (!nearbyTargets.Contains(target))
                 nearbyTargets.Add(target);
         }
