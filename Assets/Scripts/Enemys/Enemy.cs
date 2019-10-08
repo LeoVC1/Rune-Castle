@@ -17,22 +17,24 @@ public class Enemy : MonoBehaviour
     public Image healthBar;
     public TargetObject mainTarget;
 
-    private TargetObject _target;
-    private NavMeshAgent _agent;
+    public TargetObject _target;
+    public NavMeshAgent _agent;
 
-    private List<TargetObject> nearbyTargets = new List<TargetObject>();
+    public List<TargetObject> nearbyTargets = new List<TargetObject>();
 
     [Header("Properties:")]
     public float myHealth;
     public float maxHealth;
     public float deathAnimationTime;
-    private bool arriveAtCrystal;
+    public float animationTime;
+    public bool arriveAtCrystal;
 
-    private bool dead;
+    public bool dead;
 
-    private bool isAttacking;
+    public bool isAttacking;
+    public bool isWalking;
 
-    void Start()
+    public virtual void Start()
     {
         _agent = GetComponent<NavMeshAgent>();
         myHealth = spawnerController.GetEnemiesMaxHealth(enemyData.maxHealth);
@@ -40,8 +42,9 @@ public class Enemy : MonoBehaviour
         spawnerManager.OnEnemySpawn();
     }
 
-    void Update()
+    public virtual void Update()
     {
+
         if (dead)
             return;
 
@@ -55,11 +58,11 @@ public class Enemy : MonoBehaviour
         if(distance < enemyData.range)
         {
             _agent.isStopped = true;
-            transform.forward = _target.targetPoint.transform.position - transform.position;
+
             if (!isAttacking)
             {
                 isAttacking = true;
-                InvokeRepeating("Attack", 0, 4);
+                InvokeRepeating("Attack", 0, animationTime);
             }
             if (anim)
                 anim.SetTrigger("Attack");
@@ -73,6 +76,10 @@ public class Enemy : MonoBehaviour
 
         if (_target)
             _agent.destination = _target.targetPoint.transform.position;
+
+        isWalking = !_agent.isStopped;
+
+        anim.SetBool("Walking", isWalking);
     }
 
     private void GetTarget()
@@ -113,6 +120,7 @@ public class Enemy : MonoBehaviour
 
     private void OnDeath()
     {
+        StopAllCoroutines();
         Vector3 particlePoint = transform.position + new Vector3(0, Random.Range(-3f, 1.5f),0);
         GameObject particle = Instantiate(deathParticle, particlePoint, Quaternion.identity);
         Destroy(particle, 3.5f);
