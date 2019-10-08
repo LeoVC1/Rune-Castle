@@ -6,6 +6,7 @@ public class particleAttractorSpherical : MonoBehaviour {
 	ParticleSystem.Particle[] m_Particles;
 	public Transform target;
 	public float speed = 5f;
+
 	int numParticlesAlive;
 	void Start () {
 		ps = GetComponent<ParticleSystem>();

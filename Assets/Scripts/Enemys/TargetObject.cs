@@ -46,4 +46,9 @@ public class TargetObject : MonoBehaviour
         else
             Destroy(this.gameObject);
     }
+
+    public float GetHealthPerc()
+    {
+        return health / maxHealth;
+    }
 }

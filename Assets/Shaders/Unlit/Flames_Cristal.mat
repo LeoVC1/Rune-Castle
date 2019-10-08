@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Flames_Golem
+  m_Name: Flames_Cristal
   m_Shader: {fileID: -6465566751694194690, guid: 8bd8d348ca669e34ab5c4b8116dad556,
     type: 3}
   m_ShaderKeywords: 
@@ -21,14 +21,14 @@ Material:
     serializedVersion: 3
     m_TexEnvs: []
     m_Floats:
-    - Vector1_2A18784F: 3.76
-    - Vector1_512EE362: 0.56
-    - Vector1_63BAA57E: 0.32
-    - Vector1_7119AEA4: 19.31
+    - Vector1_2A18784F: 20
+    - Vector1_512EE362: 0.3
+    - Vector1_63BAA57E: 0.66
+    - Vector1_7119AEA4: 18.7
     - Vector1_A6087E83: 0
     m_Colors:
-    - Color_1FCBBD98: {r: 2.1185474, g: 0.41039923, b: 0, a: 1}
-    - Vector2_543E90B5: {r: 0.1, g: -0.5, b: 0, a: 0}
+    - Color_1FCBBD98: {r: 1.9139637, g: 0, b: 2.270603, a: 1}
+    - Vector2_543E90B5: {r: -0.1, g: 0.5, b: 0, a: 0}
     - Vector2_A04A5476: {r: -0.1, g: 0.5, b: 0, a: 0}
-    - _Color: {r: 2, g: 0.57439387, b: 0, a: 1}
-    - _NoiseSpeed: {r: 0.1, g: -0.5, b: 0, a: 0}
+    - _Color: {r: 3.925, g: 0.8985294, b: 0.04029412, a: 2}
+    - _NoiseSpeed: {r: 1.9525, g: -0.5, b: 0, a: 0}
