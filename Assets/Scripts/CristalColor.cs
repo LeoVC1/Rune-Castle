@@ -13,7 +13,7 @@ public class CristalColor : MonoBehaviour
 
     public Particles[] speedParticles;
 
-    public Transform[] cristals;
+    public ShakeCrystal[] cristals;
     public float speed = 1, amount = 1;
 
     private void Update()
@@ -29,6 +29,12 @@ public class CristalColor : MonoBehaviour
         SetParticlesColor(alpha);
 
         SetParticlesSpeed(alpha);
+
+        foreach (ShakeCrystal cristal in cristals)
+        {
+            cristal.speed = Mathf.Lerp(2, 0, alpha);
+            cristal.amount = Mathf.Lerp(1.6f, 0, alpha);
+        }
     }
 
     private void SetParticlesSpeed(float alpha)
@@ -44,9 +50,6 @@ public class CristalColor : MonoBehaviour
         foreach(ParticleSystem ps in particles)
         {
             ps.startColor = Color.Lerp(Color.red + Color.yellow, Color.blue + Color.red, alpha);
-            //ParticleSystem.MainModule main = new ParticleSystem.MainModule();
-            //ParticleSystem.MinMaxGradient minMax = new ParticleSystem.MinMaxGradient(Color.Lerp(Color.red + Color.yellow, Color.blue + Color.red, alpha));
-            //ps.main.;
         }
     }
 
@@ -68,23 +71,6 @@ public class CristalColor : MonoBehaviour
         Vector4 noiseSpeed = cristalColor.GetVector("_NoiseSpeed");
         noiseSpeed.x = Mathf.Lerp(2, 0.1f, alpha);
         cristalColor.SetVector("_NoiseSpeed", noiseSpeed);
-    }
-
-    private void ShakeCristal(float alpha)
-    {
-        foreach(Transform t in cristals)
-        {
-            Vector3 pos = new Vector3(t.position.x, t.position.y, t.position.z);
-            pos.x = Mathf.Sin(Time.time * speed) * amount;
-            t.position = pos;
-        }
-    }
-
-    private void LateUpdate()
-    {
-        float alpha = cristalHealth.GetHealthPerc();
-
-        ShakeCristal(alpha);
     }
 }
 

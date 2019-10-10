@@ -34,6 +34,8 @@ public class Enemy : MonoBehaviour
     public bool isAttacking;
     public bool isWalking;
 
+    int targetPoint;
+
     public virtual void Start()
     {
         _agent = GetComponent<NavMeshAgent>();
@@ -49,11 +51,18 @@ public class Enemy : MonoBehaviour
             return;
 
         if (nearbyTargets.Count > 0)
+        {
             GetTarget();
-        else
+            targetPoint = Random.Range(0, _target.targetPoint.Length);
+        }
+        else if(_target == null)
+        {
             _target = mainTarget;
+            targetPoint = Random.Range(0, _target.targetPoint.Length);
+        }
 
-        float distance = Vector3.Distance(transform.position, _target.targetPoint.transform.position);
+
+        float distance = Vector3.Distance(transform.position, _target.targetPoint[targetPoint].transform.position);
 
         if(distance < enemyData.range)
         {
@@ -69,17 +78,23 @@ public class Enemy : MonoBehaviour
         }
         else
         {
+            print("A");
             isAttacking = false;
             _agent.isStopped = false;
             CancelInvoke("Attack");
         }
 
         if (_target)
-            _agent.destination = _target.targetPoint.transform.position;
+            _agent.destination = _target.targetPoint[targetPoint].transform.position;
 
         isWalking = !_agent.isStopped;
 
         anim.SetBool("Walking", isWalking);
+    }
+
+    private void LateUpdate()
+    {
+        transform.LookAt(new Vector3(_target.lookPoint.transform.position.x, transform.position.y, _target.lookPoint.transform.position.z));
     }
 
     private void GetTarget()

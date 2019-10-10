@@ -5,6 +5,8 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Events;
 
+
+[ExecuteInEditMode]
 public class TargetObject : MonoBehaviour
 {
     public int priority;
@@ -13,7 +15,9 @@ public class TargetObject : MonoBehaviour
 
     public Image healthBar;
 
-    public Transform targetPoint;
+    public Transform[] targetPoint;
+
+    public Transform lookPoint;
 
     private float maxHealth;
 
@@ -50,5 +54,13 @@ public class TargetObject : MonoBehaviour
     public float GetHealthPerc()
     {
         return health / maxHealth;
+    }
+
+    private void OnDrawGizmos()
+    {
+        foreach(Transform t in targetPoint)
+        {
+            Gizmos.DrawCube(t.position, Vector3.one);
+        }
     }
 }

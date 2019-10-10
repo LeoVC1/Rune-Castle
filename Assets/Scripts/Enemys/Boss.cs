@@ -45,7 +45,7 @@ public class Boss : Enemy
             isCastingSpell = true;
             _agent.isStopped = true;
             anim.SetTrigger(skillAnimationParamenter);
-            Invoke("EmitParticle", 2.27f);
+            Invoke("EmitParticle", 1.15f);
             yield return new WaitForSeconds(skillAnimationTime);
         }
     }
