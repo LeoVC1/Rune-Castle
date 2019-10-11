@@ -15,25 +15,30 @@ public class SpawnerManager : MonoBehaviour
     private float unstoppableEnemies;
     private float startEnemiesAmount;
 
-    public int waveNumber;
+    public int waveNumber = 0;
     public int enemiesAlive;
+
+    public GameEvent startTimerEvent;
 
 
     private void Start()
     {
         spawnerController.Initialize();
-        Invoke("OnStartWave", 0);
+        waveNumber++;
+        spawnerController.wave = waveNumber;
+        Invoke("StartTimer", 0);
     }
 
     private List<int> GetSpawners()
     {
+        print(waveNumber);
         List<int> spawnersIndex = new List<int>();
-        if(waveNumber <= 5)
+        if(waveNumber <= 2)
         {
             spawnersIndex.Add(Random.Range(0, spawners.Length));
             return spawnersIndex;
         }
-        else if(waveNumber <= 10)
+        else if(waveNumber <= 4)
         {
             spawnersIndex.Add(Random.Range(0, spawners.Length));
             int number2 = 0;
@@ -46,20 +51,17 @@ public class SpawnerManager : MonoBehaviour
         }
         else
         {
-            spawnersIndex.Add(Random.Range(0, spawners.Length));
-            int number2 = 0;
-            do
-            {
-                number2 = Random.Range(0, spawners.Length);
-            } while (spawnersIndex.Contains(number2));
-            int number3 = 0;
-            do
-            {
-                number3 = Random.Range(0, spawners.Length);
-            } while (spawnersIndex.Contains(number3));
-            spawnersIndex.Add(number3);
+
+            spawnersIndex.Add(0);
+            spawnersIndex.Add(1);
+            spawnersIndex.Add(2);
             return spawnersIndex;
         }
+    }
+
+    public void StartTimer()
+    {
+        startTimerEvent.Raise();
     }
 
     public void OnStartWave()
@@ -73,28 +75,11 @@ public class SpawnerManager : MonoBehaviour
 
         enemiesAlive = enemiesAmount;
 
-        print(enemiesAmount);
+        int enemiesBySpawner = enemiesAmount / spawnerIndex.Count;
 
         for (int i = 0; i < spawnerIndex.Count; i++)
         {
-            int remainingEnemies = 0;
-            int enemies = 0;
-
-            //if (spawnerIndex.Count - i != 0)
-            //{
-            //    print("A");
-            //    remainingEnemies = enemiesAmount / (spawnerIndex.Count - i);
-            //    enemies = Random.Range(remainingEnemies - 1, remainingEnemies + 2);
-            //}
-            //else
-            //{
-            //    print("B");
-            //    enemies = enemiesAmount;
-            //}
-            enemies = enemiesAmount;
-
-            enemiesAmount -= enemies;
-            spawners[spawnerIndex[i]].StartSpawn(enemies, 0, 1);
+            spawners[spawnerIndex[i]].StartSpawn(enemiesBySpawner, 0, 1, waveNumber);
         }
     }
 
@@ -121,8 +106,9 @@ public class SpawnerManager : MonoBehaviour
         if(enemiesAlive == 0)
         {
             waveNumber++;
+            spawnerController.wave = waveNumber;
             OnEndWave();
-            Invoke("OnStartWave", 5);
+            Invoke("StartTimer", 3);
         }
     }
 

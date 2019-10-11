@@ -40,6 +40,8 @@ public class Trap : PlayerSkill
 
             DestroyPreview();
 
+            mainResource.Value -= resourceCost;
+
             GameObject totem = Instantiate(trapPrefab);
             totem.transform.position = trapLocation;
 

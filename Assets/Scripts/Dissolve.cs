@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Dissolve : MonoBehaviour
 {
@@ -8,6 +9,9 @@ public class Dissolve : MonoBehaviour
     public bool dissolveInStart;
     public RendererMaterial rendererType;
     public float delayTime;
+
+
+    public UnityEvent onEndDissolve;
 
     private void Start()
     {
@@ -19,8 +23,11 @@ public class Dissolve : MonoBehaviour
             case RendererMaterial.PARTICLE:
                 dissolveMaterials = GetComponent<ParticleSystemRenderer>().materials;
                 break;
+            case RendererMaterial.SKINNED:
+                dissolveMaterials = GetComponent<SkinnedMeshRenderer>().materials;
+                break;
             default:
-                dissolveMaterials = GetComponent<MeshRenderer>().materials;
+                dissolveMaterials = GetComponent<Renderer>().materials;
                 break;
         }
         if (dissolveInStart)
@@ -45,11 +52,13 @@ public class Dissolve : MonoBehaviour
 
             yield return null;
         }
+        onEndDissolve.Invoke();
     }
 }
 
 public enum RendererMaterial
 {
     MESH,
-    PARTICLE
+    PARTICLE,
+    SKINNED
 }

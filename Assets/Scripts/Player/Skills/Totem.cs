@@ -37,6 +37,8 @@ public class Totem : PlayerSkill
 
             Animate();
 
+            mainResource.Value -= resourceCost;
+
             inputManager.FreezeCamera();
             inputManager.LockMovement();
 

@@ -23,6 +23,10 @@ public class PlayerMovement : MonoBehaviour
     public bool onEnemy;
     private Transform target;
 
+    public AudioSource run;
+
+    public AudioClip[] clips;
+
     private void Awake()
     {
         anim = GetComponent<PlayerAnimation>();
@@ -43,6 +47,7 @@ public class PlayerMovement : MonoBehaviour
             RunningMovement();
             RotateToForward();
             BasicMovement();
+            AudioPress();
         }
     }
 
@@ -68,6 +73,29 @@ public class PlayerMovement : MonoBehaviour
         isMoving = (ver != 0 || hor != 0) ? true : false;
 
         Animate(hor, ver);
+    }
+
+    void AudioPress()
+    {
+        if (Input.GetKeyDown(KeyCode.LeftShift))
+        {
+            run.clip = clips[1];
+        }
+        if (Input.GetKeyUp(KeyCode.LeftShift))
+        {
+            run.clip = clips[0];
+        }
+        if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.D))
+        {
+            if(!run.isPlaying)
+                run.Play();
+        }
+        if (Input.GetKeyUp(KeyCode.A) || Input.GetKeyUp(KeyCode.W) || Input.GetKeyUp(KeyCode.S) || Input.GetKeyUp(KeyCode.D))
+        {
+            run.Stop();
+        }
+        
+
     }
 
     void RotateToForward()

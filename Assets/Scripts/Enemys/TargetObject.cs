@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Events;
-
+using TMPro;
 
 [ExecuteInEditMode]
 public class TargetObject : MonoBehaviour
@@ -25,6 +25,10 @@ public class TargetObject : MonoBehaviour
 
     public UnityEvent onDeathEvents;
 
+    public TextMeshProUGUI myLifeNumber;
+
+    public Pause pause;
+
     private void Start()
     {
         maxHealth = health;
@@ -34,6 +38,7 @@ public class TargetObject : MonoBehaviour
     {
         health -= damage;
         healthBar.fillAmount = health / maxHealth;
+        myLifeNumber.text = health.ToString() + "/" + maxHealth.ToString();
         if (health <= 0)
         {
             OnDeath();

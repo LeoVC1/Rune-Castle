@@ -22,26 +22,26 @@ public class GridManager : ScriptableObject
 
     public void CalculatePoints()
     {
-        points = new Vector3[cellHeight, cellLength, cellWidth];
+//        points = new Vector3[cellHeight, cellLength, cellWidth];
 
-        for (int i = 0; i < cellHeight; i++)
-        {
-            for (int j = 0; j < cellLength; j++)
-            {
-                for (int k = 0; k < cellWidth; k++)
-                {
-                    points[i, j, k].x = (gridStartPosition.x + (k * cellSize));
-                    points[i, j, k].z = (gridStartPosition.z + (j * cellSize));
-                    points[i, j, k].y = (gridStartPosition.y + (i * cellSize));
-                }
-            }
-        }
+//        for (int i = 0; i < cellHeight; i++)
+//        {
+//            for (int j = 0; j < cellLength; j++)
+//            {
+//                for (int k = 0; k < cellWidth; k++)
+//                {
+//                    points[i, j, k].x = (gridStartPosition.x + (k * cellSize));
+//                    points[i, j, k].z = (gridStartPosition.z + (j * cellSize));
+//                    points[i, j, k].y = (gridStartPosition.y + (i * cellSize));
+//                }
+//            }
+//        }
 
-#if UNITY_EDITOR
-        UnityEditor.EditorUtility.SetDirty(this);
-#endif
-        Debug.Log("Points calculated sucessfully.");
-        Debug.Log("Point:" + points[0, 0, 0]);
+//#if UNITY_EDITOR
+//        UnityEditor.EditorUtility.SetDirty(this);
+//#endif
+//        Debug.Log("Points calculated sucessfully.");
+//        Debug.Log("Point:" + points[0, 0, 0]);
     }
 
     public void Initialize()

@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Golem
   m_EditorClassIdentifier: 
   maxHealth: 50
-  range: 7
+  range: 9
   damage: 50

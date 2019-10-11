@@ -18,12 +18,12 @@ public class Spawner : MonoBehaviour
         Gizmos.DrawCube(transform.position, Vector3.one);
     }
 
-    public void StartSpawn(int enemiesCount, float timeToSpawn, float timeSpawning)
+    public void StartSpawn(int enemiesCount, float timeToSpawn, float timeSpawning, int waveNumber)
     {
-        StartCoroutine(Spawn(enemiesCount, timeToSpawn, timeSpawning));
+        StartCoroutine(Spawn(enemiesCount, timeToSpawn, timeSpawning, waveNumber));
     }
 
-    private IEnumerator Spawn(int enemiesCount, float timeToSpawn, float timeSpawning)
+    private IEnumerator Spawn(int enemiesCount, float timeToSpawn, float timeSpawning, int waveNumber)
     {
         float timer = 0;
         bool finish = false;
@@ -40,11 +40,21 @@ public class Spawner : MonoBehaviour
                 {
                     for(int i = 0; i < enemiesCount; i++)
                     {
-                        GameObject newEnemy = Instantiate(enemyPrefabs[Random.Range(0, enemyPrefabs.Length)], transform.position + GetRandomPosition(), Quaternion.identity);
+                        GameObject newEnemy = Instantiate(enemyPrefabs[0], transform.position + GetRandomPosition(), Quaternion.identity);
                         Enemy enemyScript = newEnemy.GetComponent<Enemy>();
                         enemyScript.mainTarget = mainTarget;
                         enemyScript.spawnerManager = spawnerManager;
-                        yield return new WaitForSeconds(Random.Range(1, 4));
+                        yield return new WaitForSeconds(Random.Range(0, 1.5f));
+                    }
+                    if(waveNumber >= 3)
+                    {
+                        for (int i = 0; i < waveNumber / 3; i++)
+                        {
+                            GameObject newEnemy = Instantiate(enemyPrefabs[1], transform.position + GetRandomPosition(), Quaternion.identity);
+                            Enemy enemyScript = newEnemy.GetComponent<Enemy>();
+                            enemyScript.mainTarget = mainTarget;
+                            enemyScript.spawnerManager = spawnerManager;
+                        }
                     }
                     finish = true;
                 }

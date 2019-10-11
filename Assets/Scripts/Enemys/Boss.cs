@@ -13,6 +13,10 @@ public class Boss : Enemy
 
     public GameObject groundHitVFX;
 
+    public SkinnedMeshRenderer skin;
+
+    public AudioSource pisao;
+
     public override void Start()
     {
         base.Start();
@@ -50,8 +54,16 @@ public class Boss : Enemy
         }
     }
 
+    public override void OnDeath()
+    {
+        skin.materials[1] = null;
+        anim.enabled = false;
+        base.OnDeath();
+    }
+
     void EmitParticle()
     {
+        pisao.Play();
         groundHitVFX.SetActive(true);
         Invoke("DisableParticle", 3f);
     }

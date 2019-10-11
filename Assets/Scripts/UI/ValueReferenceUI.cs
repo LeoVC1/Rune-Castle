@@ -8,7 +8,7 @@ public class ValueReferenceUI : MonoBehaviour
     public ResourceReference[] resources;
     [HideInInspector] public ResourceReference activeResource;
 
-    public void Start()
+    public virtual void Start()
     {
         UpdateResource();
     }

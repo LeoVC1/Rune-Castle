@@ -7922,6 +7922,8 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 2048
   onEnemy: 0
+  run: {fileID: 0}
+  clips: []
 --- !u!114 &8264909310376297671
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8070,6 +8072,7 @@ MonoBehaviour:
   attackDelay: 0.75
   weight: 0
   hitWeight: 0
+  shot: {fileID: 0}
 --- !u!114 &1828229507
 MonoBehaviour:
   m_ObjectHideFlags: 0

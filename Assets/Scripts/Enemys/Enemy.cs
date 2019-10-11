@@ -16,6 +16,7 @@ public class Enemy : MonoBehaviour
     public Animator anim;
     public Image healthBar;
     public TargetObject mainTarget;
+    public Dissolve myDissolve;
 
     public TargetObject _target;
     public NavMeshAgent _agent;
@@ -50,12 +51,13 @@ public class Enemy : MonoBehaviour
         if (dead)
             return;
 
-        if (nearbyTargets.Count > 0)
-        {
-            GetTarget();
-            targetPoint = Random.Range(0, _target.targetPoint.Length);
-        }
-        else if(_target == null)
+        //if (nearbyTargets.Count > 0)
+        //{
+        //    GetTarget();
+        //    targetPoint = Random.Range(0, _target.targetPoint.Length);
+        //}
+        //else 
+        if (_target == null)
         {
             _target = mainTarget;
             targetPoint = Random.Range(0, _target.targetPoint.Length);
@@ -71,14 +73,13 @@ public class Enemy : MonoBehaviour
             if (!isAttacking)
             {
                 isAttacking = true;
-                InvokeRepeating("Attack", 0, animationTime);
+                Invoke("Attack", animationTime);
+                if (anim)
+                    anim.SetTrigger("Attack");
             }
-            if (anim)
-                anim.SetTrigger("Attack");
         }
         else
         {
-            print("A");
             isAttacking = false;
             _agent.isStopped = false;
             CancelInvoke("Attack");
@@ -94,7 +95,10 @@ public class Enemy : MonoBehaviour
 
     private void LateUpdate()
     {
-        transform.LookAt(new Vector3(_target.lookPoint.transform.position.x, transform.position.y, _target.lookPoint.transform.position.z));
+        if (_target)
+        {
+            transform.LookAt(new Vector3(_target.lookPoint.transform.position.x, transform.position.y, _target.lookPoint.transform.position.z));
+        }
     }
 
     private void GetTarget()
@@ -112,10 +116,15 @@ public class Enemy : MonoBehaviour
 
     public void Attack()
     {
+        print("A");
         if(_target.ReceiveDamage(enemyData.damage))
         {
             nearbyTargets.Remove(_target);
             GetTarget();
+        }
+        else
+        {
+            isAttacking = false;
         }
     }
 
@@ -133,19 +142,27 @@ public class Enemy : MonoBehaviour
             return false;
     }
 
-    private void OnDeath()
+    public virtual void OnDeath()
     {
+        anim.enabled = false;
         StopAllCoroutines();
         Vector3 particlePoint = transform.position + new Vector3(0, Random.Range(-3f, 1.5f),0);
         GameObject particle = Instantiate(deathParticle, particlePoint, Quaternion.identity);
         Destroy(particle, 3.5f);
-        StartCoroutine(DeathScale(particlePoint));
+        //StartCoroutine(DeathScale(particlePoint));
+        _agent.enabled = false;
+        myDissolve.StartLerp();
         spawnerManager.OnEnemyDie();
+    }
+
+    public void Death()
+    {
+        _agent.enabled = false;
+        Destroy(gameObject);
     }
 
     IEnumerator DeathScale(Vector3 point)
     {
-        _agent.enabled = false;
         float t = 0;
         while(t <= 1)
         {

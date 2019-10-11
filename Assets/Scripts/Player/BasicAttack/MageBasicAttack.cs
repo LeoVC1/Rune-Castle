@@ -34,6 +34,7 @@ public class MageBasicAttack : MonoBehaviour
     [SerializeField] private float weight;
     [SerializeField] private float hitWeight;
 
+    public AudioSource shot;
     private void Awake()
     {
         playerAnimation = GetComponent<PlayerAnimation>();
@@ -130,6 +131,8 @@ public class MageBasicAttack : MonoBehaviour
         //pointCollision.SetNewDistance(isMoving == false ? 2.8f : 3.2f);
 
         playerAnimation.SetTrigger(rnd == 0 ? "_BasicAttack_1" : "_BasicAttack_2");
+
+        shot.Play();
     }
     public void ResetIK()
     {

@@ -14,6 +14,8 @@ public class MageAreaSkill : MonoBehaviour
 
     private bool _lock;
 
+    public AudioSource audio;
+
     private void Start()
     {
         Invoke("OnImpact", startDelay);
@@ -24,6 +26,7 @@ public class MageAreaSkill : MonoBehaviour
     void OnImpact()
     {
         _lock = true;
+        audio.Play();
     }
 
     void StopImpact()

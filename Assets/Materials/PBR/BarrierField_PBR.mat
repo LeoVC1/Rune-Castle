@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: BarrierField_PBR
+  m_Shader: {fileID: -6465566751694194690, guid: 64aa62185b46d4843bb74d434f0b7b6d,
+    type: 3}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - Texture2D_9BC16956:
+        m_Texture: {fileID: 2800000, guid: 52b842bf8a0a253479849ea2536e1da1, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats:
+    - Vector1_1DB7259F: 0.84
+    - Vector1_44AD2BD: -22.53
+    - Vector1_5E2FBCFC: 0.16
+    - Vector1_E78C023B: 0.7
+    - _Speed: 0.23
+    m_Colors:
+    - Color_2C409E1D: {r: 0.9811321, g: 0.00000014620008, b: 0, a: 1}
+    - Color_41383C8C: {r: 1, g: 0.116942, b: 0, a: 1}
