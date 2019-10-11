@@ -19,6 +19,9 @@ public class MageAttackPoint : MonoBehaviour
 
     public GameObject _target;
 
+    public Transform point;
+    Vector3 pointStartPosition;
+
     void Start()
     {
         Vector3 rot = transform.localRotation.eulerAngles;
@@ -26,6 +29,8 @@ public class MageAttackPoint : MonoBehaviour
         rotX = rot.x;
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
+
+        pointStartPosition = point.localPosition;
     }
 
     // Update is called once per frame
@@ -51,6 +56,7 @@ public class MageAttackPoint : MonoBehaviour
         RotateToForward();
     }
 
+
     void RotateToForward()
     {
         Vector3 direction = Camera.main.ScreenPointToRay(Input.mousePosition).direction;
@@ -70,11 +76,12 @@ public class MageAttackPoint : MonoBehaviour
 
         float step = CameraMoveSpeed * Time.deltaTime;
         transform.position = Vector3.MoveTowards(transform.position, target.position + (offSet.y * Vector3.up), step);
-        transform.position = transform.position + transform.right * offSet.z;
+        //transform.position = transform.position + transform.right * offSet.z;
     }
 
     public void SetNewOffset(float newOffset)
     {
         offSet.z = newOffset;
+        point.localPosition = pointStartPosition + Vector3.right * newOffset;
     }
 }

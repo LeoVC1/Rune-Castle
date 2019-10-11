@@ -88,6 +88,10 @@ public class SpawnerManager : MonoBehaviour
         spawnerController.CalculateByHealthLost(cristalStartLife, cristal.health);
         spawnerController.CalculateByEnemies(startEnemiesAmount, unstoppableEnemies);
         spawnerController.UpdatePoints();
+        for (int i = 0; i < spawners.Length; i++)
+        {
+            spawners[i].ResetColor();
+        }
     }
 
     public void OnEnemiesGetCrystal()

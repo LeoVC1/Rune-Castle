@@ -9,6 +9,7 @@ public class SettingsMenu : MonoBehaviour
     public TMPro.TMP_Dropdown graphicsDropdown;
     public TMPro.TMP_Dropdown languagesDropdown;
     public LanguageManager languageManager;
+    public Slider slider;
     Resolution[] resolutions;
 
     private void Start()
@@ -65,6 +66,11 @@ public class SettingsMenu : MonoBehaviour
         graphicsDropdown.value = QualitySettings.GetQualityLevel();
         graphicsDropdown.RefreshShownValue();
         #endregion
+    }
+
+    public void SetVolume()
+    {
+        AudioListener.volume = slider.value;
     }
 
     public void SetResolution(int resolutionIndex)
