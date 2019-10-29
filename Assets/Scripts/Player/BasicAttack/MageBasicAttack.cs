@@ -35,6 +35,7 @@ public class MageBasicAttack : MonoBehaviour
     [SerializeField] private float hitWeight;
 
     public AudioSource shot;
+
     private void Awake()
     {
         playerAnimation = GetComponent<PlayerAnimation>();

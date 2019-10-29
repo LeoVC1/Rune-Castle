@@ -19,7 +19,7 @@ public class particleAttractorSpherical : MonoBehaviour {
 		numParticlesAlive = ps.GetParticles(m_Particles);
 		float step = speed * Time.deltaTime;
 		for (int i = 0; i < numParticlesAlive; i++) {
-			m_Particles[i].position = Vector3.SlerpUnclamped(m_Particles[i].position, target.localPosition, step);
+			m_Particles[i].position = Vector3.Slerp(m_Particles[i].position, target.localPosition, step);
 		}
 		ps.SetParticles(m_Particles, numParticlesAlive);
 	}

@@ -26666,7 +26666,7 @@ PrefabInstance:
     - target: {fileID: 9221693014886638000, guid: 6ca8c455e186dec4dac4615713b5ff5a,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 13.7
+      value: 18.07
       objectReference: {fileID: 0}
     - target: {fileID: 9221693014886638000, guid: 6ca8c455e186dec4dac4615713b5ff5a,
         type: 3}
@@ -45129,7 +45129,7 @@ PrefabInstance:
     - target: {fileID: 9221693014886638000, guid: 6ca8c455e186dec4dac4615713b5ff5a,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 117.9
+      value: 122.87
       objectReference: {fileID: 0}
     - target: {fileID: 9221693014886638000, guid: 6ca8c455e186dec4dac4615713b5ff5a,
         type: 3}
@@ -45139,7 +45139,7 @@ PrefabInstance:
     - target: {fileID: 9221693014886638000, guid: 6ca8c455e186dec4dac4615713b5ff5a,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 139.3
+      value: 148.68
       objectReference: {fileID: 0}
     - target: {fileID: 9221693014886638000, guid: 6ca8c455e186dec4dac4615713b5ff5a,
         type: 3}
@@ -67661,6 +67661,21 @@ PrefabInstance:
       propertyPath: shot
       value: 
       objectReference: {fileID: 768300808}
+    - target: {fileID: 8264909310376297676, guid: a3b48376961d1ea498c1d1039fd3c784,
+        type: 3}
+      propertyPath: attackDelay
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8264909310376297676, guid: a3b48376961d1ea498c1d1039fd3c784,
+        type: 3}
+      propertyPath: lr1
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8264909310376297676, guid: a3b48376961d1ea498c1d1039fd3c784,
+        type: 3}
+      propertyPath: lr2
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 1828229507, guid: a3b48376961d1ea498c1d1039fd3c784, type: 3}
       propertyPath: useResource
       value: 1
