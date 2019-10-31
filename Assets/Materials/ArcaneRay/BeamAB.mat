@@ -8,7 +8,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: BeamAB
-  m_Shader: {fileID: -6465566751694194690, guid: a57bce7526ddc804a895be3e513f7a1d,
+  m_Shader: {fileID: -6465566751694194690, guid: c8b2b8950e3862e46a98ab735c754e07,
     type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4

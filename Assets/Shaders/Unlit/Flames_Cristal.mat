@@ -30,5 +30,5 @@ Material:
     - Color_1FCBBD98: {r: 1.9139637, g: 0, b: 2.270603, a: 1}
     - Vector2_543E90B5: {r: -0.1, g: 0.5, b: 0, a: 0}
     - Vector2_A04A5476: {r: -0.1, g: 0.5, b: 0, a: 0}
-    - _Color: {r: 1, g: 0, b: 1, a: 2}
-    - _NoiseSpeed: {r: 0.1, g: -0.5, b: 0, a: 0}
+    - _Color: {r: 3.28, g: 0.7003922, b: 0.25192156, a: 2}
+    - _NoiseSpeed: {r: 1.544, g: -0.5, b: 0, a: 0}
