@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Circles
+  m_Name: CirclesIce
   m_Shader: {fileID: -6465566751694194690, guid: a57bce7526ddc804a895be3e513f7a1d,
     type: 3}
   m_ShaderKeywords: 
