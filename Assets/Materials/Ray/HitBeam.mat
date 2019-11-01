@@ -82,7 +82,7 @@ Material:
     - _ZWrite: 1
     m_Colors:
     - Color_5BB1B30A: {r: 1, g: 1, b: 1, a: 1}
-    - Color_6042E0EE: {r: 2.828427, g: 2.828427, b: 2.828427, a: 1}
+    - Color_6042E0EE: {r: 2.1185474, g: 2.1185474, b: 2.1185474, a: 1}
     - Vector2_C260BEAB: {r: 0, g: 0, b: 0, a: 0}
     - Vector2_FB91752C: {r: -1, g: 0, b: 0, a: 0}
     - _BaseColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
