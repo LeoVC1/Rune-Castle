@@ -9,6 +9,7 @@ public class RaySkill : MonoBehaviour
     public LineRenderer[] otherLineRenderers;
     public GameObject hitParticle;
     public GameObject enemyHitParticle;
+    public GameObject lineHit;
 
 
     [Header("Properties:")]
@@ -39,6 +40,7 @@ public class RaySkill : MonoBehaviour
             if (hit.collider)
             {
                 onHit = true;
+                lineHit.SetActive(false);
                 GameObject particle = Instantiate(enemyHitParticle, hit.point, Quaternion.identity);
                 particle.transform.up = hit.normal;
 
@@ -49,6 +51,10 @@ public class RaySkill : MonoBehaviour
         {
             if (hit.collider)
             {
+                //lineHit.SetActive(true);
+                //lineHit.transform.position = hit.point;
+                //lineHit.transform.up = hit.normal;
+                //lineHit.transform.position += Vector3.up * 1;
                 onHit = true;
                 GameObject particle = Instantiate(hitParticle, hit.point, Quaternion.identity);
                 particle.transform.up = hit.normal;
