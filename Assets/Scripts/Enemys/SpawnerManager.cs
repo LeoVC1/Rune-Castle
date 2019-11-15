@@ -33,12 +33,12 @@ public class SpawnerManager : MonoBehaviour
     {
         print(waveNumber);
         List<int> spawnersIndex = new List<int>();
-        if(waveNumber <= 2)
+        if(waveNumber <= 3)
         {
             spawnersIndex.Add(Random.Range(0, spawners.Length));
             return spawnersIndex;
         }
-        else if(waveNumber <= 4)
+        else if(waveNumber <= 5)
         {
             spawnersIndex.Add(Random.Range(0, spawners.Length));
             int number2 = 0;

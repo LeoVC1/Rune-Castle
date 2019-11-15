@@ -52,21 +52,19 @@ public class Spawner : MonoBehaviour
                 {
                     for(int i = 0; i < enemiesCount; i++)
                     {
-                        GameObject newEnemy = Instantiate(enemyPrefabs[0], transform.position + GetRandomPosition(), Quaternion.identity);
+                        float perc = waveNumber * 0.05f + enemiesCount * 0.03f;
+                        perc = Mathf.Clamp(perc, 0, 4);
+                        perc *= 10;
+                        int randomEnemy = Random.Range(0, 100);
+                        int enemy = randomEnemy > perc ? 0 : 1;
+
+                        Debug.Log("Random: " + randomEnemy + "enemy: " + enemy + " Perc: " + perc);
+
+                        GameObject newEnemy = Instantiate(enemyPrefabs[enemy], transform.position + GetRandomPosition(), Quaternion.identity);
                         Enemy enemyScript = newEnemy.GetComponent<Enemy>();
                         enemyScript.mainTarget = mainTarget;
                         enemyScript.spawnerManager = spawnerManager;
                         yield return new WaitForSeconds(Random.Range(0, 1.5f));
-                    }
-                    if(waveNumber >= 3)
-                    {
-                        for (int i = 0; i < waveNumber / 3; i++)
-                        {
-                            GameObject newEnemy = Instantiate(enemyPrefabs[1], transform.position + GetRandomPosition(), Quaternion.identity);
-                            Enemy enemyScript = newEnemy.GetComponent<Enemy>();
-                            enemyScript.mainTarget = mainTarget;
-                            enemyScript.spawnerManager = spawnerManager;
-                        }
                     }
                     finish = true;
                 }

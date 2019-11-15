@@ -37,6 +37,8 @@ public class Enemy : MonoBehaviour
 
     int targetPoint;
 
+    public bool boss;
+
     public virtual void Start()
     {
         _agent = GetComponent<NavMeshAgent>();
@@ -90,7 +92,8 @@ public class Enemy : MonoBehaviour
 
         isWalking = !_agent.isStopped;
 
-        anim.SetBool("Walking", isWalking);
+        if(boss)
+            anim.SetBool("Walking", isWalking);
     }
 
     private void LateUpdate()

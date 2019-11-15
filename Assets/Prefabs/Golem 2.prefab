@@ -4888,6 +4888,7 @@ MonoBehaviour:
   dead: 0
   isAttacking: 0
   isWalking: 0
+  boss: 1
   minTimeBetweenSkill: 5
   maxTimeBetweenSkill: 10
   skillAnimationParamenter: Skill
@@ -5415,6 +5416,11 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 6.5
       objectReference: {fileID: 0}
+    - target: {fileID: 6300296460828170432, guid: 3d43d5ed61617974b96af6800ba3d040,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: f803c45c95c4c4a4397dc5fb9b25b3d8, type: 2}
     - target: {fileID: 7491758313694808621, guid: 3d43d5ed61617974b96af6800ba3d040,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -5540,11 +5546,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -2.037718
       objectReference: {fileID: 0}
-    - target: {fileID: 6300296460828170432, guid: 3d43d5ed61617974b96af6800ba3d040,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: f803c45c95c4c4a4397dc5fb9b25b3d8, type: 2}
     - target: {fileID: 5432734948806448028, guid: 3d43d5ed61617974b96af6800ba3d040,
         type: 3}
       propertyPath: m_Name
