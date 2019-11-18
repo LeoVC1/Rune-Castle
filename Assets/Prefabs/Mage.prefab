@@ -9373,11 +9373,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3840840174100195552, guid: 3f86ea9eb8d53b946bbbc7d01327f781,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 3784751488881677829, guid: 3f86ea9eb8d53b946bbbc7d01327f781,
         type: 3}
       propertyPath: m_Enabled
@@ -9386,6 +9381,11 @@ PrefabInstance:
     - target: {fileID: -1432590514284448322, guid: 3f86ea9eb8d53b946bbbc7d01327f781,
         type: 3}
       propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3840840174100195552, guid: 3f86ea9eb8d53b946bbbc7d01327f781,
+        type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents:
@@ -9412,6 +9412,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 3466167280525681284}
     m_Modifications:
+    - target: {fileID: -927199367670048503, guid: cff9b68ea2457d748a722d2bdebcab91,
+        type: 3}
+      propertyPath: m_Name
+      value: MochilaFbx1
+      objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: cff9b68ea2457d748a722d2bdebcab91,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -9481,11 +9486,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 0.8334303
-      objectReference: {fileID: 0}
-    - target: {fileID: -927199367670048503, guid: cff9b68ea2457d748a722d2bdebcab91,
-        type: 3}
-      propertyPath: m_Name
-      value: MochilaFbx1
       objectReference: {fileID: 0}
     - target: {fileID: -1504981713932161579, guid: cff9b68ea2457d748a722d2bdebcab91,
         type: 3}
@@ -9572,11 +9572,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3840840174100195552, guid: 3f86ea9eb8d53b946bbbc7d01327f781,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 3784751488881677829, guid: 3f86ea9eb8d53b946bbbc7d01327f781,
         type: 3}
       propertyPath: m_Enabled
@@ -9585,6 +9580,11 @@ PrefabInstance:
     - target: {fileID: -1432590514284448322, guid: 3f86ea9eb8d53b946bbbc7d01327f781,
         type: 3}
       propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3840840174100195552, guid: 3f86ea9eb8d53b946bbbc7d01327f781,
+        type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents:

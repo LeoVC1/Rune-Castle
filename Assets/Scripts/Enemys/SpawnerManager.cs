@@ -76,10 +76,13 @@ public class SpawnerManager : MonoBehaviour
         enemiesAlive = enemiesAmount;
 
         int enemiesBySpawner = enemiesAmount / spawnerIndex.Count;
+        int rest = enemiesAmount % spawnerIndex.Count;
 
         for (int i = 0; i < spawnerIndex.Count; i++)
         {
-            spawners[spawnerIndex[i]].StartSpawn(enemiesBySpawner, 0, 1, waveNumber);
+            if (i != 0)
+                rest = 0;
+            spawners[spawnerIndex[i]].StartSpawn(enemiesBySpawner + rest, 0, 1, waveNumber);
         }
     }
 

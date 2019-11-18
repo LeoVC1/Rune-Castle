@@ -21,7 +21,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Dissolve_Base
-  m_Shader: {fileID: -6465566751694194690, guid: 4364dc65266fc3542af50e689b0cdad5,
+  m_Shader: {fileID: -6465566751694194690, guid: 71f9f2329ed127f4f8714fa2e7cea2f9,
     type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
@@ -41,12 +41,28 @@ Material:
         m_Texture: {fileID: 2800000, guid: 5118639fec96d894497993ed2b541a86, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - Texture2D_60F3CBB9:
+        m_Texture: {fileID: 2800000, guid: b7ced18e4f87f944ca94ba08f845c861, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - Texture2D_6AE62D1C:
         m_Texture: {fileID: 2800000, guid: 80e99ca5bb92efb4db98dd3835aff2fd, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - Texture2D_859747C2:
         m_Texture: {fileID: 2800000, guid: b7ced18e4f87f944ca94ba08f845c861, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - Texture2D_A01C29DB:
+        m_Texture: {fileID: 2800000, guid: 80e99ca5bb92efb4db98dd3835aff2fd, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - Texture2D_E525E9DE:
+        m_Texture: {fileID: 2800000, guid: 5118639fec96d894497993ed2b541a86, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - Texture2D_E5829F7:
+        m_Texture: {fileID: 2800000, guid: 305e7310de58ff44981a77b0e7d772d3, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _BaseMap:
@@ -78,8 +94,15 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
+    - Vector1_1845E0A3: 0.44
+    - Vector1_20447CF7: 0.01
+    - Vector1_36C7C65F: 0.49
     - Vector1_846F83CE: 0.01
+    - Vector1_9E6D82C: 0.33
+    - Vector1_C50A685C: 2.4
+    - Vector1_CDF27882: 30
     - Vector1_DD492BF9: 30
+    - Vector1_E12EFBE6: 0.44
     - _AlphaClip: 0
     - _Blend: 0
     - _BumpScale: 1
@@ -103,8 +126,13 @@ Material:
     - _WorkflowMode: 1
     - _ZWrite: 1
     m_Colors:
-    - Color_2876CD95: {r: 2.270603, g: 2.270603, b: 2.270603, a: 1}
-    - Color_66E046C7: {r: 0, g: 5.5480037, b: 6.4222345, a: 1}
+    - Color_229C5CAD: {r: 0, g: 0.810846, b: 3.4415908, a: 1}
+    - Color_2876CD95: {r: 3.031433, g: 3.031433, b: 3.031433, a: 1}
+    - Color_66E046C7: {r: 0, g: 7.407021, b: 8.574187, a: 1}
+    - Color_8C6A85FF: {r: 0.8584906, g: 0.60508996, b: 0.20652357, a: 1}
+    - Color_C36485DF: {r: 0.8584906, g: 0.60508996, b: 0.20652357, a: 1}
+    - Color_C6B6A253: {r: 0.8584906, g: 0.60508996, b: 0.20652357, a: 1}
+    - Color_D3A3049D: {r: 0.8584906, g: 0.60508996, b: 0.20652357, a: 1}
     - _BaseColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
     - _Color: {r: 0.5, g: 0.5, b: 0.5, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}

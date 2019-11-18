@@ -148,6 +148,7 @@ public class Enemy : MonoBehaviour
     public virtual void OnDeath()
     {
         anim.enabled = false;
+        GetComponent<CapsuleCollider>().enabled = false;
         StopAllCoroutines();
         Vector3 particlePoint = transform.position + new Vector3(0, Random.Range(-3f, 1.5f),0);
         GameObject particle = Instantiate(deathParticle, particlePoint, Quaternion.identity);

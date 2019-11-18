@@ -24041,7 +24041,7 @@ LineRenderer:
         outWeight: 0.33333334
       - serializedVersion: 3
         time: 1
-        value: 0
+        value: 0.49668884
         inSlope: -1.079252
         outSlope: -1.079252
         tangentMode: 0
