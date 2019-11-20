@@ -53,7 +53,7 @@ namespace VFX
 
         IEnumerator ActivateExplosions()
         {
-            for (int i = 0; i < cracklesMask.Length; i++)
+            for (int i = 0; i < explosions.Length; i++)
             {
                 explosions[i].gameObject.SetActive(true);
                 explosions[i].Play();
@@ -72,6 +72,7 @@ namespace VFX
                     cracklesMask[i].material.SetFloat("_Tile", t);
                     yield return new WaitForSeconds(Random.Range(crackleSpeed.x, crackleSpeed.y));
                 }
+                cracklesMask[i].material.SetFloat("_Tile", 1);
             }
             yield return new WaitForSeconds(explosionDelay);
             Explode();
