@@ -23,6 +23,10 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _DissipationTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _MainTex:
         m_Texture: {fileID: 2800000, guid: c84bdcf35249f834c879489cb0d49c36, type: 3}
         m_Scale: {x: 1, y: 1}
@@ -35,13 +39,20 @@ Material:
         m_Texture: {fileID: 2800000, guid: 0541f73878db6d842abdca72cf8ce7a6, type: 3}
         m_Scale: {x: -2, y: -1}
         m_Offset: {x: 0, y: 0}
+    - _node_3753:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     m_Floats:
     - _Alpha: 1
     - _Cutoff: 0.5
     - _Height: 6
     - _NoiseScale: 1
-    - _Tile: 0.538
+    - _Opacity: 0
+    - _Tile: 0.55
     - _Width: 6
     m_Colors:
     - _InVector2: {r: 0, g: 1, b: 0, a: 0}
+    - _MaskColor: {r: 1, g: 1, b: 1, a: 1}
     - _OutVector2: {r: 5, g: 2, b: 0, a: 0}
+    - _node_3363: {r: 0.5, g: 0.5, b: 0.5, a: 1}

@@ -4,7 +4,7 @@
             "typeInfo": {
                 "fullName": "UnityEditor.ShaderGraph.TextureShaderProperty"
             },
-            "JSONnodeData": "{\n    \"m_Name\": \"Albedo\",\n    \"m_GeneratePropertyBlock\": true,\n    \"m_Guid\": {\n        \"m_GuidSerialized\": \"0ba73443-1a7e-4f83-95dd-74ca66199ce7\"\n    },\n    \"m_DefaultReferenceName\": \"Texture2D_E5829F7\",\n    \"m_OverrideReferenceName\": \"\",\n    \"m_Value\": {\n        \"m_SerializedTexture\": \"\",\n        \"m_Guid\": \"305e7310de58ff44981a77b0e7d772d3\"\n    },\n    \"m_Modifiable\": true,\n    \"m_DefaultType\": 0\n}"
+            "JSONnodeData": "{\n    \"m_Name\": \"Albedo\",\n    \"m_GeneratePropertyBlock\": true,\n    \"m_Guid\": {\n        \"m_GuidSerialized\": \"0ba73443-1a7e-4f83-95dd-74ca66199ce7\"\n    },\n    \"m_DefaultReferenceName\": \"Texture2D_E5829F7\",\n    \"m_OverrideReferenceName\": \"_MainTex\",\n    \"m_Value\": {\n        \"m_SerializedTexture\": \"\",\n        \"m_Guid\": \"305e7310de58ff44981a77b0e7d772d3\"\n    },\n    \"m_Modifiable\": true,\n    \"m_DefaultType\": 0\n}"
         },
         {
             "typeInfo": {
@@ -480,5 +480,5 @@
             "m_Guid": "8d2da1d66a5dbe44f90be4de01f04627"
         }
     },
-    "m_Path": "Shader Graphs"
+    "m_Path": "Shader Graphs/Colors"
 }

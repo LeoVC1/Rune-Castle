@@ -21,22 +21,19 @@ namespace VFX
 
         private void Update()
         {
+
             if (Input.GetKeyDown(KeyCode.Alpha9))
             {
-                ActivateCrackle();
-            }
-            if (Input.GetKeyDown(KeyCode.Alpha8))
-            {
-                DesactivateCrackle(true);
+                Explode();
             }
         }
 
-        public void ActivateCrackle()
+        private void ActivateCrackle()
         {
             StartCoroutine(ShowHoles());
         }
 
-        public void DesactivateCrackle(bool fade = false)
+        private void DesactivateCrackle(bool fade = false)
         {
             if(fade)
                 StartCoroutine(HideHoles());
@@ -60,14 +57,16 @@ namespace VFX
 
         IEnumerator ActivateExplosions()
         {
+
             for (int i = 0; i < explosions.Length; i++)
             {
                 explosions[i].gameObject.SetActive(true);
                 explosions[i].Play();
+                cracklesMask[i].material.SetFloat("_Tile", 0.5f);
                 yield return new WaitForSeconds(explosionsInterval);
             }
-            yield return new WaitForSeconds(1f);
-            DesactivateCrackle(true);
+            yield return new WaitForSeconds(2.5f);
+            DesactivateCrackle(false);
         }
 
         IEnumerator ShowHoles()
@@ -75,7 +74,7 @@ namespace VFX
             for (int i = 0; i < cracklesMask.Length; i++)
             {
                 float t = 0;
-                while (t <= 0.5f)
+                while (t < 0.5f)
                 {
                     t += Time.deltaTime * Random.Range(crackleScale.x, crackleScale.y);
                     cracklesMask[i].material.SetFloat("_Tile", t);
@@ -92,7 +91,7 @@ namespace VFX
             for (int i = 0; i < cracklesMask.Length; i++)
             {
                 float t = 0.5f;
-                while (t <= 1)
+                while (t < 1)
                 {
                     t += Time.deltaTime * Random.Range(crackleScale.x, crackleScale.y);
                     cracklesMask[i].material.SetFloat("_Tile", t);
@@ -102,5 +101,6 @@ namespace VFX
             }
             yield return new WaitForSeconds(explosionDelay);
         }
+
     }
 }

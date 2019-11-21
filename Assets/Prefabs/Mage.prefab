@@ -9412,11 +9412,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 3466167280525681284}
     m_Modifications:
-    - target: {fileID: -927199367670048503, guid: cff9b68ea2457d748a722d2bdebcab91,
-        type: 3}
-      propertyPath: m_Name
-      value: MochilaFbx1
-      objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: cff9b68ea2457d748a722d2bdebcab91,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -9486,6 +9481,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 0.8334303
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: cff9b68ea2457d748a722d2bdebcab91,
+        type: 3}
+      propertyPath: m_Name
+      value: MochilaFbx1
       objectReference: {fileID: 0}
     - target: {fileID: -1504981713932161579, guid: cff9b68ea2457d748a722d2bdebcab91,
         type: 3}

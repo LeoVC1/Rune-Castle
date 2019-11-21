@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-4746785776158537576
+--- !u!114 &-6780740127834518181
 MonoBehaviour:
   m_ObjectHideFlags: 11
   m_CorrespondingSourceObject: {fileID: 0}
@@ -20,8 +20,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Flame
-  m_Shader: {fileID: -6465566751694194690, guid: 8e5579aa6d3585c4e8aca95c75572ac9,
+  m_Name: GolemMiniRed2
+  m_Shader: {fileID: -6465566751694194690, guid: 71f9f2329ed127f4f8714fa2e7cea2f9,
     type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
@@ -33,8 +33,32 @@ Material:
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
-    - Texture2D_4A8C6859:
-        m_Texture: {fileID: 2800000, guid: 4c1ee90a61c23634fbd72f574e3c9fa6, type: 3}
+    - Texture2D_24772312:
+        m_Texture: {fileID: 2800000, guid: 6a03ad002ba7aa548a3502d00e52588f, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - Texture2D_3F48247A:
+        m_Texture: {fileID: 2800000, guid: d262e55453bdf6343aad927fb33cf327, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - Texture2D_60F3CBB9:
+        m_Texture: {fileID: 2800000, guid: 3f2b34e6400bdfe4d9e79d7b067a3b41, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - Texture2D_6AE62D1C:
+        m_Texture: {fileID: 2800000, guid: 6f2522dd87df2504ebe4805e163387fb, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - Texture2D_859747C2:
+        m_Texture: {fileID: 2800000, guid: 3f2b34e6400bdfe4d9e79d7b067a3b41, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - Texture2D_A01C29DB:
+        m_Texture: {fileID: 2800000, guid: 6f2522dd87df2504ebe4805e163387fb, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - Texture2D_E525E9DE:
+        m_Texture: {fileID: 2800000, guid: d262e55453bdf6343aad927fb33cf327, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _BaseMap:
@@ -50,7 +74,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: 6a03ad002ba7aa548a3502d00e52588f, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MetallicGlossMap:
@@ -66,15 +90,21 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
-    - Vector1_142EF4A9: 0.99
-    - Vector1_1CCE56D5: 1.6
-    - Vector1_25D9DF94: 0.13
-    - Vector1_9139514: 5
+    - Vector1_1845E0A3: 0.45
+    - Vector1_20447CF7: 0.01
+    - Vector1_36C7C65F: 0.126
+    - Vector1_846F83CE: 0.01
+    - Vector1_9E6D82C: 0.071
+    - Vector1_C50A685C: 1.52
+    - Vector1_CDF27882: 30
+    - Vector1_DD492BF9: 30
+    - Vector1_E12EFBE6: 0.142
     - _AlphaClip: 0
     - _Blend: 0
     - _BumpScale: 1
     - _Cull: 2
     - _Cutoff: 0.5
+    - _Dissolve: 1
     - _DstBlend: 0
     - _EnvironmentReflections: 1
     - _GlossMapScale: 0
@@ -92,10 +122,14 @@ Material:
     - _WorkflowMode: 1
     - _ZWrite: 1
     m_Colors:
-    - Color_B28CF840: {r: 0, g: 1.6577293, b: 18.379171, a: 1}
-    - Vector2_1EC6315: {r: 0, g: -1.31, b: 0, a: 0}
-    - Vector2_B497E060: {r: -0.1, g: -0.5, b: 0, a: 0}
+    - Color_229C5CAD: {r: 1.319508, g: 1.319508, b: 1.319508, a: 1}
+    - Color_2876CD95: {r: 20.865906, g: 20.865906, b: 20.865906, a: 1}
+    - Color_66E046C7: {r: 0, g: 5.5480037, b: 6.4222345, a: 1}
+    - Color_8C6A85FF: {r: 1, g: 0, b: 0.059297062, a: 1}
+    - Color_C36485DF: {r: 0, g: 0.2922101, b: 0.44339618, a: 1}
+    - Color_C6B6A253: {r: 1, g: 0, b: 0.059297085, a: 1}
+    - Color_D3A3049D: {r: 0, g: 0.2922101, b: 0.44339618, a: 1}
     - _BaseColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
     - _Color: {r: 0.5, g: 0.5, b: 0.5, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
+    - _SpecColor: {r: 0.2, g: 0.2, b: 0.2, a: 1}
