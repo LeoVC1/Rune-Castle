@@ -18,6 +18,8 @@ public class CristalColor : MonoBehaviour
 
     private void Update()
     {
+        return;
+
         float alpha = cristalHealth.GetHealthPerc();
 
         SetCristalNoise(alpha);
@@ -39,7 +41,7 @@ public class CristalColor : MonoBehaviour
 
     private void SetParticlesSpeed(float alpha)
     {
-        foreach(Particles ps in speedParticles)
+        foreach (Particles ps in speedParticles)
         {
             ps.particle.startSpeed = Mathf.Lerp(ps.maxSpeed, ps.minSpeed, alpha);
         }
@@ -47,7 +49,7 @@ public class CristalColor : MonoBehaviour
 
     private void SetParticlesColor(float alpha)
     {
-        foreach(ParticleSystem ps in particles)
+        foreach (ParticleSystem ps in particles)
         {
             ps.startColor = Color.Lerp(Color.red + Color.yellow, Color.blue + Color.red, alpha);
         }

@@ -27,16 +27,21 @@ Material:
         m_Texture: {fileID: 2800000, guid: c84bdcf35249f834c879489cb0d49c36, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _NoiseTexture:
+        m_Texture: {fileID: 2800000, guid: c1208b56bd42ab14eb621ddfaee753b4, type: 3}
+        m_Scale: {x: 5, y: 5}
+        m_Offset: {x: 0, y: 0}
     - _Tilemap:
         m_Texture: {fileID: 2800000, guid: 0541f73878db6d842abdca72cf8ce7a6, type: 3}
-        m_Scale: {x: -1, y: -1}
+        m_Scale: {x: -2, y: -1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
     - _Alpha: 1
     - _Cutoff: 0.5
     - _Height: 6
-    - _Tile: 1
+    - _NoiseScale: 1
+    - _Tile: 0
     - _Width: 6
     m_Colors:
     - _InVector2: {r: 0, g: 1, b: 0, a: 0}
-    - _OutVector2: {r: 3, g: 2, b: 0, a: 0}
+    - _OutVector2: {r: 5, g: 2, b: 0, a: 0}
