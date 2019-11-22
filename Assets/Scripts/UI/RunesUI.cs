@@ -85,6 +85,7 @@ public class RunesUI : MonoBehaviour
     {
         runeInventoryManager.RemoveRuneFromCombo(runeID);
         ChangeSlot(index, runeID);
+        VerifyCombo();
     }
 
 

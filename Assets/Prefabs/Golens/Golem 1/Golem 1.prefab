@@ -24308,7 +24308,7 @@ MonoBehaviour:
   - {fileID: 4951863527564057657, guid: 1528e1e6979b3ea43893c0b33abb0bc1, type: 3}
   - {fileID: 9154794348784201062, guid: 03399f45a8f2cd34d879e35f3adc673e, type: 3}
   - {fileID: 1893101204102696409, guid: 0b26bf6d6fefbfe4e88ab3d4bf1986f6, type: 3}
-  spawnRuneChance: 100
+  spawnRuneChance: 15
 --- !u!54 &7911471446243726163
 Rigidbody:
   m_ObjectHideFlags: 0

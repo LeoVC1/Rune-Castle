@@ -120,7 +120,7 @@ public class CameraFollow : MonoBehaviour
     public void ChangeTarget(GameObject newTarget)
     {
         offSet = newTarget.GetComponent<Enemy>().cameraOffset;
-        camCollision.maxDistance = 10;
+        camCollision.maxDistance = 15;
         Time.timeScale = 0;
         CameraMoveSpeed = 150f;
         _target = newTarget;

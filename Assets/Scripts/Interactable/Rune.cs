@@ -22,7 +22,9 @@ public class Rune : Interactable
 
     public void GetRune()
     {
-        
+        interactableManager.UnregisterInteractable(this);
+        runeInventoryManager.AddRune(runeID);
+        Destroy(gameObject);
     }
 
     public override void TriggerEnter(Collider other)

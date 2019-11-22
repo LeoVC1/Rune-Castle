@@ -8,6 +8,8 @@ namespace VFX
     {
         [SerializeField] private MeshRenderer[] cracklesMask;
         [SerializeField] private ParticleSystem[] explosions;
+        [SerializeField] private MageAreaSkill[] scripts;
+
 
         [SerializeField] private Vector2 crackleSpeed;
         [SerializeField] private Vector2 crackleScale;
@@ -17,15 +19,20 @@ namespace VFX
         private void Start()
         {
             DesactivateCrackle();
+            scripts = new MageAreaSkill[explosions.Length];
+            for(int i = 0; i < explosions.Length; i++)
+            {
+                scripts[i] = explosions[i].GetComponent<MageAreaSkill>();
+            }
         }
 
         private void Update()
         {
 
-            if (Input.GetKeyDown(KeyCode.Alpha9))
-            {
-                Explode();
-            }
+            //if (Input.GetKeyDown(KeyCode.Alpha9))
+            //{
+            //    Explode();
+            //}
         }
 
         private void ActivateCrackle()
@@ -62,6 +69,7 @@ namespace VFX
             {
                 explosions[i].gameObject.SetActive(true);
                 explosions[i].Play();
+                scripts[i].Explode();
                 cracklesMask[i].material.SetFloat("_Tile", 0.5f);
                 yield return new WaitForSeconds(explosionsInterval);
             }

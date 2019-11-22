@@ -61,6 +61,23 @@ public class TargetObject : MonoBehaviour
         return health / maxHealth;
     }
 
+    public void IncreaseMaximumLifeByRune()
+    {
+        maxHealth += 200;
+        health += 200;
+        health = Mathf.Clamp(health, 0, maxHealth);
+        healthBar.fillAmount = health / maxHealth;
+        myLifeNumber.text = health.ToString() + "/" + maxHealth.ToString();
+    }
+
+    public void RegenLifeByRune()
+    {
+        health += 400;
+        health = Mathf.Clamp(health, 0, maxHealth);
+        healthBar.fillAmount = health / maxHealth;
+        myLifeNumber.text = health.ToString() + "/" + maxHealth.ToString();
+    }
+
     private void OnDrawGizmos()
     {
         foreach(Transform t in targetPoint)

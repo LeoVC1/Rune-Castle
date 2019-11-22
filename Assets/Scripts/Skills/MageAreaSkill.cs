@@ -9,6 +9,8 @@ public class MageAreaSkill : MonoBehaviour
     public float startDelay;
     public float impactLifetime;
     public float lifeTime;
+    public bool dontDestroy;
+    public bool onStart;
 
     private List<Collider> collided = new List<Collider>();
 
@@ -18,9 +20,21 @@ public class MageAreaSkill : MonoBehaviour
 
     private void Start()
     {
+        if (onStart)
+            return;
+
         Invoke("OnImpact", startDelay);
         Invoke("StopImpact", startDelay + impactLifetime);
-        Destroy(gameObject, lifeTime);
+        if(!dontDestroy)
+            Destroy(gameObject, lifeTime);
+    }
+
+    public void Explode()
+    {
+        Invoke("OnImpact", startDelay);
+        Invoke("StopImpact", startDelay + impactLifetime);
+        if (!dontDestroy)
+            Destroy(gameObject, lifeTime);
     }
 
     void OnImpact()

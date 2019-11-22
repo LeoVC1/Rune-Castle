@@ -66,6 +66,9 @@ MonoBehaviour:
   - {fileID: 7527160978880298592}
   - {fileID: 7527160980592130651}
   - {fileID: 7527160979371144187}
+  scripts:
+  - {fileID: 3388103053569599940}
+  - {fileID: 5247682838082090086}
   crackleSpeed: {x: 0.01, y: 0.03}
   crackleScale: {x: 0.5, y: 1.5}
   explosionsInterval: 0.3
@@ -161,6 +164,18 @@ MeshRenderer:
     type: 3}
   m_PrefabInstance: {fileID: 6420901176929684671}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &3388103053569599940 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8511638778730161531, guid: 5a2df774c9ac4db4f8ccec073bd9e958,
+    type: 3}
+  m_PrefabInstance: {fileID: 6420901176929684671}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c7c434671c7fb6488dba48463c9e57f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!198 &1126655810377253347 stripped
 ParticleSystem:
   m_CorrespondingSourceObject: {fileID: 6249079715330690396, guid: 5a2df774c9ac4db4f8ccec073bd9e958,
@@ -174,11 +189,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8711391138134153340}
     m_Modifications:
-    - target: {fileID: 7482579573819452191, guid: 4aea3dd408448df45b580ea4fdf74e3c,
+    - target: {fileID: 7482579572476845355, guid: 4aea3dd408448df45b580ea4fdf74e3c,
         type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 56ed0170dbbbed24aad9dfdcc4acf7ed, type: 2}
+      propertyPath: m_Name
+      value: Vfx_Crackle_v1 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7482579572476845354, guid: 4aea3dd408448df45b580ea4fdf74e3c,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -234,11 +249,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7482579572476845355, guid: 4aea3dd408448df45b580ea4fdf74e3c,
-        type: 3}
-      propertyPath: m_Name
-      value: Vfx_Crackle_v1 0
-      objectReference: {fileID: 0}
     - target: {fileID: 6035072043164424971, guid: 4aea3dd408448df45b580ea4fdf74e3c,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -249,6 +259,11 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: -2.8
       objectReference: {fileID: 0}
+    - target: {fileID: 7482579573819452191, guid: 4aea3dd408448df45b580ea4fdf74e3c,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 56ed0170dbbbed24aad9dfdcc4acf7ed, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4aea3dd408448df45b580ea4fdf74e3c, type: 3}
 --- !u!4 &2247967395525345582 stripped
@@ -276,11 +291,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8711391138134153340}
     m_Modifications:
-    - target: {fileID: 7482579573819452191, guid: 4aea3dd408448df45b580ea4fdf74e3c,
+    - target: {fileID: 7482579572476845355, guid: 4aea3dd408448df45b580ea4fdf74e3c,
         type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 56ed0170dbbbed24aad9dfdcc4acf7ed, type: 2}
+      propertyPath: m_Name
+      value: Vfx_Crackle_v1 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7482579572476845354, guid: 4aea3dd408448df45b580ea4fdf74e3c,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -336,11 +351,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7482579572476845355, guid: 4aea3dd408448df45b580ea4fdf74e3c,
-        type: 3}
-      propertyPath: m_Name
-      value: Vfx_Crackle_v1 0
-      objectReference: {fileID: 0}
     - target: {fileID: 6035072043164424971, guid: 4aea3dd408448df45b580ea4fdf74e3c,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -351,6 +361,11 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: -2.8
       objectReference: {fileID: 0}
+    - target: {fileID: 7482579573819452191, guid: 4aea3dd408448df45b580ea4fdf74e3c,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 56ed0170dbbbed24aad9dfdcc4acf7ed, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4aea3dd408448df45b580ea4fdf74e3c, type: 3}
 --- !u!4 &2247967395318022863 stripped
@@ -378,11 +393,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8711391138134153340}
     m_Modifications:
-    - target: {fileID: 7482579573819452191, guid: 4aea3dd408448df45b580ea4fdf74e3c,
+    - target: {fileID: 7482579572476845355, guid: 4aea3dd408448df45b580ea4fdf74e3c,
         type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 56ed0170dbbbed24aad9dfdcc4acf7ed, type: 2}
+      propertyPath: m_Name
+      value: Vfx_Crackle_v1 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7482579572476845354, guid: 4aea3dd408448df45b580ea4fdf74e3c,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -438,11 +453,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7482579572476845355, guid: 4aea3dd408448df45b580ea4fdf74e3c,
-        type: 3}
-      propertyPath: m_Name
-      value: Vfx_Crackle_v1 0
-      objectReference: {fileID: 0}
     - target: {fileID: 6035072043164424971, guid: 4aea3dd408448df45b580ea4fdf74e3c,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -453,11 +463,16 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: -2.8
       objectReference: {fileID: 0}
+    - target: {fileID: 7482579573819452191, guid: 4aea3dd408448df45b580ea4fdf74e3c,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 56ed0170dbbbed24aad9dfdcc4acf7ed, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4aea3dd408448df45b580ea4fdf74e3c, type: 3}
---- !u!23 &2247967397093956049 stripped
-MeshRenderer:
-  m_CorrespondingSourceObject: {fileID: 7482579573819452191, guid: 4aea3dd408448df45b580ea4fdf74e3c,
+--- !u!198 &7527160978664201936 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 1193679379169668126, guid: 4aea3dd408448df45b580ea4fdf74e3c,
     type: 3}
   m_PrefabInstance: {fileID: 8711391137453830862}
   m_PrefabAsset: {fileID: 0}
@@ -467,9 +482,9 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 8711391137453830862}
   m_PrefabAsset: {fileID: 0}
---- !u!198 &7527160978664201936 stripped
-ParticleSystem:
-  m_CorrespondingSourceObject: {fileID: 1193679379169668126, guid: 4aea3dd408448df45b580ea4fdf74e3c,
+--- !u!23 &2247967397093956049 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 7482579573819452191, guid: 4aea3dd408448df45b580ea4fdf74e3c,
     type: 3}
   m_PrefabInstance: {fileID: 8711391137453830862}
   m_PrefabAsset: {fileID: 0}
@@ -480,6 +495,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8711391138134153340}
     m_Modifications:
+    - target: {fileID: 7482579572476845355, guid: 4aea3dd408448df45b580ea4fdf74e3c,
+        type: 3}
+      propertyPath: m_Name
+      value: Vfx_Crackle_v1 180
+      objectReference: {fileID: 0}
     - target: {fileID: 7482579572476845354, guid: 4aea3dd408448df45b580ea4fdf74e3c,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -535,11 +555,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7482579572476845355, guid: 4aea3dd408448df45b580ea4fdf74e3c,
-        type: 3}
-      propertyPath: m_Name
-      value: Vfx_Crackle_v1 180
-      objectReference: {fileID: 0}
     - target: {fileID: 6035072043164424971, guid: 4aea3dd408448df45b580ea4fdf74e3c,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -577,11 +592,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8711391138134153340}
     m_Modifications:
-    - target: {fileID: 7482579573819452191, guid: 4aea3dd408448df45b580ea4fdf74e3c,
+    - target: {fileID: 7482579572476845355, guid: 4aea3dd408448df45b580ea4fdf74e3c,
         type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 56ed0170dbbbed24aad9dfdcc4acf7ed, type: 2}
+      propertyPath: m_Name
+      value: Vfx_Crackle_v1 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7482579572476845354, guid: 4aea3dd408448df45b580ea4fdf74e3c,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -637,11 +652,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7482579572476845355, guid: 4aea3dd408448df45b580ea4fdf74e3c,
-        type: 3}
-      propertyPath: m_Name
-      value: Vfx_Crackle_v1 0
-      objectReference: {fileID: 0}
     - target: {fileID: 6035072043164424971, guid: 4aea3dd408448df45b580ea4fdf74e3c,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -652,6 +662,11 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: -2.8
       objectReference: {fileID: 0}
+    - target: {fileID: 7482579573819452191, guid: 4aea3dd408448df45b580ea4fdf74e3c,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 56ed0170dbbbed24aad9dfdcc4acf7ed, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4aea3dd408448df45b580ea4fdf74e3c, type: 3}
 --- !u!4 &2247967396538190703 stripped
@@ -679,6 +694,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8711391138134153340}
     m_Modifications:
+    - target: {fileID: 7482579572476845355, guid: 4aea3dd408448df45b580ea4fdf74e3c,
+        type: 3}
+      propertyPath: m_Name
+      value: Vfx_Crackle_v1 180
+      objectReference: {fileID: 0}
     - target: {fileID: 7482579572476845354, guid: 4aea3dd408448df45b580ea4fdf74e3c,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -734,11 +754,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7482579572476845355, guid: 4aea3dd408448df45b580ea4fdf74e3c,
-        type: 3}
-      propertyPath: m_Name
-      value: Vfx_Crackle_v1 180
-      objectReference: {fileID: 0}
     - target: {fileID: 6035072043164424971, guid: 4aea3dd408448df45b580ea4fdf74e3c,
         type: 3}
       propertyPath: m_LocalPosition.z
@@ -758,6 +773,18 @@ MeshRenderer:
     type: 3}
   m_PrefabInstance: {fileID: 8711391138689462367}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &5247682838082090086 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3474130914950890553, guid: 4aea3dd408448df45b580ea4fdf74e3c,
+    type: 3}
+  m_PrefabInstance: {fileID: 8711391138689462367}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c7c434671c7fb6488dba48463c9e57f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!198 &7527160979966123073 stripped
 ParticleSystem:
   m_CorrespondingSourceObject: {fileID: 1193679379169668126, guid: 4aea3dd408448df45b580ea4fdf74e3c,

@@ -173,7 +173,7 @@ public class Enemy : MonoBehaviour
             int chance = Random.Range(0, 100);
             if(chance < spawnRuneChance)
             {
-                Instantiate(runes[Random.Range(0, runes.Length)], transform.position, Quaternion.identity);
+                Instantiate(runes[Random.Range(0, runes.Length)], transform.position + Vector3.up * 2, Quaternion.identity);
             }
         }
     }

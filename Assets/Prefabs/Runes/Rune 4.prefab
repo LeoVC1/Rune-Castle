@@ -112,10 +112,11 @@ MonoBehaviour:
     type: 2}
   intectableClasses: 0
   canvas: {fileID: 0}
-  runeInventoryManager: {fileID: 0}
+  runeInventoryManager: {fileID: 11400000, guid: 867374ae0578ecd468f02fba9e9b3d9a,
+    type: 2}
   particles: {fileID: 3142117155875157122}
   rune: {fileID: 0}
-  runeID: 4
+  runeID: 3
 --- !u!1 &3142117154899822042
 GameObject:
   m_ObjectHideFlags: 0
