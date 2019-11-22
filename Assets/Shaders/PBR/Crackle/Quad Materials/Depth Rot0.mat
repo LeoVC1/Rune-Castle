@@ -49,7 +49,7 @@ Material:
     - _Height: 6
     - _NoiseScale: 1
     - _Opacity: 0
-    - _Tile: 0.55
+    - _Tile: 0.72
     - _Width: 6
     m_Colors:
     - _InVector2: {r: 0, g: 1, b: 0, a: 0}

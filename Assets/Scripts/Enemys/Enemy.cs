@@ -41,6 +41,9 @@ public class Enemy : MonoBehaviour
 
     public Vector3 cameraOffset;
 
+    public GameObject[] runes;
+    public int spawnRuneChance;
+
     public virtual void Start()
     {
         _agent = GetComponent<NavMeshAgent>();
@@ -165,6 +168,14 @@ public class Enemy : MonoBehaviour
         _agent.enabled = false;
         myDissolve.StartLerp();
         spawnerManager.OnEnemyDie();
+        if(spawnRuneChance > 0)
+        {
+            int chance = Random.Range(0, 100);
+            if(chance < spawnRuneChance)
+            {
+                Instantiate(runes[Random.Range(0, runes.Length)], transform.position, Quaternion.identity);
+            }
+        }
     }
 
     public virtual void Death()

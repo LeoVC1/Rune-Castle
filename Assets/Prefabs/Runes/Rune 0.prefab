@@ -42,8 +42,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5510225006595223901}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -6.52}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children:
   - {fileID: 7778298164779790641}
   - {fileID: 1106728471934253891}
@@ -126,7 +126,7 @@ MonoBehaviour:
     type: 2}
   intectableClasses: 0
   canvas: {fileID: 0}
-  inventoryManager: {fileID: 11400000, guid: 089e520297e86674a98d2424a9339559, type: 2}
+  runeInventoryManager: {fileID: 0}
   particles: {fileID: 9054186982844631046}
   rune: {fileID: 1046807640930285551}
   runeID: 0
@@ -207,7 +207,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9054186981318683412}
   m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 0.098, z: 0}
+  m_LocalPosition: {x: 0, y: 0.47, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 9054186982844631045}
@@ -288,7 +288,7 @@ ParticleSystem:
       m_RotationOrder: 4
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
-  scalingMode: 1
+  scalingMode: 0
   randomSeed: 0
   InitialModule:
     serializedVersion: 3
@@ -5049,7 +5049,7 @@ ParticleSystem:
       m_RotationOrder: 4
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
-  scalingMode: 1
+  scalingMode: 0
   randomSeed: 0
   InitialModule:
     serializedVersion: 3
@@ -9680,7 +9680,7 @@ ParticleSystemRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_RenderMode: 1
+  m_RenderMode: 5
   m_SortMode: 0
   m_MinParticleSize: 0
   m_MaxParticleSize: 3
@@ -9810,7 +9810,7 @@ ParticleSystem:
       m_RotationOrder: 4
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
-  scalingMode: 1
+  scalingMode: 0
   randomSeed: 0
   InitialModule:
     serializedVersion: 3
@@ -14638,7 +14638,7 @@ ParticleSystem:
       m_RotationOrder: 4
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
-  scalingMode: 1
+  scalingMode: 0
   randomSeed: 0
   InitialModule:
     serializedVersion: 3
@@ -19399,7 +19399,7 @@ ParticleSystem:
       m_RotationOrder: 4
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
-  scalingMode: 1
+  scalingMode: 0
   randomSeed: 0
   InitialModule:
     serializedVersion: 3
@@ -24335,6 +24335,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Runas1
       objectReference: {fileID: 0}
+    - target: {fileID: -1655424787016328880, guid: 81bce8b46707aaa4cacc7f93a2857f0d,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 196400a7d9f55184e87bacdc1327c2ed, type: 2}
     - target: {fileID: -4216859302048453862, guid: 81bce8b46707aaa4cacc7f93a2857f0d,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -24425,11 +24430,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.y
       value: -180.00002
       objectReference: {fileID: 0}
-    - target: {fileID: -1655424787016328880, guid: 81bce8b46707aaa4cacc7f93a2857f0d,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 196400a7d9f55184e87bacdc1327c2ed, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 81bce8b46707aaa4cacc7f93a2857f0d, type: 3}
 --- !u!4 &4097250745316181500 stripped

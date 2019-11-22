@@ -4858,7 +4858,7 @@ ParticleSystem:
   ringBufferLoopRange: {x: 0, y: 1}
   looping: 1
   prewarm: 0
-  playOnAwake: 0
+  playOnAwake: 1
   useUnscaledTime: 0
   autoRandomSeed: 1
   useRigidbodyForVelocity: 1
@@ -48030,7 +48030,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawnerManager: {fileID: 0}
   spawnerController: {fileID: 11400000, guid: 43457dd716aa73c469ca64685428679a, type: 2}
-  enemyData: {fileID: 11400000, guid: 695b8e5ca4bf81648a3b01c207d8c05f, type: 2}
+  enemyData: {fileID: 11400000, guid: 7d2a8588290fe76419a26fbc65ad9918, type: 2}
   renderers: []
   deathParticle: {fileID: 1490043199212184133, guid: a05a1cf392347d149b90b5936ea0eb62,
     type: 3}
@@ -48051,6 +48051,13 @@ MonoBehaviour:
   isWalking: 0
   boss: 0
   cameraOffset: {x: 0, y: -1, z: 0}
+  runes:
+  - {fileID: 5510225006595223901, guid: a4624e6b97b51574e8de209d2ffcd80e, type: 3}
+  - {fileID: 6064382747325308117, guid: 9e44a22617b872447be7a65bd1445be8, type: 3}
+  - {fileID: 4951863527564057657, guid: 1528e1e6979b3ea43893c0b33abb0bc1, type: 3}
+  - {fileID: 9154794348784201062, guid: 03399f45a8f2cd34d879e35f3adc673e, type: 3}
+  - {fileID: 1893101204102696409, guid: 0b26bf6d6fefbfe4e88ab3d4bf1986f6, type: 3}
+  spawnRuneChance: 30
   healPerc: 10
   shieldCount: 2
   nearbyFriends: []

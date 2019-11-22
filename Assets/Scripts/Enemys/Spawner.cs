@@ -59,8 +59,8 @@ public class Spawner : MonoBehaviour
 
                         if(waveNumber > 2)
                         {
-                            percHealer = waveNumber * 3;
-                            percHealer = Mathf.Clamp(percHealer, 0, 25);
+                            percHealer = waveNumber * 4;
+                            percHealer = Mathf.Clamp(percHealer, 0, 40);
                         }
 
                         if(waveNumber > 4)

@@ -12,20 +12,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a846a1f8fda22aa44abe3f8c8e6181ef, type: 3}
   m_Name: RunesManager
   m_EditorClassIdentifier: 
-  runes: 0200000023000000050000000600000000000000
-  onGetNewRune: {fileID: 0}
+  runes: 0200000003000000030000000200000006000000
+  activeRunes: 
+  onGetNewRune: {fileID: 11400000, guid: 505108ce701e70446acd00906855069c, type: 2}
   allSequences:
   - name: Teste 2/4
     combo: 0200000004000000
+    comboEvent: {fileID: 0}
   - name: Teste 2/3/4
     combo: 020000000300000004000000
+    comboEvent: {fileID: 0}
   - name: Teste 1/2
     combo: 0100000002000000
+    comboEvent: {fileID: 11400000, guid: 550a6d8f4ab354b42beb138cc116b411, type: 2}
   - name: Teste 0/2/3
     combo: 000000000200000003000000
+    comboEvent: {fileID: 0}
   - name: Teste 0/4
     combo: 0000000004000000
+    comboEvent: {fileID: 0}
   possibleCombos: []
   activeCombo:
     name: 
     combo: 
+    comboEvent: {fileID: 0}
