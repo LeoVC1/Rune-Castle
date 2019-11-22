@@ -12,6 +12,7 @@ public class InputManager : ScriptableObject
     public bool isWaitingConfirmEvent;
     public bool isCastingSpell;
     public bool canAttack;
+    public bool onCutscene;
 
     public KeyCode interactInput;
     public KeyCode[] confirmInput;

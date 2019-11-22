@@ -5,7 +5,7 @@ using UnityEngine;
 public class Rune : Interactable
 {
     [Header("Managers:")]
-    public InventoryManager inventoryManager;
+    public RuneInventoryManager runeInventoryManager;
 
     public GameObject particles;
     public GameObject rune;

@@ -5,7 +5,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "RunesManager", menuName = "Scriptable Objects/Managers/Runes Manager")]
 public class RuneInventoryManager : ScriptableObject
 {
-    [SerializeField] private List<int> runes;
+    public int[] runes = new int[5];
 
     public GameEvent onGetNewRune;
 
@@ -18,73 +18,23 @@ public class RuneInventoryManager : ScriptableObject
     {
         possibleCombos.Clear();
         activeCombo = new RuneSequence();
-        runes.Clear();
+        runes = new int[5];
     }
 
     public void AddRune(int runeID)
     {
-        runes.Add(runeID);
+        runes[runeID]++;
         OnGetNewRune(runeID);
     }
 
     public bool CanGetRune(int runeID)
     {
-        if (runes.Contains(runeID))
-            return false;
-        else if (possibleCombos.Count == 0)
-            return true;
-        else
-            foreach (RuneSequence sequence in possibleCombos)
-            {
-                if (sequence.combo.Contains(runeID))
-                {
-                    return true;
-                }
-            }
-
-        return false;
+        return true;
     }
 
     private void OnGetNewRune(int runeID)
     {
-        if (possibleCombos.Count == 0)
-            foreach (RuneSequence sequence in allSequences)
-            {
-                if (sequence.combo.Contains(runeID))
-                    possibleCombos.Add(sequence);
-            }
-        else
-            for (int i = possibleCombos.Count - 1; i >= 0; i--)
-            {
-                if (!possibleCombos[i].combo.Contains(runeID))
-                {
-                    possibleCombos.Remove(possibleCombos[i]);
-                }
-            }
-
-        SetActiveCombo();
-
-        //onGetNewRune.Raise();
-    }
-
-    private void SetActiveCombo()
-    {
-        for (int i = possibleCombos.Count - 1; i >= 0; i--)
-        {
-            int runeMatch = 0;
-            for (int j = possibleCombos[i].combo.Count - 1; j >= 0; j--)
-            {
-                if (runes.Contains(possibleCombos[i].combo[j]))
-                {
-                    runeMatch++;
-                }
-            }
-            if (runeMatch == possibleCombos[i].combo.Count - 1)
-            {
-                activeCombo = possibleCombos[i];
-                break;
-            }
-        }
+        onGetNewRune.Raise();
     }
 }
 

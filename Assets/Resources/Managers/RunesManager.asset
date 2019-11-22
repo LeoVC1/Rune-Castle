@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a846a1f8fda22aa44abe3f8c8e6181ef, type: 3}
   m_Name: RunesManager
   m_EditorClassIdentifier: 
-  runes: 04000000
+  runes: 0200000023000000050000000600000000000000
   onGetNewRune: {fileID: 0}
   allSequences:
   - name: Teste 2/4
@@ -25,13 +25,7 @@ MonoBehaviour:
     combo: 000000000200000003000000
   - name: Teste 0/4
     combo: 0000000004000000
-  possibleCombos:
-  - name: Teste 2/4
-    combo: 0200000004000000
-  - name: Teste 2/3/4
-    combo: 020000000300000004000000
-  - name: Teste 0/4
-    combo: 0000000004000000
+  possibleCombos: []
   activeCombo:
-    name: Teste 0/4
-    combo: 0000000004000000
+    name: 
+    combo: 

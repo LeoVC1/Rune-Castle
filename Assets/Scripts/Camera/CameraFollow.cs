@@ -72,6 +72,7 @@ public class CameraFollow : MonoBehaviour
 
         if (_nonGameplay)
         {
+            inputManager.onCutscene = true;
             if(delayTimer < delay)
             {
                 float distance = Vector3.Distance(camCollision.transform.position, _target.transform.position);
@@ -89,6 +90,7 @@ public class CameraFollow : MonoBehaviour
                 ActivateUI(true);
                 delayTimer = 0;
                 _nonGameplay = false;
+                inputManager.onCutscene = false;
                 ReturnGameplay();
             }
         }
