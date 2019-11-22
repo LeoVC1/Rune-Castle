@@ -1,0 +1,53 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: HealShield
+  m_Shader: {fileID: -6465566751694194690, guid: 06d52d4ca7a808a4dba20e1eb1e81567,
+    type: 3}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - Texture2D_874B4E22:
+        m_Texture: {fileID: 2800000, guid: ac6df71f36818bb41bebfb196a4f7c1b, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - Texture2D_9BC16956:
+        m_Texture: {fileID: 2800000, guid: 52b842bf8a0a253479849ea2536e1da1, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - Texture2D_F6121506:
+        m_Texture: {fileID: 2800000, guid: 4145191e97b9a3244838faa2982b62e2, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - Texture2D_F784BD8F:
+        m_Texture: {fileID: 2800000, guid: 4145191e97b9a3244838faa2982b62e2, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats:
+    - Vector1_156701FC: 0
+    - Vector1_1DB7259F: 0.6
+    - Vector1_1DB93367: 0.86
+    - Vector1_57FE8619: 0.414
+    - Vector1_5E2FBCFC: 0.01
+    - Vector1_E78C023B: 4.32
+    - Vector1_F159CC24: 189.35
+    - _Speed: 0.97
+    m_Colors:
+    - Color_2C409E1D: {r: 3.45352, g: 6.0628653, b: 0, a: 0}
+    - Color_472BF270: {r: 11.181761, g: 11.181761, b: 11.181761, a: 1}
+    - Color_6042E0EE: {r: 4.237095, g: 4.237095, b: 4.237095, a: 1}
+    - Vector2_90BAAB2F: {r: 0, g: 0, b: 0, a: 0}
+    - Vector2_FB69DC44: {r: 0, g: 0, b: 0, a: 0}

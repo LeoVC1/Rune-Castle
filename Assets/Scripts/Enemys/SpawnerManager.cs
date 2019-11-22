@@ -4,9 +4,13 @@ using UnityEngine;
 
 public class SpawnerManager : MonoBehaviour
 {
+    public static SpawnerManager instance;
+
     public SpawnerController spawnerController;
 
     public TargetObject cristal;
+
+    public CameraFollow cameraFollow;
 
     public Spawner[] spawners;
 
@@ -20,6 +24,12 @@ public class SpawnerManager : MonoBehaviour
 
     public GameEvent startTimerEvent;
 
+    public int[] golens = new int[3];
+
+    private void Awake()
+    {
+        instance = this;
+    }
 
     private void Start()
     {
@@ -31,14 +41,13 @@ public class SpawnerManager : MonoBehaviour
 
     private List<int> GetSpawners()
     {
-        print(waveNumber);
         List<int> spawnersIndex = new List<int>();
-        if(waveNumber <= 3)
+        if (waveNumber <= 3)
         {
             spawnersIndex.Add(Random.Range(0, spawners.Length));
             return spawnersIndex;
         }
-        else if(waveNumber <= 5)
+        else if (waveNumber <= 5)
         {
             spawnersIndex.Add(Random.Range(0, spawners.Length));
             int number2 = 0;
@@ -66,6 +75,7 @@ public class SpawnerManager : MonoBehaviour
 
     public void OnStartWave()
     {
+
         unstoppableEnemies = 0;
         startEnemiesAmount = 0;
         cristalStartLife = cristal.health;
@@ -110,7 +120,7 @@ public class SpawnerManager : MonoBehaviour
     public void OnEnemyDie()
     {
         enemiesAlive--;
-        if(enemiesAlive == 0)
+        if (enemiesAlive == 0)
         {
             waveNumber++;
             spawnerController.wave = waveNumber;
@@ -118,5 +128,12 @@ public class SpawnerManager : MonoBehaviour
             Invoke("StartTimer", 3);
         }
     }
+
+    public void OnSpawnNewEnemy(int index, GameObject newEnemy)
+    {
+        golens[index] = 1;
+        cameraFollow.ChangeTarget(newEnemy);
+    }
+
 
 }

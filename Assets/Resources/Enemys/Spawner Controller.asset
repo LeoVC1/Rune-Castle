@@ -12,12 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b403e1355c108f489dedfd7e81c9468, type: 3}
   m_Name: Spawner Controller
   m_EditorClassIdentifier: 
-  globalDifficultiesPoint: 26
-  statusPoint: -3.9898362
-  statusMultiplier: 0.44000006
-  goldPoint: 2.593564
-  goldMultiplier: 1.44
-  spawnPoint: -5.6928163
-  spawnMultiplier: 0.56
-  minimumEnemyAmount: 2
-  wave: 5
+  globalDifficultiesPoint: 14
+  statusPoint: -2.58
+  statusMultiplier: 0.86
+  goldPoint: 1.11
+  goldMultiplier: 1.11
+  spawnPoint: -2.67
+  spawnMultiplier: 0.89000005
+  minimumEnemyAmount: 1
+  wave: 2

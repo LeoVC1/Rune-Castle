@@ -122,7 +122,8 @@ public class SpawnerController : ScriptableObject
 
     public float GetEnemiesAmount()
     {
-        return /*minimumEnemyAmount + (30 * globalDifficultiesPoint / 100) + spawnPoint*/minimumEnemyAmount + (wave * 2);
+        float enemies = minimumEnemyAmount + (15 * globalDifficultiesPoint / 100);
+        return enemies;
     }
 
     public float GetBonusGold()

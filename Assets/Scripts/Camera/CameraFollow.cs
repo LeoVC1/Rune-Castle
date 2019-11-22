@@ -9,7 +9,7 @@ public class CameraFollow : MonoBehaviour
 
     public float CameraMoveSpeed = 120.0f;
 
-    public GameObject Mage, Engineer;
+    public GameObject Mage;
 
     public Vector3 offSet;
     public float clampAngle = 80.0f;
@@ -22,11 +22,13 @@ public class CameraFollow : MonoBehaviour
 
     private GameObject _target;
 
+    public GameObject NewTarget;
+
 
     // Use this for initialization
     void Start()
     {
-        ChangeTarget();
+        ReturnGameplay();
 
         Vector3 rot = transform.localRotation.eulerAngles;
         rotY = rot.y;
@@ -43,6 +45,9 @@ public class CameraFollow : MonoBehaviour
 
         float mouseX = Input.GetAxis("Mouse X");
         float mouseY = Input.GetAxis("Mouse Y");
+
+        if (Input.GetKeyDown(KeyCode.P))
+            ChangeTarget(NewTarget);
 
         rotY += mouseX * horizontalInputSensitivityX * Time.deltaTime;
         rotX += -mouseY * verticalInputSensitivity * Time.deltaTime;
@@ -62,19 +67,21 @@ public class CameraFollow : MonoBehaviour
     {
         Transform target = _target.transform;
 
-        float step = CameraMoveSpeed * Time.deltaTime;
+        float step = CameraMoveSpeed * Time.unscaledDeltaTime;
         transform.position = Vector3.MoveTowards(transform.position, target.position + offSet, step);
     }
 
-    public void ChangeTarget()
+    public void ChangeTarget(GameObject newTarget)
     {
-        if(gameManager.characterClass == Character.ENGINNEER)
-        {
-            _target = Engineer;
-        }
-        else
-        {
-            _target = Mage;
-        }
+        Time.timeScale = 0;
+        CameraMoveSpeed = 150f;
+        _target = newTarget;
+    }
+
+    public void ReturnGameplay()
+    {
+        Time.timeScale = 1;
+        CameraMoveSpeed = 100f;
+        _target = Mage;
     }
 }

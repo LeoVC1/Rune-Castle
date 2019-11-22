@@ -39,6 +39,9 @@ public class Spawner : MonoBehaviour
     {
         float timer = 0;
         bool finish = false;
+
+        int maxHealer = 2;
+        int maxBoss = 1;
         while (!finish)
         {
             if(gameController.gameState == GameState.GAMEPLAY)
@@ -52,19 +55,36 @@ public class Spawner : MonoBehaviour
                 {
                     for(int i = 0; i < enemiesCount; i++)
                     {
-                        float perc = waveNumber * 0.05f + enemiesCount * 0.03f;
-                        perc = Mathf.Clamp(perc, 0, 4);
-                        perc *= 10;
-                        int randomEnemy = Random.Range(0, 100);
-                        int enemy = randomEnemy > perc ? 0 : 1;
+                        float percHealer = 0, percBoss = 0;
 
-                        Debug.Log("Random: " + randomEnemy + "enemy: " + enemy + " Perc: " + perc);
+                        if(waveNumber > 3)
+                        {
+                            percHealer = waveNumber * 2;
+                            percHealer = Mathf.Clamp(percHealer, 0, 25);
+                        }
+
+                        if(waveNumber > 5)
+                        {
+                            percBoss = (waveNumber / 15) * 0.5f;
+                            percBoss = Mathf.Clamp(percBoss, 0, 3);
+                            percBoss *= 10;
+                        }
+
+                        int randomEnemy = Random.Range(2, 100);
+                        int enemy = randomEnemy > percBoss ? randomEnemy > percHealer ? 0 : 2 : 1;
+
+                        if (enemy == 2 && maxHealer > 0)
+                            maxHealer--;
+                        else if (enemy == 1 && maxBoss > 0)
+                            maxBoss--;
+                        else
+                            enemy = 0;
 
                         GameObject newEnemy = Instantiate(enemyPrefabs[enemy], transform.position + GetRandomPosition(), Quaternion.identity);
                         Enemy enemyScript = newEnemy.GetComponent<Enemy>();
                         enemyScript.mainTarget = mainTarget;
                         enemyScript.spawnerManager = spawnerManager;
-                        yield return new WaitForSeconds(Random.Range(0, 1.5f));
+                        yield return new WaitForSeconds(Random.Range(0.3f, 2f));
                     }
                     finish = true;
                 }

@@ -119,7 +119,6 @@ public class Enemy : MonoBehaviour
 
     public void Attack()
     {
-        print("A");
         if(_target.ReceiveDamage(enemyData.damage))
         {
             nearbyTargets.Remove(_target);
@@ -131,7 +130,7 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    public bool ReceiveDamage(int damage)
+    public virtual bool ReceiveDamage(int damage)
     {
         myHealth -= damage;
         healthBar.fillAmount = myHealth / enemyData.maxHealth;
@@ -159,13 +158,13 @@ public class Enemy : MonoBehaviour
         spawnerManager.OnEnemyDie();
     }
 
-    public void Death()
+    public virtual void Death()
     {
         _agent.enabled = false;
         Destroy(gameObject);
     }
 
-    IEnumerator DeathScale(Vector3 point)
+    public IEnumerator DeathScale(Vector3 point)
     {
         float t = 0;
         while(t <= 1)
@@ -178,7 +177,7 @@ public class Enemy : MonoBehaviour
         Destroy(gameObject);
     }
 
-    private void OnTriggerEnter(Collider other)
+    public virtual void OnTriggerEnter(Collider other)
     {
         TargetObject target = other.GetComponent<TargetObject>();
         if (target)
