@@ -4889,6 +4889,7 @@ MonoBehaviour:
   isAttacking: 0
   isWalking: 0
   boss: 1
+  cameraOffset: {x: 0, y: 1, z: 0}
   minTimeBetweenSkill: 5
   maxTimeBetweenSkill: 10
   skillAnimationParamenter: Skill
@@ -5199,6 +5200,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1766427219491747898}
     m_Modifications:
+    - target: {fileID: 6312551635903105996, guid: a42a60c788a51a6429356a75a8ff4a60,
+        type: 3}
+      propertyPath: m_Name
+      value: HP
+      objectReference: {fileID: 0}
     - target: {fileID: 7939191336926911689, guid: a42a60c788a51a6429356a75a8ff4a60,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -5303,11 +5309,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 6312551635903105996, guid: a42a60c788a51a6429356a75a8ff4a60,
-        type: 3}
-      propertyPath: m_Name
-      value: HP
       objectReference: {fileID: 0}
     - target: {fileID: 702435067240200992, guid: a42a60c788a51a6429356a75a8ff4a60,
         type: 3}

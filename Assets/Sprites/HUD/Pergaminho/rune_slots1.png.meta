@@ -1,7 +1,16 @@
 fileFormatVersion: 2
 guid: b089c2dddcbc4a349ba01b985bbe8b14
 TextureImporter:
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      213: -6098273182203758875
+    second: rune_slots1_0
+  - first:
+      213: 3731232847697106750
+    second: rune_slots1_1
+  - first:
+      213: -6150997424797435717
+    second: rune_slots1_2
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -40,7 +49,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -104,11 +113,74 @@ TextureImporter:
     androidETC2FallbackOverride: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: rune_slots1_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 302
+        width: 158
+        height: 141
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e89e2337b7358424dbd0a87d35a06043
+      internalID: -6098273182203758875
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rune_slots1_1
+      rect:
+        serializedVersion: 2
+        x: 356
+        y: 302
+        width: 158
+        height: 141
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5f5edcceaf3a7bc4295085422b852409
+      internalID: 3731232847697106750
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rune_slots1_2
+      rect:
+        serializedVersion: 2
+        x: 170
+        y: 22
+        width: 158
+        height: 138
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: efdf306211df9e4459a41aff4f98251b
+      internalID: -6150997424797435717
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: b5111018128455e498551e7daf1e91f2
     internalID: 0
     vertices: []
     indices: 

@@ -57,30 +57,35 @@ public class Spawner : MonoBehaviour
                     {
                         float percHealer = 0, percBoss = 0;
 
-                        if(waveNumber > 3)
+                        if(waveNumber > 2)
                         {
-                            percHealer = waveNumber * 2;
+                            percHealer = waveNumber * 3;
                             percHealer = Mathf.Clamp(percHealer, 0, 25);
                         }
 
-                        if(waveNumber > 5)
+                        if(waveNumber > 4)
                         {
-                            percBoss = (waveNumber / 15) * 0.5f;
-                            percBoss = Mathf.Clamp(percBoss, 0, 3);
-                            percBoss *= 10;
+                            percBoss = waveNumber * 2f;
+                            percBoss = Mathf.Clamp(percBoss, 0, 20);
                         }
 
                         int randomEnemy = Random.Range(2, 100);
                         int enemy = randomEnemy > percBoss ? randomEnemy > percHealer ? 0 : 2 : 1;
 
                         if (enemy == 2 && maxHealer > 0)
+                        {
                             maxHealer--;
+                        }
                         else if (enemy == 1 && maxBoss > 0)
                             maxBoss--;
                         else
+                        {
                             enemy = 0;
+                        }
+
 
                         GameObject newEnemy = Instantiate(enemyPrefabs[enemy], transform.position + GetRandomPosition(), Quaternion.identity);
+                        DiscoverEnemy(enemy, newEnemy);
                         Enemy enemyScript = newEnemy.GetComponent<Enemy>();
                         enemyScript.mainTarget = mainTarget;
                         enemyScript.spawnerManager = spawnerManager;
@@ -92,6 +97,23 @@ public class Spawner : MonoBehaviour
             }
             yield return null;
         }
+    }
+
+    private bool DiscoverEnemy(int enemyIndex, GameObject newEnemy)
+    {
+        if (SpawnerManager.instance.golens[enemyIndex] == 0)
+        {
+            SpawnerManager.instance.golens[enemyIndex] = 1;
+            StartCoroutine(Delay(enemyIndex, newEnemy));
+            return true;
+        }
+        return false;
+    }
+
+    IEnumerator Delay(int enemyIndex, GameObject newEnemy)
+    {
+        yield return new WaitForSeconds(1f);
+        SpawnerManager.instance.OnSpawnNewEnemy(enemyIndex, newEnemy);
     }
 
     private Vector3 GetRandomPosition()

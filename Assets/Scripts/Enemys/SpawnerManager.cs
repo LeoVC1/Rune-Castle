@@ -25,6 +25,8 @@ public class SpawnerManager : MonoBehaviour
     public GameEvent startTimerEvent;
 
     public int[] golens = new int[3];
+    [TextArea(0, 3)]
+    public string[] golensDescriptions = new string[3];
 
     private void Awake()
     {
@@ -81,7 +83,7 @@ public class SpawnerManager : MonoBehaviour
         cristalStartLife = cristal.health;
         List<int> spawnerIndex = GetSpawners();
 
-        int enemiesAmount = (int)spawnerController.GetEnemiesAmount();
+        int enemiesAmount = (int)spawnerController.GetEnemiesAmount() + (int)(waveNumber * 0.5f);
 
         enemiesAlive = enemiesAmount;
 
@@ -133,6 +135,7 @@ public class SpawnerManager : MonoBehaviour
     {
         golens[index] = 1;
         cameraFollow.ChangeTarget(newEnemy);
+        cameraFollow.ChangeDescription(golensDescriptions[index]);
     }
 
 

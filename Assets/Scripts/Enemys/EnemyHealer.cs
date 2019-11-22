@@ -7,20 +7,19 @@ public class EnemyHealer : Enemy
     public float healPerc;
     public int shieldCount = 2;
 
-    List<Enemy> nearbyFriends = new List<Enemy>();
+    public List<Enemy> nearbyFriends = new List<Enemy>();
 
     public ParticleSystem shield;
     public ParticleSystem breakShield;
 
     private void FixedUpdate()
     {
-        myHealth += healPerc * Time.deltaTime;
-        myHealth = Mathf.Clamp(myHealth, -10, enemyData.maxHealth);
+        ReceiveHeal(healPerc * Time.deltaTime);
         healthBar.fillAmount = myHealth / enemyData.maxHealth;
 
         for (int i = nearbyFriends.Count - 1; i >= 0; i--)
         {
-            //nearbyFriends[i].myHealth += healPerc * Time.deltaTime;
+            nearbyFriends[i].ReceiveHeal(healPerc * Time.deltaTime);
         }
     }
 
@@ -64,7 +63,10 @@ public class EnemyHealer : Enemy
 
         Enemy friend = other.GetComponent<Enemy>();
 
-        if(!nearbyFriends.Contains(friend))
+        if (!friend)
+            return;
+
+        if(!nearbyFriends.Contains(friend) && friend != this)
         {
             nearbyFriends.Add(friend);
         }
@@ -73,6 +75,9 @@ public class EnemyHealer : Enemy
     private void OnTriggerExit(Collider other)
     {
         Enemy friend = other.GetComponent<Enemy>();
+
+        if (!friend)
+            return;
 
         if (nearbyFriends.Contains(friend))
         {

@@ -1,7 +1,22 @@
 fileFormatVersion: 2
 guid: a3c470aac3b01f14db8a4c18421bfa5f
 TextureImporter:
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      213: -6201473645447184563
+    second: rune_slots2_0
+  - first:
+      213: 2832605066194783089
+    second: rune_slots2_1
+  - first:
+      213: 6700150506244854795
+    second: rune_slots2_2
+  - first:
+      213: 4776723118231369567
+    second: rune_slots2_3
+  - first:
+      213: 3017734708409538041
+    second: rune_slots2_4
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -40,7 +55,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -104,11 +119,116 @@ TextureImporter:
     androidETC2FallbackOverride: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: rune_slots2_0
+      rect:
+        serializedVersion: 2
+        x: 344
+        y: 693
+        width: 153
+        height: 151
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4f5220d58d9cf9545acbfe616c27286c
+      internalID: -6201473645447184563
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rune_slots2_1
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 439
+        width: 148
+        height: 150
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0909e2249f2ce6f479391d513c8e43e8
+      internalID: 2832605066194783089
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rune_slots2_2
+      rect:
+        serializedVersion: 2
+        x: 698
+        y: 434
+        width: 148
+        height: 150
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aca1e4ba5983dd04a80452780165b547
+      internalID: 6700150506244854795
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rune_slots2_3
+      rect:
+        serializedVersion: 2
+        x: 130
+        y: 1
+        width: 148
+        height: 150
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ac31747b05a664a4d9cd1895ca002833
+      internalID: 4776723118231369567
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rune_slots2_4
+      rect:
+        serializedVersion: 2
+        x: 560
+        y: 0
+        width: 148
+        height: 150
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f544f42a4d6090047a266d4844d456c8
+      internalID: 3017734708409538041
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 50c8d9247c9db1e4f98f3517d38cfcfe
     internalID: 0
     vertices: []
     indices: 

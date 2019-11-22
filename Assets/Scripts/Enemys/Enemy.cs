@@ -39,6 +39,8 @@ public class Enemy : MonoBehaviour
 
     public bool boss;
 
+    public Vector3 cameraOffset;
+
     public virtual void Start()
     {
         _agent = GetComponent<NavMeshAgent>();
@@ -142,6 +144,13 @@ public class Enemy : MonoBehaviour
         }
         else
             return false;
+    }
+
+    public virtual void ReceiveHeal(float heal)
+    {
+        if(myHealth + heal <= enemyData.maxHealth)
+            myHealth += heal;
+        healthBar.fillAmount = myHealth / enemyData.maxHealth;
     }
 
     public virtual void OnDeath()

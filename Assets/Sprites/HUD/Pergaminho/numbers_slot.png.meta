@@ -1,7 +1,22 @@
 fileFormatVersion: 2
 guid: 286c85f63b941094ba27b1ffa603cf4b
 TextureImporter:
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      213: -4186141553450212057
+    second: numbers_slot_0
+  - first:
+      213: -428055173948510649
+    second: numbers_slot_1
+  - first:
+      213: 6323798911413362838
+    second: numbers_slot_2
+  - first:
+      213: 5238555025318641206
+    second: numbers_slot_3
+  - first:
+      213: 2926194392770564238
+    second: numbers_slot_4
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -40,7 +55,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -104,11 +119,116 @@ TextureImporter:
     androidETC2FallbackOverride: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: numbers_slot_0
+      rect:
+        serializedVersion: 2
+        x: 352
+        y: 699
+        width: 58
+        height: 58
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4b9ed34a22bd1a0419463daf19316c9d
+      internalID: -4186141553450212057
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: numbers_slot_1
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 434
+        width: 58
+        height: 58
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 086b78d8f66d9a945b38277f0e460da3
+      internalID: -428055173948510649
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: numbers_slot_2
+      rect:
+        serializedVersion: 2
+        x: 703
+        y: 434
+        width: 58
+        height: 58
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 697f0acbfa7e69943ba95f5a8cd8cdbe
+      internalID: 6323798911413362838
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: numbers_slot_3
+      rect:
+        serializedVersion: 2
+        x: 135
+        y: 3
+        width: 58
+        height: 58
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e08518d1e502c6a4590a1cc1dbaa4ccc
+      internalID: 5238555025318641206
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: numbers_slot_4
+      rect:
+        serializedVersion: 2
+        x: 565
+        y: 0
+        width: 58
+        height: 58
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7316ec0ea4a6465449f229ba5a99c0b5
+      internalID: 2926194392770564238
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 50898ab54a12e1845977d0519454fec4
     internalID: 0
     vertices: []
     indices: 

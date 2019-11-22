@@ -4858,7 +4858,7 @@ ParticleSystem:
   ringBufferLoopRange: {x: 0, y: 1}
   looping: 1
   prewarm: 0
-  playOnAwake: 1
+  playOnAwake: 0
   useUnscaledTime: 0
   autoRandomSeed: 1
   useRigidbodyForVelocity: 1
@@ -48050,8 +48050,10 @@ MonoBehaviour:
   isAttacking: 0
   isWalking: 0
   boss: 0
-  healPerc: 1
+  cameraOffset: {x: 0, y: -1, z: 0}
+  healPerc: 10
   shieldCount: 2
+  nearbyFriends: []
   shield: {fileID: 413068347}
   breakShield: {fileID: 301430188}
 --- !u!54 &7022461833333763047
@@ -48095,7 +48097,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 20, y: 10, z: 20}
+  m_Size: {x: 40, y: 10, z: 40}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &7184189616129955619
 GameObject:
@@ -57726,21 +57728,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7022461833333763051}
     m_Modifications:
-    - target: {fileID: 4224288288280735955, guid: 4254855b5c04e8745a3cf43e49ca6c52,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: -0.02916238
-      objectReference: {fileID: 0}
-    - target: {fileID: 4224288288280735955, guid: 4254855b5c04e8745a3cf43e49ca6c52,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 26.208054
-      objectReference: {fileID: 0}
-    - target: {fileID: 4224288288280735955, guid: 4254855b5c04e8745a3cf43e49ca6c52,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0.06037256
-      objectReference: {fileID: 0}
     - target: {fileID: 809713835300827752, guid: 4254855b5c04e8745a3cf43e49ca6c52,
         type: 3}
       propertyPath: m_Name
@@ -57855,6 +57842,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: -59.682106
+      objectReference: {fileID: 0}
+    - target: {fileID: 4224288288280735955, guid: 4254855b5c04e8745a3cf43e49ca6c52,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -0.02916238
+      objectReference: {fileID: 0}
+    - target: {fileID: 4224288288280735955, guid: 4254855b5c04e8745a3cf43e49ca6c52,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 26.208054
+      objectReference: {fileID: 0}
+    - target: {fileID: 4224288288280735955, guid: 4254855b5c04e8745a3cf43e49ca6c52,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0.06037256
       objectReference: {fileID: 0}
     - target: {fileID: 7430421632076585606, guid: 4254855b5c04e8745a3cf43e49ca6c52,
         type: 3}
@@ -58208,7 +58210,7 @@ PrefabInstance:
     - target: {fileID: 6918880724351535508, guid: 911f0e097d7e020409ab9369144861db,
         type: 3}
       propertyPath: playOnAwake
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7735652068026019101, guid: 911f0e097d7e020409ab9369144861db,
         type: 3}
@@ -58251,6 +58253,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7022461833333763051}
     m_Modifications:
+    - target: {fileID: 6312551635903105996, guid: a42a60c788a51a6429356a75a8ff4a60,
+        type: 3}
+      propertyPath: m_Name
+      value: HP
+      objectReference: {fileID: 0}
     - target: {fileID: 7939191336926911689, guid: a42a60c788a51a6429356a75a8ff4a60,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -58355,11 +58362,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 6312551635903105996, guid: a42a60c788a51a6429356a75a8ff4a60,
-        type: 3}
-      propertyPath: m_Name
-      value: HP
       objectReference: {fileID: 0}
     - target: {fileID: 702435067240200992, guid: a42a60c788a51a6429356a75a8ff4a60,
         type: 3}
