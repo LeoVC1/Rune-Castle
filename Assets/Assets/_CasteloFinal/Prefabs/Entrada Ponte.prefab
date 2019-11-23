@@ -11,12 +11,13 @@ GameObject:
   - component: {fileID: 2703972992524505557}
   - component: {fileID: 6761719261741597503}
   - component: {fileID: 6229942638625656695}
-  m_Layer: 0
-  m_Name: Base Ponte
+  - component: {fileID: 864466655239795736}
+  m_Layer: 8
+  m_Name: Entrada Ponte
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &2703972992524505557
 Transform:
@@ -77,3 +78,17 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!64 &864466655239795736
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6289058898072825331}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 1
+  m_CookingOptions: 14
+  m_Mesh: {fileID: -4121606559162394652, guid: 58a7ee3c43fde8844902ed3f46c6c639, type: 3}

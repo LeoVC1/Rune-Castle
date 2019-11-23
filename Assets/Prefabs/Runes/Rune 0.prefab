@@ -24296,6 +24296,16 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 4257705456540397421, guid: 262b53532221e0d48ab115325dd87c0b,
+        type: 3}
+      propertyPath: invertForward
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4257705456540397421, guid: 262b53532221e0d48ab115325dd87c0b,
+        type: 3}
+      propertyPath: _2D
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4257705454737792839, guid: 262b53532221e0d48ab115325dd87c0b,
         type: 3}
       propertyPath: m_textInfo.characterCount
@@ -24315,6 +24325,22 @@ PrefabInstance:
         type: 3}
       propertyPath: m_textInfo.pageCount
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4257705454737792839, guid: 262b53532221e0d48ab115325dd87c0b,
+        type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: -3266560929756695714, guid: 4f3d1353b093cfd449e0edf01673a5fd,
+        type: 2}
+    - target: {fileID: 4257705454737792839, guid: 262b53532221e0d48ab115325dd87c0b,
+        type: 3}
+      propertyPath: m_fontSize
+      value: 0.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 4257705454737792839, guid: 262b53532221e0d48ab115325dd87c0b,
+        type: 3}
+      propertyPath: m_firstOverflowCharacterIndex
+      value: -1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 262b53532221e0d48ab115325dd87c0b, type: 3}

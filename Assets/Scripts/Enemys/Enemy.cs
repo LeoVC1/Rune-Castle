@@ -105,7 +105,7 @@ public class Enemy : MonoBehaviour
     {
         if (_target)
         {
-            transform.LookAt(new Vector3(_target.lookPoint.transform.position.x, transform.position.y, _target.lookPoint.transform.position.z));
+            transform.LookAt(new Vector3(_target.targetPoint[targetPoint].transform.position.x, transform.position.y, _target.targetPoint[targetPoint].transform.position.z));
         }
     }
 

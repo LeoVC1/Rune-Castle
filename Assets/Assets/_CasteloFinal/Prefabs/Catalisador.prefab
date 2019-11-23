@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 6177934744062310665}
   - component: {fileID: 5519416598831977552}
   - component: {fileID: 8916045185422550387}
+  - component: {fileID: 4828528410179444922}
   m_Layer: 0
   m_Name: Catalisador
   m_TagString: Untagged
@@ -77,3 +78,16 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!65 &4828528410179444922
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7664991465844095820}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 9.351854, y: 32.641434, z: 9.83315}
+  m_Center: {x: 0, y: 0, z: 0}

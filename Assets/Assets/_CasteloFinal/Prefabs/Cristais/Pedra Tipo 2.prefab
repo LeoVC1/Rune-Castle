@@ -11,8 +11,9 @@ GameObject:
   - component: {fileID: 7123226802574235173}
   - component: {fileID: 2270324068890029075}
   - component: {fileID: 5529653832750878954}
+  - component: {fileID: 2432223029946260253}
   m_Layer: 0
-  m_Name: Pedra_Low
+  m_Name: Pedra Tipo 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -77,3 +78,16 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!65 &2432223029946260253
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6089307401631851574}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 10.40933, y: 10.301828, z: 24.220129}
+  m_Center: {x: 0, y: 0, z: 0}

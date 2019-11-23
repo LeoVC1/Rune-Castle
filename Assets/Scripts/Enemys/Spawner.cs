@@ -112,7 +112,7 @@ public class Spawner : MonoBehaviour
 
     IEnumerator Delay(int enemyIndex, GameObject newEnemy)
     {
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(3f);
         SpawnerManager.instance.OnSpawnNewEnemy(enemyIndex, newEnemy);
     }
 

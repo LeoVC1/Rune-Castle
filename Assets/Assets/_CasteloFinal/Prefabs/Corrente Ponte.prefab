@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 8836023875269129001}
   - component: {fileID: 5106793950471925460}
   - component: {fileID: 6468965163900271868}
+  - component: {fileID: 5428776994046840238}
   m_Layer: 0
   m_Name: Corrente Ponte
   m_TagString: Untagged
@@ -77,3 +78,16 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!65 &5428776994046840238
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8734618957710104837}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 4.96149, y: 30.782673, z: 57.493095}
+  m_Center: {x: 0, y: 0, z: -10.345493}
