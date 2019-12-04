@@ -8,15 +8,27 @@ public class Pause : MonoBehaviour
 {
     public Image fade;
     public GameObject pause;
+    public CanvasGroup pergaminho;
+	public Eventos api;
 
-    public void Continue()
+    public void SaveGame()
     {
-        Time.timeScale = 1;
-        pause.SetActive(false);
+        api.clickPostJogador();
     }
+
+    public void PauseGame()
+    {
+        pergaminho.blocksRaycasts = false;
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+        Time.timeScale = 0;
+        pause.SetActive(true);
+    }
+
 
     public void Restart()
     {
+        print("A");
         StartCoroutine(FadeRestart());
     }
 
@@ -27,11 +39,11 @@ public class Pause : MonoBehaviour
 
     IEnumerator FadeRestart()
     {
-        pause.SetActive(false);
+        pergaminho.blocksRaycasts = true;
         float t = 0;
         while(t < 1)
         {
-            t += Time.deltaTime;
+            t += Time.unscaledDeltaTime;
             Color aux = fade.color;
             aux.a = Mathf.Lerp(0, 1, t);
             yield return null;
@@ -46,7 +58,7 @@ public class Pause : MonoBehaviour
         float t = 0;
         while (t <= 1)
         {
-            t += Time.deltaTime;
+            t += Time.unscaledDeltaTime;
             Color aux = fade.color;
             aux.a = Mathf.Lerp(0, 1, t);
             fade.color = aux;
