@@ -12,10 +12,6 @@ public class MageBasicAttack : MonoBehaviour
 
     private PlayerAnimation playerAnimation;
     private PlayerMovement playerMovement;
-    private AimIK playerIK;
-    private FBIKBoxing handIK;
-    private Animator anim;
-    private SpawnProjectilesScript spawnProjectiles;
 
     [Header("References:")]
     public MageAttackPoint point;
@@ -27,12 +23,7 @@ public class MageBasicAttack : MonoBehaviour
 
     [Header("Properties:")]
     public LayerMask layerMask;
-    public float attackDelay;
-    private float delayTimer;
     private bool onDelay;
-
-    [SerializeField] private float weight;
-    [SerializeField] private float hitWeight;
 
     public AudioSource shot;
 
@@ -40,9 +31,6 @@ public class MageBasicAttack : MonoBehaviour
     {
         playerAnimation = GetComponent<PlayerAnimation>();
         playerMovement = GetComponent<PlayerMovement>();
-        playerIK = GetComponent<AimIK>();
-        handIK = GetComponent<FBIKBoxing>();
-        spawnProjectiles = GetComponent<SpawnProjectilesScript>();
         OnChangeClass();
     }
 
@@ -56,8 +44,6 @@ public class MageBasicAttack : MonoBehaviour
 
         if (inputManager.isCastingSpell)
             return;
-
-        SetWeight();
 
         if (onDelay)
             return;
@@ -98,12 +84,6 @@ public class MageBasicAttack : MonoBehaviour
         vfx.transform.forward = hitPoint - vfx.transform.position;
     }
 
-    void SetWeight()
-    {
-        playerIK.solver.IKPositionWeight = weight;
-        handIK.hitWeight = hitWeight;
-    }
-
     void Attack()
     {
         onDelay = true;
@@ -123,22 +103,11 @@ public class MageBasicAttack : MonoBehaviour
 
         playerMovement.FreezeMovement();
 
-        handIK.effector = rnd == 0 ? FullBodyBipedEffector.RightHand : FullBodyBipedEffector.LeftHand;
-
-        ResetIK();
-
         point.SetNewOffset(isMoving == false ? (rnd == 0 ? 1.2f : -1.2f) : (rnd == 0 ? 0.5f : -0.5f));
-
-        //pointCollision.SetNewDistance(isMoving == false ? 2.8f : 3.2f);
 
         playerAnimation.SetTrigger(rnd == 0 ? "_BasicAttack_1" : "_BasicAttack_2");
 
         shot.Play();
-    }
-    public void ResetIK()
-    {
-        playerIK.solver.IKPositionWeight = 0;
-        handIK.hitWeight = 0;
     }
 
     public void FinishDelay()
@@ -150,21 +119,15 @@ public class MageBasicAttack : MonoBehaviour
     {
         bool isMage = gameManager.characterClass == Character.MAGE ? true : false;
         this.enabled = isMage;
-        playerIK.enabled = isMage;
-        handIK.enabled = isMage;
     }
 
     public void LockBasicAttack()
     { 
         point.enabled = false;
-       // pointCollision.enabled = false;
     }
 
     public void UnlockBasicAttack()
     {
-        playerIK.enabled = true;
         point.enabled = true;
-       // pointCollision.enabled = true;
-        handIK.enabled = true;
     }
 }

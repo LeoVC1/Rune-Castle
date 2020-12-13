@@ -47,7 +47,7 @@ public class PlayerMovement : MonoBehaviour
             RunningMovement();
             RotateToForward();
             BasicMovement();
-            AudioPress();
+            MovingAudio();
         }
     }
 
@@ -63,46 +63,11 @@ public class PlayerMovement : MonoBehaviour
 
         moveDir *= actualSpeed;
 
-        //Vector3 MoveDirection = new Vector3(moveDir.x * actualSpeed, 0, moveDir.z * actualSpeed);
-
-        
         rb.velocity = new Vector3(moveDir.x, rb.velocity.y, moveDir.z);
-        //rb.AddForce(new Vector3(moveDir.x * actualSpeed, 0, moveDir.z * actualSpeed) * Time.deltaTime);
-        //rb.MovePosition(transform.position + MoveDirection * Time.deltaTime);
 
         isMoving = (ver != 0 || hor != 0) ? true : false;
 
         Animate(hor, ver);
-    }
-
-    void AudioPress()
-    {
-        if (Input.GetKeyDown(KeyCode.LeftShift))
-        {
-            run.clip = clips[1];
-        }
-        if (Input.GetKeyUp(KeyCode.LeftShift))
-        {
-            run.clip = clips[0];
-        }
-        if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.D))
-        {
-            if(!run.isPlaying)
-                run.Play();
-        }
-        if (Input.GetKeyUp(KeyCode.A) || Input.GetKeyUp(KeyCode.W) || Input.GetKeyUp(KeyCode.S) || Input.GetKeyUp(KeyCode.D))
-        {
-            run.Stop();
-        }
-        
-
-    }
-
-    void RotateToForward()
-    {
-        Vector3 direction = Camera.main.ScreenPointToRay(Input.mousePosition).direction;
-        direction.y = transform.forward.y;
-        transform.forward = (Vector3.Slerp(transform.forward, direction, 0.8f));
     }
 
     void RunningMovement()
@@ -117,6 +82,38 @@ public class PlayerMovement : MonoBehaviour
             actualSpeed = speed;
             isRunning = false;
         }
+    }
+
+    void MovingAudio()
+    {
+        if (Input.GetKeyDown(inputManager.sprintInput))
+        {
+            run.clip = clips[1];
+        }
+        if (Input.GetKeyUp(inputManager.sprintInput))
+        {
+            run.clip = clips[0];
+        }
+
+        if (isMoving)
+        {
+            if (!run.isPlaying)
+                run.Play();
+        }
+        else
+        {
+            if (!run.isPlaying)
+                run.Stop();
+        }
+        
+
+    }
+
+    void RotateToForward()
+    {
+        Vector3 direction = Camera.main.GetCenterDirection();
+        direction.y = transform.forward.y;
+        transform.forward = (Vector3.Slerp(transform.forward, direction, 0.8f));
     }
 
     void Animate(float hor, float ver)
@@ -137,9 +134,10 @@ public class PlayerMovement : MonoBehaviour
 
     void VerifyEnemy()
     {
-        Ray mouseRay = Camera.main.ScreenPointToRay(new Vector3(Screen.width / 2, Screen.height / 2));
-        RaycastHit hit;
-        if (Physics.Raycast(mouseRay, out hit, float.MaxValue, layerMask)){
+        Ray mouseRay = Camera.main.GetCenterRay();
+
+        if (Physics.Raycast(mouseRay, out RaycastHit hit, float.MaxValue, layerMask))
+        {
             if (hit.collider)
             {
                 onEnemy = true;

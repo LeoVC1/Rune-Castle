@@ -1,6 +1,6 @@
 ﻿using System.Collections;
 using UnityEngine;
-
+using MyBox;
 public class PlayerSkill : MonoBehaviour
 {
     [Header("Manager:")]
@@ -13,11 +13,16 @@ public class PlayerSkill : MonoBehaviour
 
     [Space]
     public bool useResource;
+    [ConditionalField("useResource")]
     public float resourceCost;
+    [ConditionalField("useResource")]
     public FloatVariable mainResource;
+
     [Space]
     public bool useItem;
+    [ConditionalField("useItem")]
     public Item itemResource;
+
     [Space]
     public bool useCooldown;
     public FloatVariable cooldown;

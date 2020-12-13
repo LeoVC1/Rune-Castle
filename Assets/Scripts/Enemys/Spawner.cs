@@ -12,16 +12,7 @@ public class Spawner : MonoBehaviour
 
     public GameObject[] enemyPrefabs;
 
-    public MeshRenderer rune;
     private Color runeStartEmission;
-
-    private void Start()
-    {
-        runeStartEmission = rune.material.GetColor("_EmissionColor");
-        Color aux = rune.material.color;
-        aux.r = 0;
-        rune.material.SetColor("_EmissionColor", aux);
-    }
 
     private void OnDrawGizmos()
     {
@@ -31,7 +22,6 @@ public class Spawner : MonoBehaviour
 
     public void StartSpawn(int enemiesCount, float timeToSpawn, float timeSpawning, int waveNumber)
     {
-        rune.material.SetColor("_EmissionColor", runeStartEmission);
         StartCoroutine(Spawn(enemiesCount, timeToSpawn, timeSpawning, waveNumber));
     }
 
@@ -83,7 +73,6 @@ public class Spawner : MonoBehaviour
                             enemy = 0;
                         }
 
-
                         GameObject newEnemy = Instantiate(enemyPrefabs[enemy], transform.position + GetRandomPosition(), Quaternion.identity);
                         DiscoverEnemy(enemy, newEnemy);
                         Enemy enemyScript = newEnemy.GetComponent<Enemy>();
@@ -122,13 +111,6 @@ public class Spawner : MonoBehaviour
         float z = Random.Range(-3, 3);
 
         return new Vector3(x, 0, z);
-    }
-
-    public void ResetColor()
-    {
-        Color aux = rune.material.color;
-        aux.r = 0;
-        rune.material.SetColor("_EmissionColor", aux);
     }
 
 }

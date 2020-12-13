@@ -5,8 +5,8 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Events;
 using TMPro;
+using MyBox;
 
-[ExecuteInEditMode]
 public class TargetObject : MonoBehaviour
 {
     public int priority;
@@ -23,11 +23,10 @@ public class TargetObject : MonoBehaviour
 
     public bool useEvent;
 
+    [ConditionalField("useEvent")]
     public UnityEvent onDeathEvents;
 
     public TextMeshProUGUI myLifeNumber;
-
-    public Pause pause;
 
     private void Start()
     {

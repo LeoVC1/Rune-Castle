@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "com.mybox": "https://github.com/Deadcows/MyBox.git",
     "com.unity.ads": "2.0.8",
     "com.unity.analytics": "3.3.2",
     "com.unity.collab-proxy": "1.2.16",
@@ -39,5 +40,11 @@
     "com.unity.modules.vr": "1.0.0",
     "com.unity.modules.wind": "1.0.0",
     "com.unity.modules.xr": "1.0.0"
+  },
+  "lock": {
+    "com.mybox": {
+      "hash": "06aac8cc6ec47248002697e2ac2e0e3d6b1dc0a5",
+      "revision": "HEAD"
+    }
   }
 }

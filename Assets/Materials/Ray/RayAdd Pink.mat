@@ -1,0 +1,39 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: RayAdd Pink
+  m_Shader: {fileID: -6465566751694194690, guid: a57bce7526ddc804a895be3e513f7a1d,
+    type: 3}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - Texture2D_874B4E22:
+        m_Texture: {fileID: 2800000, guid: ac6df71f36818bb41bebfb196a4f7c1b, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - Texture2D_F784BD8F:
+        m_Texture: {fileID: 2800000, guid: 855ccd823e3f3ef4484dc3092a9ef316, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats:
+    - Vector1_156701FC: 24.5
+    - Vector1_1DB93367: 0.23
+    - Vector1_57FE8619: 0.305
+    - Vector1_F159CC24: 1.03
+    m_Colors:
+    - Color_472BF270: {r: 4.133052, g: 0, b: 5.3403134, a: 1}
+    - Vector2_90BAAB2F: {r: -0.5, g: 0, b: 0, a: 0}
+    - Vector2_FB69DC44: {r: 1, g: 0, b: 0, a: 0}
